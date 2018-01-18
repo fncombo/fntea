@@ -185,20 +185,20 @@
                          --dark-color: ${shadeColor(tea.color, -0.3)};
                          --text-color: ${shadeColor(tea.color, contrast(tea.color) ? -0.65 : 0.85)};"
     data-search="${data.toLowerCase()}">
-    <h1>
-        ${tea.name}
-        <span>${tea.nameOther || '&mdash;'}</span>
-        <span>${types[tea.type]}</span>
-    </h1>
+    <h1>${tea.name}<span>${tea.nameOther || '&mdash;'}</span></h1>
     <div class="card-body">
         <!--
         <div class="tea-info">
             <span>${types[tea.type]}</span>
-            <span>${tea.rating || 'Unrated'}</span>
             ${tea.link ? `<a href="${tea.link}" target="_blank">Shop</a>` : ''}
+            <span>${tea.rating || 'Unrated'}</span>
         </div>
         -->
-        <h2>Information <span>${tea.rating || 'Unrated'}</span></h2>
+        <h2>
+            ${types[tea.type]} Tea
+            ${tea.link ? `<a href="${tea.link}" target="_blank">&#128722;</a>` : ''}
+            <span>${tea.rating || 'Unrated'}</span>
+        </h2>
         <ul class="card-list">
             <li>&#128197; <strong>Season:</strong> ${tea.season || 'Unknown'}</li>
             <li>&#127793; <strong>Cultivar:</strong> ${tea.cultivar || 'Unknown'}</li>

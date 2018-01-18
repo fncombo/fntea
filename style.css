@@ -37,16 +37,6 @@ h1 span {
     font-size: 1.25rem;
 }
 
-h1 span:last-child {
-    padding: 0.25rem;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0.5rem;
-    writing-mode: vertical-rl;
-    text-orientation: sideways;
-}
-
 h2 {
     margin: 0;
     padding: 0.75rem 1.25rem;
@@ -55,6 +45,13 @@ h2 {
 }
 
 h2 span {
+    float: right;
+    font-weight: normal;
+}
+
+h2 a {
+    margin: -0.75rem -1.25rem 0 0;
+    padding: 0.75rem 1.25rem;
     float: right;
 }
 
@@ -69,12 +66,7 @@ p {
 }
 
 a, a:visited, a:hover, a:active, a:focus {
-    color: var(--dark-color);
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 button {
