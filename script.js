@@ -198,9 +198,18 @@
             <span>${tea.rating || 'Unrated'}</span>
         </h2>
         <ul class="card-list">
-            <li>&#128197; <strong>Season:</strong> ${tea.season || 'Unknown'}</li>
-            <li>&#127793; <strong>Cultivar:</strong> ${tea.cultivar || 'Unknown'}</li>
-            <li>&#127759; <strong>Origin:</strong> ${tea.origin || 'Unknown'}</li>
+            <li>
+                <span>&#128197;</span>
+                <span><strong>Season:</strong> ${tea.season || 'Unknown'}</span>
+            </li>
+            <li>
+                <span>&#127793;</span>
+                <span><strong>Cultivar:</strong> ${tea.cultivar || 'Unknown'}</span>
+            </li>
+            <li>
+                <span>&#127759;</span>
+                <span><strong>Origin:</strong> ${tea.origin || 'Unknown'}</span>
+            </li>
         </ul>
         <h2>Brewing Instructions</h2>
         <ul class="card-tabs">

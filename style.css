@@ -136,7 +136,7 @@ hr {
     flex-direction: column;
     border: 1px solid var(--tea-color);
     border-left: 5px solid var(--tea-color);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px var(--shadow-color);
 }
 
 .card-section {
@@ -178,11 +178,24 @@ hr {
     margin: 0;
     padding: 0;
     border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     list-style: none;
 }
 
 .card-list li {
-    padding: 0.75rem 1.25rem;
+    display: flex;
+}
+
+.card-list span:first-child {
+    padding: 0.75rem;
+}
+
+.card-list span:last-child {
+    flex: 1 0 auto;
+    padding: 0.75rem 1.25rem 0.75rem 0;
+}
+
+.card-list li:not(:last-child) span:last-child {
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -367,8 +380,8 @@ hr {
 #search {
     width: 50%;
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    box-shadow: 0 1px 3px var(--shadow-color);
+    border-left: 5px solid var(--border-color);
+    box-shadow: 0 3px 6px var(--shadow-color);
     transition: box-shadow 0.15s ease-in-out, border 0.15s ease-in-out;
     text-align: center;
     font-size: 1.75rem;
@@ -376,8 +389,8 @@ hr {
 }
 
 #search:focus {
-    border: 1px solid var(--border-focus-color);
-    box-shadow: 1px 1px 2px var(--shadow-focus-color);
+    border-color: var(--border-focus-color);
+    box-shadow: 0 3px 6px var(--shadow-focus-color);
 }
 
 @media (min-width: 600px) {
