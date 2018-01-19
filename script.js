@@ -181,9 +181,7 @@
         }).join(' ');
 
         return `
-<div class="card" style="--tea-color: ${tea.color};
-                         --dark-color: ${shadeColor(tea.color, -0.3)};
-                         --text-color: ${shadeColor(tea.color, contrast(tea.color) ? -0.65 : 0.85)};"
+<div class="card" style="--tea-color: ${tea.color}; --text-color: ${shadeColor(tea.color, contrast(tea.color) ? -0.65 : 0.85)};"
     data-search="${data.toLowerCase()}">
     <h1>${tea.name}<span>${tea.nameOther || '&mdash;'}</span></h1>
     <div class="card-body">

@@ -21,9 +21,6 @@ h1 {
     background: var(--tea-color);
     margin: 0;
     padding: 0.75rem 0.25rem;
-    border: 1px solid var(--dark-color);
-    border-bottom: none;
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
     position: relative;
     color: var(--text-color);
     text-align: center;
@@ -124,11 +121,11 @@ hr {
 }
 
 .card {
-    background: var(--transparent-color);
     display: flex;
     flex-direction: column;
-    border-radius: var(--border-radius);
-    box-shadow: 0 1px 3px var(--tea-color);
+    border: 1px solid var(--tea-color);
+    border-left: 5px solid var(--tea-color);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card-section {
@@ -141,7 +138,6 @@ hr {
 }
 
 .card-body {
-    border: 1px solid var(--dark-color);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     position: relative;
     overflow: hidden;
@@ -202,9 +198,9 @@ hr {
 }
 
 .card-tabs li:not(.active) {
-    border-top: 1px solid var(--background-color);
+    border-top: 1px solid transparent;
     border-bottom: 1px solid var(--border-color);
-    color: var(--dark-color);
+    color: hsl(0, 0%, 50%);
 }
 
 .card-tabs li:last-child {
@@ -265,12 +261,12 @@ hr {
     z-index: 2;
 }
 
-.bar div:nth-of-type(3) {
+/* .bar div:nth-of-type(3) {
     background: var(--dark-color);
     height: 100%;
     position: absolute;
     z-index: 2;
-}
+} */
 
 .bar span {
     background: #fff;
@@ -399,11 +395,6 @@ hr {
 
     p {
         padding: 0 0.75rem 0.75rem;
-    }
-
-    .collapse h1 {
-        border: 1px solid var(--dark-color);
-        border-radius: var(--border-radius);
     }
 
     #cards {

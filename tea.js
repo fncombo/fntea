@@ -333,7 +333,7 @@ const tea = [
         season: 'Spring 2016',
         cultivar: 'Chin Xin',
         origin: 'Alishan, Chiayi, Taiwan',
-        rating: false,
+        rating: 4,
         updated: '14/01/2018',
         link: 'https://meileaf.com/tea/amber-gaba-oolong/',
         brewing: {
@@ -361,7 +361,7 @@ const tea = [
         season: '2008',
         cultivar: false,
         origin: 'Lincang, Yunnan, China',
-        rating: false,
+        rating: 2,
         updated: '15/01/2018',
         link: false,
         brewing: {
