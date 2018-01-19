@@ -465,4 +465,8 @@ hr {
         box-shadow: none;
         font-size: 1.5rem;
     }
+
+    #search:focus {
+        box-shadow: none;
+    }
 }
