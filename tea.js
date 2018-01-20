@@ -89,14 +89,14 @@ const tea = [
         link: 'https://www.o-cha.com/fr/japanese-organic-sencha.html',
         brewing: {
             western: {
-                temperature: 70,
+                temperature: 75,
                 amount: 1,
                 baseDuration: 120,
                 durationIncrease: 20,
                 infusions: 2,
             },
             gongfu: {
-                temperature: 70,
+                temperature: 75,
                 amount: 3.5,
                 baseDuration: 60,
                 durationIncrease: 10,
