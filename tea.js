@@ -58,8 +58,8 @@ const tea = [
     {
         type: 1,
         color: '#bedd41',
-        name: 'Jade Dew',
-        nameOther: 'Yame Gyokuro',
+        name: 'Yame Gyokuro',
+        nameOther: false,
         season: 'Shincha 2017',
         cultivar: 'Yabukita',
         origin: 'Yame, Fukuoka, Japan',
@@ -192,7 +192,7 @@ const tea = [
         type: 6,
         color: '#e0c159',
         name: 'White Blossom',
-        nameOther: 'White Jasmine and Chrysanthemum',
+        nameOther: 'Jasmine Yin Zhen White and Chrysanthemum',
         season: 'Various',
         cultivar: 'Various',
         origin: 'Various',
@@ -256,7 +256,7 @@ const tea = [
         season: '15th April 2017',
         cultivar: 'Xiao Ye',
         origin: 'Yu Yuan, Zhejiang, China',
-        rating: 3,
+        rating: 4,
         updated: '13/01/2018',
         link: 'https://meileaf.com/tea/cloud-lake/',
         brewing: {
