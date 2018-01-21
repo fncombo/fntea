@@ -29,7 +29,7 @@ const tea = [
     },
     {
         type: 2,
-        color: '#e7d161',
+        color: '#e7d373',
         name: 'White Hair Silver Needle',
         nameOther: 'Bai Hao Yin Zhen',
         season: '19th March 2017',
@@ -222,7 +222,7 @@ const tea = [
     },
     {
         type: 2,
-        color: '#d4c059',
+        color: '#e4c93d',
         name: 'White Peony',
         nameOther: 'Bai Mu Dan',
         season: 'Spring 2016',
@@ -299,7 +299,7 @@ const tea = [
     },
     {
         type: 1,
-        color: '#e8cd65',
+        color: '#f2dc6d',
         name: 'Green Snail Spring',
         nameOther: 'Suzhou Bi Luo Chun',
         season: '27th March 2017',
@@ -376,7 +376,7 @@ const tea = [
     },
     {
         type: 1,
-        color: '#e0e37e',
+        color: '#dade68',
         name: 'Yellow Mountain Fur Peak',
         nameOther: 'Huang Shan Mao Feng',
         season: '23rd April 2017',
@@ -405,8 +405,8 @@ const tea = [
     {
         type: 7,
         color: '#cdd22c',
-        name: 'Ivan Chai',
-        nameOther: 'Fireweed',
+        name: 'Fireweed Tea',
+        nameOther: 'Ivan Chai',
         season: false,
         cultivar: 'Chamaenerion Angustifolium',
         origin: 'Russia',
