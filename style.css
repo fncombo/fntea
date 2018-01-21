@@ -389,7 +389,7 @@ hr {
     font-weight: 400;
 }
 
-#search:focus {
+#search:hover, #search:focus {
     border-color: var(--border-focus-color);
     box-shadow: 0 3px 6px var(--shadow-focus-color);
 }

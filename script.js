@@ -8,13 +8,7 @@
         4: 'Black',
         5: 'Pu-erh',
         6: 'Blend',
-        7: 'Herb',
-    };
-
-    // Lookup for brewing type
-    const brewingTypes = {
-        1: 'Western',
-        2: 'Gongfu',
+        7: 'Herbal',
     };
 
     // Used for the search string
@@ -174,27 +168,17 @@
 
         // Create search string for this tea
         const data = dataTags.map(tag => {
-            if (tag === 'type') {
-                return types[tea.type];
-            }
-            return tea[tag] || '';
-        }).join(' ');
+            return (tag === 'type' ? types[tea.type] : (tea[tag] || ''));
+        }).join(' ').replace(/(?:\s{2,}|,)/g, '');
 
         return `
 <div class="card" style="--tea-color: ${tea.color}; --text-color: ${shadeColor(tea.color, contrast(tea.color) ? -0.65 : 0.85)};"
     data-search="${data.toLowerCase()}">
     <h1>${tea.name}<span>${tea.nameOther || '&mdash;'}</span></h1>
     <div class="card-body">
-        <!--
-        <div class="tea-info">
-            <span>${types[tea.type]}</span>
-            ${tea.link ? `<a href="${tea.link}" target="_blank">Shop</a>` : ''}
-            <span>${tea.rating || 'Unrated'}</span>
-        </div>
-        -->
         <h2>
             ${types[tea.type]} Tea
-            ${tea.link ? `<a href="${tea.link}" target="_blank">&#128722;</a>` : ''}
+            ${tea.link ? `<a href="${tea.link}" target="_blank" title="Visit store page">&#128722;</a>` : ''}
             <span>${tea.rating || 'Unrated'}</span>
         </h2>
         <ul class="card-list">
