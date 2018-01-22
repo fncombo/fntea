@@ -43,11 +43,6 @@
         return Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) / 1000) > 125;
     };
 
-    // Horse
-    const clamp = (number, min, max) => {
-        return Math.min(Math.max(number, min), max);
-    };
-
     // Hmm fine
     const ordinal = (number) => {
         const rem10 = number % 10;
@@ -83,7 +78,7 @@
             <div class="bar">
                 ${`<span></span>`.repeat(6)}
                 <div></div>
-                <div style="width: ${clamp((tea.amount * 10) * 2, 0, 100)}%;"></div>
+                <div style="width: ${(tea.amount * 10) * 2}%;"></div>
             </div>
         </li>
         <li>
@@ -102,7 +97,7 @@
             <div class="bar">
                 ${`<span></span>`.repeat(11)}
                 <div></div>
-                <div style="width: ${clamp(tea.infusions * 10, 0, 100)}%;"></div>
+                <div style="width: ${tea.infusions * 10}%;"></div>
             </div>
         </li>
         <li>
@@ -112,9 +107,6 @@
                 ${`<span></span>`.repeat(5)}
                 <div></div>
                 <div style="width: ${(tea.baseDuration / 240) * 100}%;"></div>
-                <!--
-                <div style="left: ${(tea.baseDuration / 240) * 100}%; width: ${clamp((tea.durationIncrease / 240) * 100, 0, 100 - ((tea.baseDuration / 240) * 100))}%;"></div>
-                -->
             </div>
         </li>
     </ul>
