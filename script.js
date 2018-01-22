@@ -177,7 +177,7 @@
     <h1>${tea.name}<span>${tea.nameOther || '&mdash;'}</span></h1>
     <div class="card-body">
         <h2>
-            ${types[tea.type]} Tea
+            ${tea.organic ? 'Organic ' : ''}${types[tea.type]} Tea
             ${tea.link ? `<a href="${tea.link}" target="_blank" title="Visit store page">&#128722;</a>` : ''}
             <span>${tea.rating || 'Unrated'}</span>
         </h2>
@@ -188,7 +188,7 @@
             </li>
             <li>
                 <span>&#127793;</span>
-                <span><strong>Cultivar:</strong> ${tea.cultivar || 'Unknown'}</span>
+                <span><strong>${tea.type === 7 ? 'Plant' : 'Cultivar'}:</strong> ${tea.cultivar || 'Unknown'}</span>
             </li>
             <li>
                 <span>&#127759;</span>

@@ -1,6 +1,7 @@
 const tea = [
     {
         type: 1,
+        organic: false,
         color: '#e3dc65',
         name: 'Dragon Well',
         nameOther: 'Long Jing',
@@ -29,6 +30,7 @@ const tea = [
     },
     {
         type: 2,
+        organic: false,
         color: '#e7d373',
         name: 'White Hair Silver Needle',
         nameOther: 'Bai Hao Yin Zhen',
@@ -57,6 +59,7 @@ const tea = [
     },
     {
         type: 1,
+        organic: false,
         color: '#bedd41',
         name: 'Yame Gyokuro',
         nameOther: false,
@@ -78,8 +81,9 @@ const tea = [
     },
     {
         type: 1,
+        organic: true,
         color: '#c5d941',
-        name: 'Kanaya Midori Sencha',
+        name: 'Kanaya Midori Asamushi Sencha',
         nameOther: false,
         season: 'Shincha 2017',
         cultivar: 'Kanaya Midori',
@@ -106,6 +110,7 @@ const tea = [
     },
     {
         type: 4,
+        organic: false,
         color: '#890008',
         name: 'Black Rose',
         nameOther: false,
@@ -134,6 +139,7 @@ const tea = [
     },
     {
         type: 4,
+        organic: false,
         color: '#a81b00',
         name: 'Keemun',
         nameOther: 'Qimen Hao Ya',
@@ -162,6 +168,7 @@ const tea = [
     },
     {
         type: 3,
+        organic: false,
         color: '#e4b34c',
         name: 'Jasmine Jade',
         nameOther: 'Mo Li Wulong',
@@ -190,6 +197,7 @@ const tea = [
     },
     {
         type: 6,
+        organic: false,
         color: '#e0c159',
         name: 'White Blossom',
         nameOther: 'Jasmine Yin Zhen and Chrysanthemum',
@@ -197,10 +205,6 @@ const tea = [
         cultivar: 'Various',
         origin: 'Various',
         rating: 3,
-        blend: [
-            'Jasmine Yinzhen White',
-            'Chrysanthemum Flowers',
-        ],
         updated: '13/01/2018',
         link: 'https://meileaf.com/tea/white-blossom/',
         brewing: {
@@ -222,6 +226,7 @@ const tea = [
     },
     {
         type: 2,
+        organic: false,
         color: '#e4c93d',
         name: 'White Peony',
         nameOther: 'Bai Mu Dan',
@@ -250,6 +255,7 @@ const tea = [
     },
     {
         type: 1,
+        organic: false,
         color: '#f0e665',
         name: 'Cloud and Mist',
         nameOther: 'Yun Wu',
@@ -278,12 +284,13 @@ const tea = [
     },
     {
         type: 7,
+        organic: false,
         color: '#ece74b',
-        name: 'Lotus Leaves',
-        nameOther: 'He Ye',
+        name: 'Lotus Tea',
+        nameOther: 'He Ye Cha',
         season: false,
         cultivar: 'Folium Nelumbinis',
-        origin: false,
+        origin: 'Henan, China',
         rating: 5,
         updated: '13/01/2018',
         link: 'https://innatureteas.com/shop/lotus-tea/lotus-tea',
@@ -299,9 +306,10 @@ const tea = [
     },
     {
         type: 1,
+        organic: false,
         color: '#f2dc6d',
         name: 'Green Snail Spring',
-        nameOther: 'Suzhou Bi Luo Chun',
+        nameOther: 'Bi Luo Chun',
         season: '27th March 2017',
         cultivar: 'Dong Ting Qunti',
         origin: 'Dong Ting, Jiangsu, China',
@@ -327,6 +335,7 @@ const tea = [
     },
     {
         type: 3,
+        organic: false,
         color: '#af4a02',
         name: 'Amber Gaba',
         nameOther: false,
@@ -354,28 +363,8 @@ const tea = [
         },
     },
     {
-        type: 5,
-        color: '#4f0101',
-        name: 'Yong Zhen Pu-erh',
-        nameOther: false,
-        season: '2008',
-        cultivar: false,
-        origin: 'Lincang, Yunnan, China',
-        rating: 2,
-        updated: '15/01/2018',
-        link: false,
-        brewing: {
-            gongfu: {
-                temperature: 99,
-                amount: 5,
-                baseDuration: 10,
-                durationIncrease: 5,
-                infusions: 10,
-            },
-        },
-    },
-    {
         type: 1,
+        organic: false,
         color: '#dade68',
         name: 'Yellow Mountain Fur Peak',
         nameOther: 'Huang Shan Mao Feng',
@@ -404,6 +393,7 @@ const tea = [
     },
     {
         type: 7,
+        organic: false,
         color: '#cdd22c',
         name: 'Fireweed Tea',
         nameOther: 'Ivan Chai',
@@ -425,6 +415,7 @@ const tea = [
     },
     {
         type: 1,
+        organic: false,
         color: '#b4b84b',
         name: 'Uji Genmai Matcha',
         nameOther: false,

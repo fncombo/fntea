@@ -394,6 +394,26 @@ hr {
     box-shadow: 0 3px 6px var(--shadow-focus-color);
 }
 
+#wishlist {
+    display: flex;
+    padding: 0 1.25rem 1.25rem;
+    justify-content: center;
+}
+
+#wishlist ul {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#wishlist li {
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
 @media (min-width: 600px) {
     .temp-small {
         display: none;
@@ -468,5 +488,9 @@ hr {
 
     #search:focus {
         box-shadow: none;
+    }
+
+    #wishlist {
+        flex-direction: column;
     }
 }
