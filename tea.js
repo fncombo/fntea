@@ -83,7 +83,7 @@ const tea = [
         type: 1,
         organic: true,
         color: '#c5d941',
-        name: 'Kanaya Midori Asamushi Sencha',
+        name: 'Kanaya Midori Sencha',
         nameOther: false,
         season: 'Shincha 2017',
         cultivar: 'Kanaya Midori',
