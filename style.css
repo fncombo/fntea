@@ -14,8 +14,6 @@ body {
     --shadow-color: hsl(0, 0%, 90%);
     --shadow-focus-color: hsl(0, 0%, 80%);
     --border-radius: 0.25rem;
-    --heading-size: 1.75rem;
-    --spacing-tiny: 0.25rem;
     --spacing-small: 0.75rem;
     --spacing-big: 1.25rem;
     background: var(--background-color);
@@ -45,7 +43,7 @@ h1 {
     position: relative;
     color: var(--text-color);
     text-align: center;
-    font-size: var(--heading-size);
+    font-size: 1.75rem;
     font-weight: 400;
     line-height: 1.2;
 }
@@ -361,7 +359,7 @@ header {
     box-shadow: 0 3px 6px var(--shadow-color);
     transition: box-shadow 0.15s ease-in-out, border 0.15s ease-in-out;
     font-family: inherit;
-    font-size: var(--heading-size);
+    font-size: 1.75rem;
     line-height: 1.5;
     text-align: center;
     font-weight: 400;
