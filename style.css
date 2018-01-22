@@ -60,12 +60,6 @@ strong {
     font-weight: 600;
 }
 
-p {
-    margin: 0;
-    padding: 0 1.25rem 1.25rem;
-    text-align: center;
-}
-
 a, a:visited, a:hover, a:active, a:focus {
     text-decoration: none;
 }
@@ -371,7 +365,7 @@ hr {
     color: #fcc200;
 }
 
-#search-box {
+header {
     display: flex;
     padding: 1.25rem 1.25rem 0;
     justify-content: center;
@@ -394,13 +388,20 @@ hr {
     box-shadow: 0 3px 6px var(--shadow-focus-color);
 }
 
-#wishlist {
+footer {
     display: flex;
-    padding: 0 1.25rem 1.25rem;
+    flex-direction: column;
+    padding: 0.75rem 1.25rem;
     justify-content: center;
 }
 
-#wishlist ul {
+footer p {
+    margin: 0;
+    padding: 0 0 0.75rem;
+    text-align: center;
+}
+
+footer ul {
     background: #fff;
     border: 1px solid var(--border-color);
     border-bottom: none;
@@ -409,7 +410,7 @@ hr {
     list-style: none;
 }
 
-#wishlist li {
+footer li {
     padding: 0.75rem 1.25rem;
     border-bottom: 1px solid var(--border-color);
 }
@@ -476,7 +477,7 @@ hr {
         transform: scale(1.5);
     }
 
-    #search-box {
+    header {
         padding: 0.75rem 0.25rem 0;
     }
 
@@ -488,9 +489,5 @@ hr {
 
     #search:focus {
         box-shadow: none;
-    }
-
-    #wishlist {
-        flex-direction: column;
     }
 }

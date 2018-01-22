@@ -205,7 +205,10 @@
     </div>
 </div>
 `;
-    }).join('');
+    }).join('') + document.querySelector('footer').outerHTML; // Append footer as a card
+
+    // Hide footer
+    document.querySelector('body > footer').style.display = 'none';
 
     // Events
     const clickEvent = new Event('click');
