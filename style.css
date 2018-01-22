@@ -391,18 +391,21 @@ header {
 footer {
     display: flex;
     flex-direction: column;
-    padding: 0.75rem 1.25rem;
     justify-content: center;
+    align-items: center;
+    padding: 0 1.25rem 1.25rem;
 }
 
 footer p {
     margin: 0;
-    padding: 0 0 0.75rem;
+    padding: 0 0 1.25rem;
     text-align: center;
 }
 
 footer ul {
     background: #fff;
+    width: 100%;
+    max-width: 400px;
     border: 1px solid var(--border-color);
     border-bottom: none;
     margin: 0;
@@ -489,5 +492,13 @@ footer li {
 
     #search:focus {
         box-shadow: none;
+    }
+
+    footer {
+        padding: 0 0.25rem 0.75rem;
+    }
+
+    footer p {
+        padding: 0 0 0.75rem;
     }
 }
