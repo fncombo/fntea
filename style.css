@@ -127,7 +127,6 @@ button {
 }
 
 .card-body {
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
     position: relative;
     overflow: hidden;
     transition: height 0.3s ease-in-out;

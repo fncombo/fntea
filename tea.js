@@ -60,7 +60,7 @@ const tea = [
     {
         type: 1,
         organic: false,
-        color: '#bedd41',
+        color: '#c9e539',
         name: 'Yame Gyokuro',
         nameOther: false,
         season: 'Shincha 2017',
@@ -117,7 +117,7 @@ const tea = [
         season: 'April 2017',
         cultivar: 'Zheng He',
         origin: 'Wuyi, Fujian, China',
-        rating: 4,
+        rating: 3,
         updated: '13/01/2018',
         link: 'https://meileaf.com/tea/black-rose/',
         brewing: {
@@ -256,13 +256,13 @@ const tea = [
     {
         type: 1,
         organic: false,
-        color: '#f0e665',
+        color: '#e3de54',
         name: 'Cloud and Mist',
         nameOther: 'Yun Wu',
         season: '15th April 2017',
         cultivar: 'Xiao Ye',
         origin: 'Yu Yuan, Zhejiang, China',
-        rating: 3,
+        rating: 4,
         updated: '13/01/2018',
         link: 'https://meileaf.com/tea/cloud-lake/',
         brewing: {
