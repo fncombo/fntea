@@ -127,7 +127,7 @@ class Card extends PureComponent {
 
         // Default active brewing type
         this.state = {
-            brewingTab: tea.brewing.hasOwnProperty('western') ? 'western' : 'gongfu'
+            brewingTab: tea.brewing.hasOwnProperty('western') ? 'western' : 'gongfu',
         }
     }
 
