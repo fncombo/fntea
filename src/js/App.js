@@ -275,7 +275,7 @@ class BrewingInstructions extends PureComponent {
 
         // Start the initial timer
         this.setState({
-            timer: data.baseDuration * infusion,
+            timer: data.baseDuration + (data.durationIncrease * (infusion - 1)),
             noSleep: noSleep,
         }, this.runTimer)
     }
