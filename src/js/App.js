@@ -1,5 +1,5 @@
 // Libraries
-import NoSleep from 'nosleep.js'
+import NoSleep from './NoSleep.js'
 import FuzzySort from 'fuzzysort'
 import Color from 'color'
 import Ordinal from 'ordinal'
