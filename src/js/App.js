@@ -99,20 +99,15 @@ export default class App extends Component {
         return (
             <Fragment>
                 <header>
-                    <div>
-                        <h1>Tea Shelf <a href="https://fncombo.me">fncombo</a></h1>
-                    </div>
-                    <div>
-                        <input
-                            type="search"
-                            placeholder="Filter tea and tisane collection"
-                            autoComplete="false"
-                            value={searchQuery}
-                            onChange={event => this.search(event.target.value)}
-                        />
-                    </div>
+                    <input
+                        type="search"
+                        placeholder="Filter... pun intended"
+                        autoComplete="false"
+                        value={searchQuery}
+                        onChange={event => this.search(event.target.value)}
+                        autoFocus={window.innerWidth > 600}
+                    />
                 </header>
-                <hr />
                 <div id="cards">
                     {tea.map(tea => <Card tea={tea} searchQuery={searchQuery} key={tea.name} />)}
                 </div>

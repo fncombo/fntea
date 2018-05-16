@@ -10,10 +10,9 @@ html {
 body {
     --background-color: hsl(0, 0%, 98%);
     --border-color: rgba(0, 0, 0, 0.1);
-    --border-focus-color: rgba(0, 0, 0, 0.25);
     --border-radius: 0.25rem;
-    --spacing-small: 0.75rem;
-    --spacing-big: 1.25rem;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --spacing: 1.25rem;
     background: var(--background-color);
     margin: 0;
     font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI",
@@ -22,16 +21,53 @@ body {
     line-height: 1.5;
 }
 
-hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
 .hide {
     display: none !important;
     visibility: hidden !important;
+}
+
+/* fn */
+.fnheader {
+    background: #fff;
+    margin: 0 0 1rem;
+    text-align: center;
+}
+
+.fnheader:after {
+    content: '';
+    background: linear-gradient(to right, #81b330, #4e9ff0);
+    display: block;
+    width: 100%;
+    height: 2px;
+}
+
+.fnheader h1 {
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #000;
+    font-family: inherit;
+}
+
+.fnheader h1 a {
+    margin-left: 0.5rem;
+}
+
+.fnheader h1 a span:first-child {
+    color: #81b330;
+}
+
+.fnheader h1 a span:last-child {
+    color: #4e9ff0;
+}
+
+.fnheader h1 a:hover {
+    text-decoration: none;
+}
+
+.fnheader h1 a:hover span {
+    text-decoration: underline;
 }
 
 /* Text */
@@ -115,9 +151,9 @@ button {
 /* Tea cards layout */
 #cards {
     display: grid;
-    margin: var(--spacing-big);
+    margin: var(--spacing);
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: var(--spacing-big);
+    grid-gap: var(--spacing);
     justify-content: center;
 }
 
@@ -126,12 +162,9 @@ button {
     display: flex;
     flex-direction: column;
     border: 2px solid var(--tea-color);
-    transition: box-shadow 0.15s ease-in-out;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0.1rem 0.5rem var(--shadow-color);
 }
-
-    .card:hover, .card.expanded {
-        box-shadow: 0 0.25rem 1.5rem var(--faded-tea-color-darker);
-    }
 
 .card-header {
     background: var(--tea-color);
@@ -374,44 +407,17 @@ button {
 header {
     display: flex;
     max-width: 1400px;
-    margin: 1rem auto;
-    padding: 0 15px;
+    margin: var(--spacing) auto;
     justify-content: center;
 }
-
-    header div {
-        flex: 0 0 50%;
-    }
-
-    header div:last-child {
-        text-align: right;
-    }
-
-    header h1 {
-        font-size: 1.25rem;
-        font-weight: 500;
-        line-height: 1.2;
-        color: #000;
-        font-family: inherit;
-    }
-
-    header h1 a {
-        margin-left: 0.5rem;
-        color: hsl(0, 0%, 50%);
-    }
-
-    header h1 a:hover {
-        color: #000;
-        text-decoration: underline;
-    }
 
 input[type="search"] {
     width: 100%;
     max-width: 20rem;
-    margin: -0.5rem 0;
+    margin: 0;
     padding: 0.5rem 0.75rem;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    border-radius: 0;
+    border-radius: var(--border-radius);
     transition: box-shadow 0.15s ease-in-out, border 0.15s ease-in-out;
     font-family: inherit;
     font-size: 1rem;
@@ -425,7 +431,7 @@ input[type="search"] {
 
     input[type="search"]:hover, input[type="search"]:focus {
         border-color: rgba(0, 0, 0, 0.5);
-        box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.05);
+        box-shadow: 0 0.1rem 0.5rem var(--shadow-color);
         outline: none;
         color: #000;
     }
@@ -443,7 +449,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: var(--spacing-big);
+    margin: var(--spacing);
 }
 
     footer p {
@@ -454,16 +460,12 @@ footer {
     footer ul {
         width: 100%;
         max-width: 400px;
-        margin: 0 0 var(--spacing-big);
+        margin: 0 0 var(--spacing);
         padding: 0;
         border: 2px solid var(--border-color);
         list-style: none;
-        transition: box-shadow 0.15s ease-in-out;
+        box-shadow: 0 0.1rem 0.5rem var(--shadow-color);
     }
-
-        footer ul:hover {
-            box-shadow: 0 0.25rem 1.5rem var(--border-color);
-        }
 
     footer li {
         background: #fff;
@@ -488,24 +490,32 @@ footer {
     }
 
     body {
-        --spacing-big: 0.75rem;
+        --spacing: 0.75rem;
     }
+
+    .fnheader {
+        margin: 0 0 16px;
+    }
+
+        .fnheader h1 {
+            padding: 16px 0;
+            font-size: 20px;
+        }
+
+            .fnheader h1 a {
+                margin-left: 8px;
+            }
+
+                .fnheader h1 a span {
+                    font-size: 20px;
+                }
 
     header {
-        flex-direction: column;
+        margin: 16px;
     }
-
-        header h1 {
-            font-size: calc(16px * 1.25);
-        }
-
-        header div {
-            text-align: center !important;
-        }
 
     input[type="search"] {
         max-width: 100%;
-        margin: 1rem 0 0;
         text-align: center;
         font-size: 16px;
     }
