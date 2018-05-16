@@ -9,10 +9,8 @@ html {
 
 body {
     --background-color: hsl(0, 0%, 98%);
-    --border-color: hsl(0, 0%, 85%);
-    --border-focus-color: hsl(0, 0%, 65%);
-    --shadow-color: hsl(0, 0%, 90%);
-    --shadow-focus-color: hsl(0, 0%, 80%);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-focus-color: rgba(0, 0, 0, 0.25);
     --border-radius: 0.25rem;
     --spacing-small: 0.75rem;
     --spacing-big: 1.25rem;
@@ -25,9 +23,10 @@ body {
 }
 
 hr {
-    margin: 0 1.25rem;
-    border: none;
-    border-top: 1px solid var(--border-color);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .hide {
@@ -37,35 +36,30 @@ hr {
 
 /* Text */
 h1 {
-    background: var(--tea-color);
     margin: 0;
-    padding: 0.75rem 0.25rem;
-    position: relative;
-    color: var(--text-color);
-    text-align: center;
+    padding: 0;
     font-size: 1.75rem;
     font-weight: 400;
     line-height: 1.2;
 }
 
-    h1 span {
-        display: block;
-        font-size: 1.25rem;
-    }
-
 h2 {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+h3 {
     margin: 0;
     padding: 0.75rem 1.25rem;
     font-size: 1rem;
     font-weight: 600;
 }
 
-    h2 span {
-        float: right;
-        font-weight: normal;
-    }
-
-    h2 a {
+    h3 a {
         margin: -0.75rem -1.25rem 0 0;
         padding: 0.75rem 1.25rem;
         float: right;
@@ -75,8 +69,20 @@ strong {
     font-weight: 600;
 }
 
+span > strong {
+    text-decoration: underline;
+}
+
 a, a:visited, a:hover, a:active, a:focus {
     text-decoration: none;
+}
+
+.store-link {
+    transition: transform 0.075s ease-in-out;
+}
+
+.store-link:hover {
+    transform: scale(1.333);
 }
 
 /* Buttons */
@@ -86,7 +92,7 @@ button {
     padding: 0.375rem 0.75rem;
     border: none;
     border-radius: var(--border-radius);
-    transition: opacity 0.15s ease-in-out, filter 0.15s ease-in-out;
+    transition: background 0.15s ease-in-out;
     font-family: inherit;
     font-size: 1rem;
     line-height: 1.5;
@@ -94,16 +100,12 @@ button {
     cursor: pointer;
 }
 
-    button:not([disabled]):hover {
-        filter: brightness(90%);
-    }
-
-    button:not([disabled]):active {
-        filter: brightness(80%);
-    }
-
     button[disabled] {
-        opacity: 0.3;
+        background: var(--faded-tea-color);
+    }
+
+    button:not([disabled]):hover {
+        background: var(--darker-tea-color);
     }
 
     button:focus {
@@ -120,11 +122,24 @@ button {
 }
 
 .card {
+    background: var(--background-color);
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--tea-color);
-    border-left: 5px solid var(--tea-color);
-    box-shadow: 0 3px 6px var(--shadow-color);
+    border: 2px solid var(--tea-color);
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+    .card:hover, .card.expanded {
+        box-shadow: 0 0.25rem 1.5rem var(--faded-tea-color-darker);
+    }
+
+.card-header {
+    background: var(--tea-color);
+    margin: 0;
+    padding: 0.75rem 0.25rem;
+    position: relative;
+    color: var(--text-color);
+    text-align: center;
 }
 
 .card-body {
@@ -133,24 +148,26 @@ button {
     transition: height 0.3s ease-in-out;
 }
 
-    .collapse .card-body {
-        height: 0px;
-    }
-
 .card-section {
     padding: 0 1.25rem 0.75rem 1.25rem;
     text-align: center;
 }
 
 .rating {
-    display: inline-block;
+    float: right;
     transform: scale(1.25);
     transform-origin: right center;
+    font-weight: normal;
     color: var(--border-color);
 }
 
-    .rating strong {
+    .rating span {
         color: #fcc200;
+    }
+
+    .rating.unrated {
+        color: #000;
+        transform: scale(1);
     }
 
 /* Tea card info list */
@@ -167,16 +184,16 @@ button {
         display: flex;
     }
 
-    .card-list span:first-child {
-        padding: 0.75rem;
-    }
+        .card-list li > span {
+            padding: 0.75rem;
+        }
 
-    .card-list span:last-child {
+    .card-list div {
         flex: 1 0 auto;
         padding: 0.75rem 1.25rem 0.75rem 0;
     }
 
-        .card-list li:not(:last-child) span:last-child {
+        .card-list li:not(:last-child) div:last-child {
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -207,7 +224,12 @@ button {
             border-top: 1px solid transparent;
             border-bottom: 1px solid var(--border-color);
             color: hsl(0, 0%, 50%);
+            transition: color 0.15s ease-in-out;
         }
+
+            .card-tabs li:not(.active):hover {
+                color: #000;
+            }
 
         .card-tabs li:last-child {
             border-right: none;
@@ -253,11 +275,10 @@ button {
     }
 
         .bar div:nth-of-type(1) {
-            background: var(--tea-color);
+            background: var(--faded-tea-color);
             height: 100%;
             width: 100%;
             position: absolute;
-            opacity: 0.3;
             z-index: 1;
         }
 
@@ -311,11 +332,19 @@ button {
         left: calc(50% - 0.3rem);
     }
 
+    .timer-duration.decrease[disabled]:before {
+        border-right-color: var(--faded-text-color);
+    }
+
     .timer-duration.increase:before {
         border-top: 0.5rem solid transparent;
         border-bottom: 0.5rem solid transparent;
         border-left: 0.5rem solid var(--text-color);
-        left: calc(50% - 0.15rem);
+        left: calc(50% - 0.2rem);
+    }
+
+    .timer-duration.increase[disabled]:before {
+        border-left-color: var(--faded-text-color);
     }
 
 .timer-control {
@@ -344,32 +373,61 @@ button {
 /* Search bar header */
 header {
     display: flex;
-    margin: var(--spacing-big);
+    max-width: 1400px;
+    margin: 1rem auto;
+    padding: 0 15px;
     justify-content: center;
 }
 
+    header div {
+        flex: 0 0 50%;
+    }
+
+    header div:last-child {
+        text-align: right;
+    }
+
+    header h1 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.2;
+        color: #000;
+        font-family: inherit;
+    }
+
+    header h1 a {
+        margin-left: 0.5rem;
+        color: hsl(0, 0%, 50%);
+    }
+
+    header h1 a:hover {
+        color: #000;
+        text-decoration: underline;
+    }
+
 input[type="search"] {
     width: 100%;
-    max-width: 600px;
-    margin: 0;
-    padding: 0.375rem 0.75rem;
-    border: 1px solid var(--border-color);
-    border-left: 5px solid var(--border-color);
+    max-width: 20rem;
+    margin: -0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 0;
-    box-shadow: 0 3px 6px var(--shadow-color);
     transition: box-shadow 0.15s ease-in-out, border 0.15s ease-in-out;
     font-family: inherit;
-    font-size: 1.75rem;
-    line-height: 1.5;
-    text-align: center;
-    font-weight: 400;
+    font-size: 1rem;
+    text-align: left;
     appearance: none;
+    color: #000;
 }
+    input::placeholder {
+        color: hsl(0, 0%, 50%);
+    }
 
     input[type="search"]:hover, input[type="search"]:focus {
-        border-color: var(--border-focus-color);
-        box-shadow: 0 3px 6px var(--shadow-focus-color);
+        border-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.05);
         outline: none;
+        color: #000;
     }
 
     input[type="search"]::-webkit-search-decoration,
@@ -398,14 +456,18 @@ footer {
         max-width: 400px;
         margin: 0 0 var(--spacing-big);
         padding: 0;
-        border-left: 4px solid var(--border-color);
+        border: 2px solid var(--border-color);
         list-style: none;
+        transition: box-shadow 0.15s ease-in-out;
     }
+
+        footer ul:hover {
+            box-shadow: 0 0.25rem 1.5rem var(--border-color);
+        }
 
     footer li {
         background: #fff;
         padding: 0.75rem 1.25rem;
-        border: 1px solid var(--border-color);
         border-bottom: none;
     }
 
@@ -415,10 +477,11 @@ footer {
             text-align: center;
         }
 
-        footer li:last-child {
+        footer li:not(:last-child):not(:first-child) {
             border-bottom: 1px solid var(--border-color);
         }
 
+/* Size media queries */
 @media (max-width: 600px) {
     html {
         font-size: 14px;
@@ -428,9 +491,27 @@ footer {
         --spacing-big: 0.75rem;
     }
 
+    header {
+        flex-direction: column;
+    }
+
+        header h1 {
+            font-size: calc(16px * 1.25);
+        }
+
+        header div {
+            text-align: center !important;
+        }
+
+    input[type="search"] {
+        max-width: 100%;
+        margin: 1rem 0 0;
+        text-align: center;
+        font-size: 16px;
+    }
+
     h1 {
         font-size: 1.5rem;
-        cursor: pointer;
     }
 
         h1 span {
@@ -449,7 +530,15 @@ footer {
         grid-template-columns: repeat(1, 1fr);
     }
 
+    .card-header {
+        cursor: pointer;
+    }
+
     .card-body {
+        height: 0;
+    }
+
+    .card.expanded .card-body {
         height: 511px;
     }
 

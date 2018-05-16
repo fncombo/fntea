@@ -13,17 +13,6 @@ import '../css/App.css'
 // Data
 import data from './data.json'
 
-// Lookup constants
-const teaTypes = {
-    1: 'Green',
-    2: 'White',
-    3: 'Oolong',
-    4: 'Black',
-    5: 'Pu-erh',
-    6: 'Blend',
-    7: 'Herbal',
-}
-
 const brewingTypes = {
     western: 'Western',
     gongfu: 'Gong Fu',
@@ -49,19 +38,35 @@ export default class App extends Component {
         super()
 
         this.state = {
-            tea: data,
+            tea: this.sort(data.tea),
             searchQuery: '',
         }
 
         this.search = this.search.bind(this)
     }
 
+    // Sort by rating then alphabetically
+    sort(tea) {
+        return tea.sort((a, b) => {
+            if (a.rating < b.rating) {
+                return 1
+            } else if (a.rating > b.rating) {
+                return -1
+            } else if (a.name < b.name) {
+                return -1
+            } else if (a.name > b.name) {
+                return 1
+            }
+            return 0
+        })
+    }
+
     // Simple search
-    search(searchQuery) {
+    search(searchQuery = '') {
         if (!searchQuery.length) {
             this.setState({
-                tea: data,
-                searchQuery: searchQuery,
+                tea: this.sort(data.tea),
+                searchQuery: '',
             })
 
             return
@@ -69,10 +74,12 @@ export default class App extends Component {
 
         let results = []
 
-        FuzzySort.go(searchQuery, data, {
+        // Search
+        FuzzySort.go(searchQuery, data.tea, {
             keys: [
                 'name',
                 'nameOther',
+                'type',
                 'season',
                 'cultivar',
                 'origin',
@@ -81,7 +88,7 @@ export default class App extends Component {
         }).forEach(item => results.push(item.obj))
 
         this.setState({
-            tea: results,
+            tea: this.sort(results),
             searchQuery: searchQuery,
         })
     }
@@ -92,25 +99,29 @@ export default class App extends Component {
         return (
             <Fragment>
                 <header>
-                    <input
-                        type="search"
-                        placeholder="Filter (haha...)"
-                        autoComplete="false"
-                        value={searchQuery}
-                        onChange={event => this.search(event.target.value)}
-                    />
+                    <div>
+                        <h1>Tea Shelf <a href="https://fncombo.me">fncombo</a></h1>
+                    </div>
+                    <div>
+                        <input
+                            type="search"
+                            placeholder="Filter tea and tisane collection"
+                            autoComplete="false"
+                            value={searchQuery}
+                            onChange={event => this.search(event.target.value)}
+                        />
+                    </div>
                 </header>
+                <hr />
                 <div id="cards">
-                    {tea.map(tea => <Card tea={tea} key={tea.name} />)}
+                    {tea.map(tea => <Card tea={tea} searchQuery={searchQuery} key={tea.name} />)}
                 </div>
                 <footer>
-                    <ul>
-                        <li><strong>Wishlist</strong></li>
-                        <li>Dong Fang Mei Ren (Eastern Beauty)</li>
-                        <li>Tie Guan Yin (Iron Goddess)</li>
-                        <li>Jin Xuan (Milk Oolong)</li>
-                        <li>Assam</li>
-                    </ul>
+                    {!!data.wishlist.length &&
+                        <ul>
+                            <li><strong>Wishlist</strong></li>
+                            {data.wishlist.map((tea, i) => <li key={i}>{tea}</li>)}
+                        </ul>}
                     <p>Carefully researched and tweaked for personal taste and preference. Actual colours may vary.</p>
                 </footer>
             </Fragment>
@@ -127,8 +138,20 @@ class Card extends PureComponent {
 
         // Default active brewing type
         this.state = {
+            expanded: false,
             brewingTab: tea.brewing.hasOwnProperty('western') ? 'western' : 'gongfu',
         }
+
+        this.toggleExpand = this.toggleExpand.bind(this)
+    }
+
+    // Toggle whether the card is expanded or not on a phone
+    toggleExpand() {
+        const { expanded } = this.state
+
+        this.setState({
+            expanded: !expanded,
+        })
     }
 
     // Change the brewing instructions tab
@@ -138,53 +161,71 @@ class Card extends PureComponent {
         })
     }
 
+    // Highlight the current search in a text string
+    highlightSearch(value) {
+        const { searchQuery } = this.props
+
+        const result = FuzzySort.single(searchQuery, value)
+
+        return {
+            __html: result ? FuzzySort.highlight(result, '<strong>', '</strong>') : value,
+        }
+    }
+
     render() {
-        const { tea } = this.props
-        const { brewingTab } = this.state
+        const { tea, searchQuery } = this.props
+        const { expanded, brewingTab } = this.state
 
         // Make sure the text colour is readable compared to the background
         const teaColor = Color(tea.color)
+        const textColor = teaColor.isLight() ? teaColor.darken(0.75) : teaColor.lighten(2)
         const style = {
             '--tea-color': teaColor,
-            '--text-color': teaColor.isLight() ? teaColor.darken(0.65) : teaColor.lighten(2),
+            '--text-color': textColor,
+            '--faded-tea-color': teaColor.fade(0.75),
+            '--faded-tea-color-darker': teaColor.fade(0.5),
+            '--faded-text-color': textColor.fade(0.75),
+            '--darker-tea-color': teaColor.darken(0.25),
         }
 
         return (
-            <div className="card" style={style}>
-                <h1>
-                    {tea.name}
-                    <span>{tea.nameOther || <Fragment>&mdash;</Fragment>}</span>
-                </h1>
-                <div className="card-body">
+            <div className={`card ${expanded ? 'expanded' : ''}`} style={style}>
+                <div className="card-header" onClick={this.toggleExpand}>
+                    <h1>
+                        {searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.name)} /> : tea.name}
+                    </h1>
                     <h2>
-                        {tea.organic ? 'Organic ' : ''}{teaTypes[tea.type]} Tea
+                        {tea.nameOther ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.nameOther)} /> : tea.nameOther) : <Fragment>&mdash;</Fragment>}
+                    </h2>
+                </div>
+                <div className="card-body">
+                    <h3>
+                        {tea.organic ? 'Organic ' : ''}{searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.type)} /> : tea.type} Tea
                         {!!tea.link &&
-                            <a href={tea.link} target="_blank" title="Visit store page">
+                            <a className="store-link" href={tea.link} target="_blank" title="Visit store page">
                                 <span role="img" aria-label="emoji">&#128722;</span>
                             </a>}
-                        <span>
-                            {tea.rating ?
-                                <span className="rating">
-                                    {new Array(tea.rating).fill(0).map((n, i) => <strong key={i}>&#x2605;</strong>)}
-                                    {new Array(5 - tea.rating).fill(0).map((n, i) => <Fragment key={i}>&#x2605;</Fragment>)}
-                                </span> : 'Unrated'}
-                        </span>
-                    </h2>
+                        {tea.rating ?
+                            <span className="rating">
+                                {new Array(tea.rating).fill(0).map((n, i) => <span key={i}>&#x2605;</span>)}
+                                {new Array(5 - tea.rating).fill(0).map((n, i) => <Fragment key={i}>&#x2605;</Fragment>)}
+                            </span> : <span className="rating unrated">Unrated</span>}
+                    </h3>
                     <ul className="card-list">
                         <li>
                             <span role="img" aria-label="emoji">&#128197;</span>
-                            <span><strong>Season:</strong> {tea.season || 'Unknown'}</span>
+                            <div><strong>Season:</strong> {tea.season ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.season)} /> : tea.season) : 'Unknown'}</div>
                         </li>
                         <li>
                             <span role="img" aria-label="emoji">&#127793;</span>
-                            <span><strong>{tea.type === 7 ? 'Plant' : 'Cultivar'}:</strong> {tea.cultivar || 'Unknown'}</span>
+                            <div><strong>{tea.type === 7 ? 'Plant' : 'Cultivar'}:</strong> {tea.cultivar ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.cultivar)} /> : tea.cultivar) : 'Unknown'}</div>
                         </li>
                         <li>
                             <span role="img" aria-label="emoji">&#127759;</span>
-                            <span><strong>Origin:</strong> {tea.origin || 'Unknown'}</span>
+                            <div><strong>Origin:</strong> {tea.origin ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.origin)} /> : tea.origin) : 'Unknown'}</div>
                         </li>
                     </ul>
-                    <h2>Brewing Instructions</h2>
+                    <h3>Brewing Instructions</h3>
                     <ul className="card-tabs">
                         {Object.entries(tea.brewing).map(([type], i) =>
                             <li
