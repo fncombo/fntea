@@ -404,9 +404,9 @@ class BrewingInstructions extends PureComponent {
                         <strong>Infusion Time</strong>
                         <span>{formatTime(data.baseDuration)} base, +{formatTime(data.durationIncrease)} per extra</span>
                         <div className="bar">
-                            {new Array(5).fill(0).map((n, i) => <span key={i} />)}
+                            {new Array(4).fill(0).map((n, i) => <span key={i} />)}
                             <div></div>
-                            <div style={{ width: `${(data.baseDuration / 240) * 100}%` }}></div>
+                            <div style={{ width: `${(data.baseDuration / 180) * 100}%` }}></div>
                         </div>
                     </li>
                 </ul>
