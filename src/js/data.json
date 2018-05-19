@@ -284,11 +284,11 @@
             }
         },
         {
-            "type": "Herbal",
+            "type": "Tisane",
             "organic": false,
             "color": "#ece74b",
-            "name": "Lotus Tea",
-            "nameOther": "He Ye Cha",
+            "name": "Lotus Leaf",
+            "nameOther": "He Ye",
             "season": false,
             "cultivar": "Folium Nelumbinis",
             "origin": "Henan, China",
@@ -314,7 +314,7 @@
             "season": "27th March 2017",
             "cultivar": "Dong Ting Qunti",
             "origin": "Dong Ting, Jiangsu, China",
-            "rating": 5,
+            "rating": 4,
             "updated": "14/01/2018",
             "link": "https://meileaf.com/tea/green-coil-tea/",
             "brewing": {
@@ -393,10 +393,10 @@
             }
         },
         {
-            "type": "Herbal",
+            "type": "Tisane",
             "organic": false,
             "color": "#cdd22c",
-            "name": "Fireweed Tea",
+            "name": "Fireweed Leaf",
             "nameOther": "Ivan Chai",
             "season": false,
             "cultivar": "Chamaenerion Angustifolium",
@@ -674,10 +674,37 @@
                     "infusions": 10
                 }
             }
+        },
+        {
+            "type": "Tisane",
+            "organic": false,
+            "color": "#e2d899",
+            "name": "Ginkgo Leaf Tips",
+            "nameOther": "Yin Xing Ye",
+            "season": "Spring 2017",
+            "cultivar": false,
+            "origin": "Tian Mu, Zhejiang, China",
+            "rating": 4,
+            "updated": "19/05/2018",
+            "link": false,
+            "brewing": {
+                "western": {
+                    "temperature": 99,
+                    "amount": 0.3,
+                    "baseDuration": 120,
+                    "durationIncrease": 30,
+                    "infusions": 2
+                },
+                "gongfu": {
+                    "temperature": 99,
+                    "amount": 1.5,
+                    "baseDuration": 15,
+                    "durationIncrease": 5,
+                    "infusions": 5
+                }
+            }
         }
     ],
     "wishlist": [
-        "Assam",
-        "Darjeeling"
     ]
 }

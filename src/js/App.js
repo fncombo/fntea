@@ -106,17 +106,15 @@ export default class App extends Component {
                         value={searchQuery}
                         onChange={event => this.search(event.target.value)}
                         autoFocus={window.innerWidth > 600}
+                        autoCorrect="off"
+                        autoCapitalize="off"
+                        autoComplete="off"
                     />
                 </header>
                 <div id="cards">
                     {tea.map(tea => <Card tea={tea} searchQuery={searchQuery} key={tea.name} />)}
                 </div>
                 <footer>
-                    {!!data.wishlist.length &&
-                        <ul>
-                            <li><strong>Wishlist</strong></li>
-                            {data.wishlist.map((tea, i) => <li key={i}>{tea}</li>)}
-                        </ul>}
                     <p>Carefully researched and tweaked for personal taste and preference. Actual colours may vary.</p>
                 </footer>
             </Fragment>
@@ -178,7 +176,6 @@ class Card extends PureComponent {
             '--tea-color': teaColor,
             '--text-color': textColor,
             '--faded-tea-color': teaColor.fade(0.75),
-            '--faded-tea-color-darker': teaColor.fade(0.5),
             '--faded-text-color': textColor.fade(0.75),
             '--darker-tea-color': teaColor.darken(0.25),
         }
@@ -189,13 +186,11 @@ class Card extends PureComponent {
                     <h1>
                         {searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.name)} /> : tea.name}
                     </h1>
-                    <h2>
-                        {tea.nameOther ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.nameOther)} /> : tea.nameOther) : <Fragment>&mdash;</Fragment>}
-                    </h2>
+                    {tea.nameOther && <h2>{(searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.nameOther)} /> : tea.nameOther)}</h2>}
                 </div>
                 <div className="card-body">
                     <h3>
-                        {tea.organic ? 'Organic ' : ''}{searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.type)} /> : tea.type} Tea
+                        {tea.organic ? 'Organic ' : ''}{searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.type)} /> : tea.type}
                         {!!tea.link &&
                             <a className="store-link" href={tea.link} target="_blank" title="Visit store page">
                                 <span role="img" aria-label="emoji">&#128722;</span>
@@ -209,15 +204,15 @@ class Card extends PureComponent {
                     <ul className="card-list">
                         <li>
                             <span role="img" aria-label="emoji">&#128197;</span>
-                            <div><strong>Season:</strong> {tea.season ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.season)} /> : tea.season) : 'Unknown'}</div>
+                            <div><strong>Season:</strong> {tea.season ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.season)} /> : tea.season) : <Fragment>&mdash;</Fragment>}</div>
                         </li>
                         <li>
                             <span role="img" aria-label="emoji">&#127793;</span>
-                            <div><strong>{tea.type === 7 ? 'Plant' : 'Cultivar'}:</strong> {tea.cultivar ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.cultivar)} /> : tea.cultivar) : 'Unknown'}</div>
+                            <div><strong>{tea.type === 7 ? 'Plant' : 'Cultivar'}:</strong> {tea.cultivar ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.cultivar)} /> : tea.cultivar) : <Fragment>&mdash;</Fragment>}</div>
                         </li>
                         <li>
                             <span role="img" aria-label="emoji">&#127759;</span>
-                            <div><strong>Origin:</strong> {tea.origin ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.origin)} /> : tea.origin) : 'Unknown'}</div>
+                            <div><strong>Origin:</strong> {tea.origin ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.origin)} /> : tea.origin) : <Fragment>&mdash;</Fragment>}</div>
                         </li>
                     </ul>
                     <h3>Brewing Instructions</h3>
@@ -233,7 +228,7 @@ class Card extends PureComponent {
                         )}
                     </ul>
                     {Object.entries(tea.brewing).map(([type], i) =>
-                        <BrewingInstructions data={tea.brewing[type]} active={brewingTab === type} key={i} />
+                        <BrewingInstructions name={tea.name} data={tea.brewing[type]} active={brewingTab === type} key={i} />
                     )}
                 </div>
             </div>
@@ -318,7 +313,8 @@ class BrewingInstructions extends PureComponent {
 
     // Timer loop to decremenet each second
     runTimer() {
-        const { timer } = this.state
+        const { infusion, timer } = this.state
+        const { name } = this.props
 
         // Decrement the current timer value
         this.setState({
@@ -335,7 +331,7 @@ class BrewingInstructions extends PureComponent {
 
                 // Tiny delay to let the page unpate the text to 0:00
                 window.setTimeout(() => {
-                    alert('Timer Done')
+                    alert(`Timer for ${Ordinal(infusion)} infusion of ${name} done.`)
                 }, 100)
 
                 return
@@ -368,8 +364,7 @@ class BrewingInstructions extends PureComponent {
                         </div>
                     </li>
                     <li>
-                        <strong className="temp-large">Temperature</strong>
-                        <strong className="temp-small">Temp.</strong>
+                        <strong>Temperature</strong>
                         <span>{data.temperature}&deg; C</span>
                         <div className="bar">
                             {new Array(6).fill(0).map((n, i) => <span key={i} />)}
