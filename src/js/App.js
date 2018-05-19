@@ -153,7 +153,9 @@ class Card extends PureComponent {
         })
 
         if (!expanded) {
-            window.location.hash = tea.name.replace(/\s/g, '-').toLowerCase()
+            document.querySelector(`#${tea.name.replace(/\s/g, '-').toLowerCase()}`).scrollIntoView(true, {
+                behavior: 'smooth',
+            })
         }
     }
 
