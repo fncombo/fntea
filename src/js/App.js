@@ -141,10 +141,20 @@ class Card extends PureComponent {
     // Toggle whether the card is expanded or not on a phone
     toggleExpand() {
         const { expanded } = this.state
+        const { tea } = this.props
+
+        // Only if small enough for collapsed cards
+        if (window.innerWidth > 600) {
+            return
+        }
 
         this.setState({
             expanded: !expanded,
         })
+
+        if (!expanded) {
+            window.location.hash = tea.name.replace(/\s/g, '-').toLowerCase()
+        }
     }
 
     // Change the brewing instructions tab
@@ -181,55 +191,57 @@ class Card extends PureComponent {
         }
 
         return (
-            <div className={`card ${expanded ? 'expanded' : ''}`} style={style}>
-                <div className="card-header" onClick={this.toggleExpand}>
-                    <h1>
-                        {searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.name)} /> : tea.name}
-                    </h1>
-                    {tea.nameOther && <h2>{(searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.nameOther)} /> : tea.nameOther)}</h2>}
-                </div>
-                <div className="card-body">
-                    <h3>
-                        {tea.organic ? 'Organic ' : ''}{searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.type)} /> : tea.type}
-                        {!!tea.link &&
-                            <a className="store-link" href={tea.link} target="_blank" title="Visit store page">
-                                <span role="img" aria-label="emoji">&#128722;</span>
-                            </a>}
-                        {tea.rating ?
-                            <span className="rating">
-                                {new Array(tea.rating).fill(0).map((n, i) => <span key={i}>&#x2605;</span>)}
-                                {new Array(5 - tea.rating).fill(0).map((n, i) => <Fragment key={i}>&#x2605;</Fragment>)}
-                            </span> : <span className="rating unrated">Unrated</span>}
-                    </h3>
-                    <ul className="card-list">
-                        <li>
-                            <span role="img" aria-label="emoji">&#128197;</span>
-                            <div><strong>Season:</strong> {tea.season ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.season)} /> : tea.season) : <Fragment>&mdash;</Fragment>}</div>
-                        </li>
-                        <li>
-                            <span role="img" aria-label="emoji">&#127793;</span>
-                            <div><strong>{tea.type === 7 ? 'Plant' : 'Cultivar'}:</strong> {tea.cultivar ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.cultivar)} /> : tea.cultivar) : <Fragment>&mdash;</Fragment>}</div>
-                        </li>
-                        <li>
-                            <span role="img" aria-label="emoji">&#127759;</span>
-                            <div><strong>Origin:</strong> {tea.origin ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.origin)} /> : tea.origin) : <Fragment>&mdash;</Fragment>}</div>
-                        </li>
-                    </ul>
-                    <h3>Brewing Instructions</h3>
-                    <ul className="card-tabs">
-                        {Object.entries(tea.brewing).map(([type], i) =>
-                            <li
-                                className={brewingTab === type ? 'active' : ''}
-                                onClick={() => this.changeBrewingTab(type)}
-                                key={i}
-                            >
-                                {brewingTypes[type]}
+            <div id={tea.name.replace(/\s/g, '-').toLowerCase()} className="card-outer">
+                <div className={`card ${expanded ? 'expanded' : ''}`} style={style}>
+                    <div className="card-header" onClick={this.toggleExpand}>
+                        <h1>
+                            {searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.name)} /> : tea.name}
+                        </h1>
+                        {tea.nameOther && <h2>{(searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.nameOther)} /> : tea.nameOther)}</h2>}
+                    </div>
+                    <div className="card-body">
+                        <h3>
+                            {tea.organic ? 'Organic ' : ''}{searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.type)} /> : tea.type}
+                            {!!tea.link &&
+                                <a className="store-link" href={tea.link} target="_blank" title="Visit store page">
+                                    <span role="img" aria-label="emoji">&#128722;</span>
+                                </a>}
+                            {tea.rating ?
+                                <span className="rating">
+                                    {new Array(tea.rating).fill(0).map((n, i) => <span key={i}>&#x2605;</span>)}
+                                    {new Array(5 - tea.rating).fill(0).map((n, i) => <Fragment key={i}>&#x2605;</Fragment>)}
+                                </span> : <span className="rating unrated">Unrated</span>}
+                        </h3>
+                        <ul className="card-list">
+                            <li>
+                                <span role="img" aria-label="emoji">&#128197;</span>
+                                <div><strong>Season:</strong> {tea.season ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.season)} /> : tea.season) : <Fragment>&mdash;</Fragment>}</div>
                             </li>
+                            <li>
+                                <span role="img" aria-label="emoji">&#127793;</span>
+                                <div><strong>{tea.type === 7 ? 'Plant' : 'Cultivar'}:</strong> {tea.cultivar ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.cultivar)} /> : tea.cultivar) : <Fragment>&mdash;</Fragment>}</div>
+                            </li>
+                            <li>
+                                <span role="img" aria-label="emoji">&#127759;</span>
+                                <div><strong>Origin:</strong> {tea.origin ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.origin)} /> : tea.origin) : <Fragment>&mdash;</Fragment>}</div>
+                            </li>
+                        </ul>
+                        <h3>Brewing Instructions</h3>
+                        <ul className="card-tabs">
+                            {Object.entries(tea.brewing).map(([type], i) =>
+                                <li
+                                    className={brewingTab === type ? 'active' : ''}
+                                    onClick={() => this.changeBrewingTab(type)}
+                                    key={i}
+                                >
+                                    {brewingTypes[type]}
+                                </li>
+                            )}
+                        </ul>
+                        {Object.entries(tea.brewing).map(([type], i) =>
+                            <BrewingInstructions name={tea.name} data={tea.brewing[type]} active={brewingTab === type} key={i} />
                         )}
-                    </ul>
-                    {Object.entries(tea.brewing).map(([type], i) =>
-                        <BrewingInstructions name={tea.name} data={tea.brewing[type]} active={brewingTab === type} key={i} />
-                    )}
+                    </div>
                 </div>
             </div>
         )
