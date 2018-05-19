@@ -531,11 +531,11 @@ footer {
     header {
         grid-template-columns: repeat(1, 1fr);
         margin: 16px var(--spacing);
+        transform: none;
     }
 
     input[type="search"] {
         transform: none;
-        left: auto;
         max-width: 100%;
     }
 
