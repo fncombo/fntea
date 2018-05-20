@@ -3,7 +3,7 @@ import NoSleep from './NoSleep.js'
 import FuzzySort from 'fuzzysort'
 import Color from 'color'
 import Ordinal from 'ordinal'
-import ScrollToElement from 'scroll-to-element'
+import ZenScroll from 'zenscroll'
 
 // React
 import React, { Component, PureComponent, Fragment } from 'react'
@@ -18,6 +18,9 @@ const brewingTypes = {
     western: 'Western',
     gongfu: 'Gong Fu',
 }
+
+// Calculate offset to center scrolling elements on the screen
+ZenScroll.setup(false, (window.innerHeight - 580) / 2)
 
 // Format a number of seconds to a pretty string
 // e.g. 120 => 2 min or 2:00, 45 => 45 sec or 0:45
@@ -154,15 +157,7 @@ class Card extends PureComponent {
         })
 
         if (!expanded) {
-            // Calculate offset to make the element in the middle of the screen
-            const offset = (window.innerHeight - 580) / 2
-
-            ScrollToElement(`#${tea.name.replace(/\s/g, '-').toLowerCase()}`, {
-                ease: 'linear',
-                align: 'top',
-                duration: 300,
-                offset: -offset,
-            })
+            ZenScroll.to(document.querySelector(`#${tea.name.replace(/\s/g, '-').toLowerCase()}`))
         }
     }
 
