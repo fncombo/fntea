@@ -102,6 +102,9 @@ export default class App extends Component {
 
         return (
             <Fragment>
+                <div class="fnheader">
+                    <h1>Tea Shelf <a href="https://fncombo.me"><span>fn</span><span>combo</span></a></h1>
+                </div>
                 <header>
                     <input
                         type="search"
