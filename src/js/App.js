@@ -109,7 +109,6 @@ export default class App extends Component {
                     <input
                         type="search"
                         placeholder="Filter... pun intended"
-                        autoComplete="false"
                         value={searchQuery}
                         onChange={event => this.search(event.target.value)}
                         autoFocus={window.innerWidth > 600}
