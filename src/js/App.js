@@ -102,7 +102,7 @@ export default class App extends Component {
 
         return (
             <Fragment>
-                <div class="fnheader">
+                <div className="fnheader">
                     <h1>Tea Shelf <a href="https://fncombo.me"><span>fn</span><span>combo</span></a></h1>
                 </div>
                 <header>
@@ -225,7 +225,7 @@ class Card extends PureComponent {
                         </li>
                         <li>
                             <span role="img" aria-label="emoji">&#127793;</span>
-                            <div><strong>{tea.type === 7 ? 'Plant' : 'Cultivar'}:</strong> {tea.cultivar ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.cultivar)} /> : tea.cultivar) : <Fragment>&mdash;</Fragment>}</div>
+                            <div><strong>{tea.type === 'Tisane' ? 'Plant' : 'Cultivar'}:</strong> {tea.cultivar ? (searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.cultivar)} /> : tea.cultivar) : <Fragment>&mdash;</Fragment>}</div>
                         </li>
                         <li>
                             <span role="img" aria-label="emoji">&#127759;</span>
