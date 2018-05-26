@@ -475,13 +475,13 @@
         {
             "type": "Green",
             "organic": true,
-            "color": "#d4d4d4",
+            "color": "#cfe247",
             "name": "Zairai Sencha",
             "nameOther": false,
             "season": "Shincha 2018",
             "cultivar": "Zairai",
             "origin": "Kirishima, Kagoshima, Japan",
-            "rating": 0,
+            "rating": 4,
             "updated": "16/05/2018",
             "link": "https://www.o-cha.com/organic-zairai-sencha.html",
             "brewing": {
