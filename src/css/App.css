@@ -121,7 +121,7 @@ a, a:visited, a:hover, a:active, a:focus {
 }
 
 .store-link {
-    transition: transform 0.075s ease-in-out;
+    transition: transform 0.15s ease-in-out;
 }
 
 .store-link:hover {
