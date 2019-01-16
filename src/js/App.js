@@ -185,9 +185,23 @@ class Card extends PureComponent {
         const { tea, searchQuery } = this.props
         const { expanded, brewingTab } = this.state
 
-        // Make sure the text colour is readable compared to the background
         const teaColor = Color(tea.color)
-        const textColor = teaColor.isLight() ? teaColor.darken(0.75) : teaColor.lighten(2)
+
+        // Make sure the text colour is readable compared to the background
+        let textColor
+
+        // Very light and desaturated text for very dark and saturated tea colours
+        if (teaColor.lightness() < 20 && teaColor.saturationv() > 90) {
+            textColor = teaColor.saturate(-0.5).lighten(4.5)
+        // Dark text for light tea colour
+        } else if (teaColor.isLight()) {
+            textColor = teaColor.darken(0.75)
+        // Ligh text for dark tea colour
+        } else {
+            textColor = teaColor.lighten(2)
+        }
+
+        // const textColor = teaColor.isLight() ? teaColor.darken(0.75) : teaColor.lighten(2)
         const style = {
             '--tea-color': teaColor,
             '--text-color': textColor,

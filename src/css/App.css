@@ -159,7 +159,7 @@ button {
 #cards {
     display: grid;
     margin: var(--spacing);
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-gap: var(--spacing);
     justify-content: center;
 }

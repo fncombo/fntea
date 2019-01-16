@@ -703,6 +703,64 @@
                     "infusions": 5
                 }
             }
+        },
+        {
+            "type": "Pu-erh",
+            "organic": false,
+            "color": "#560003",
+            "name": "Yunnan Raw Pu Erh No.80",
+            "nameOther": false,
+            "season": "2013/2014",
+            "cultivar": false,
+            "origin": "Yunnan, China",
+            "rating": 5,
+            "updated": "16/01/2019",
+            "link": "https://www.theteamakers.co.uk/yunnan-puerh.html",
+            "brewing": {
+                "western": {
+                    "temperature": 99,
+                    "amount": 1,
+                    "baseDuration": 120,
+                    "durationIncrease": 30,
+                    "infusions": 5
+                },
+                "gongfu": {
+                    "temperature": 99,
+                    "amount": 5,
+                    "baseDuration": 10,
+                    "durationIncrease": 5,
+                    "infusions": 10
+                }
+            }
+        },
+        {
+            "type": "Pu-erh",
+            "organic": false,
+            "color": "#560003",
+            "name": "Lincang Ripe Pu Erh No.84",
+            "nameOther": false,
+            "season": "Spring 2012",
+            "cultivar": false,
+            "origin": "Lincang, Yunnan, China",
+            "rating": 4,
+            "updated": "16/01/2019",
+            "link": "https://www.theteamakers.co.uk/lincang-puerh-tea.html",
+            "brewing": {
+                "western": {
+                    "temperature": 99,
+                    "amount": 1,
+                    "baseDuration": 120,
+                    "durationIncrease": 30,
+                    "infusions": 5
+                },
+                "gongfu": {
+                    "temperature": 99,
+                    "amount": 5,
+                    "baseDuration": 10,
+                    "durationIncrease": 5,
+                    "infusions": 10
+                }
+            }
         }
     ],
     "wishlist": [
