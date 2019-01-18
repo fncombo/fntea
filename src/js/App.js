@@ -44,9 +44,11 @@ export default class App extends Component {
         this.state = {
             tea: this.sort(data.tea),
             searchQuery: '',
+            timerState: false,
         }
 
         this.search = this.search.bind(this)
+        this.masterTimerToggleCallback = this.masterTimerToggleCallback.bind(this)
     }
 
     // Sort by rating then alphabetically
@@ -97,8 +99,15 @@ export default class App extends Component {
         })
     }
 
+    // Callback for when the timer is turned off and on
+    masterTimerToggleCallback(timerState) {
+        this.setState({
+            timerState: timerState,
+        })
+    }
+
     render() {
-        const { tea, searchQuery } = this.state
+        const { tea, searchQuery, timerState } = this.state
 
         return (
             <Fragment>
@@ -110,6 +119,7 @@ export default class App extends Component {
                         type="search"
                         placeholder="Filter... pun intended"
                         value={searchQuery}
+                        disabled={timerState}
                         onChange={event => this.search(event.target.value)}
                         autoFocus={window.innerWidth > 600}
                         autoCorrect="off"
@@ -117,8 +127,8 @@ export default class App extends Component {
                         autoComplete="off"
                     />
                 </header>
-                <div id="cards">
-                    {tea.map(tea => <Card tea={tea} searchQuery={searchQuery} key={tea.name} />)}
+                <div id="cards" className={`timer-${timerState ? 'on' : 'off'}`}>
+                    {tea.map(tea => <Card tea={tea} searchQuery={searchQuery} key={tea.name} masterTimerToggleCallback={this.masterTimerToggleCallback} />)}
                 </div>
                 <footer>
                     <p>Carefully researched and tweaked for personal taste and preference. Actual colours may vary.</p>
@@ -138,10 +148,12 @@ class Card extends PureComponent {
         // Default active brewing type
         this.state = {
             expanded: false,
-            brewingTab: tea.brewing.hasOwnProperty('western') ? 'western' : 'gongfu',
+            brewingType: tea.brewing.hasOwnProperty('western') ? 'western' : 'gongfu',
+            timerState: false,
         }
 
         this.toggleExpand = this.toggleExpand.bind(this)
+        this.timerToggleCallback = this.timerToggleCallback.bind(this)
     }
 
     // Toggle whether the card is expanded or not on a phone
@@ -164,9 +176,16 @@ class Card extends PureComponent {
     }
 
     // Change the brewing instructions tab
-    changeBrewingTab(type) {
+    changeBrewingType(type) {
+        const { timerState } = this.state
+
+        // Can't change tabs when the timer is running
+        if (timerState) {
+            return
+        }
+
         this.setState({
-            brewingTab: type,
+            brewingType: type,
         })
     }
 
@@ -181,9 +200,20 @@ class Card extends PureComponent {
         }
     }
 
+    // Callback for when the timer is turned off and on
+    timerToggleCallback(timerState) {
+        const { masterTimerToggleCallback } = this.props
+
+        masterTimerToggleCallback(timerState)
+
+        this.setState({
+            timerState: timerState,
+        })
+    }
+
     render() {
         const { tea, searchQuery } = this.props
-        const { expanded, brewingTab } = this.state
+        const { expanded, brewingType, timerState } = this.state
 
         const teaColor = Color(tea.color)
 
@@ -211,7 +241,7 @@ class Card extends PureComponent {
         }
 
         return (
-            <div id={tea.name.replace(/\s/g, '-').toLowerCase()} className={`card ${expanded ? 'expanded' : ''}`} style={style}>
+            <div id={tea.name.replace(/\s/g, '-').toLowerCase()} className={`card ${expanded ? 'expanded' : ''} timer-${timerState ? 'on' : 'off'}`} style={style}>
                 <div className="card-header" onClick={this.toggleExpand}>
                     <h1>
                         {searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.name)} /> : tea.name}
@@ -249,17 +279,15 @@ class Card extends PureComponent {
                     <ul className="card-tabs">
                         {Object.entries(tea.brewing).map(([type], i) =>
                             <li
-                                className={brewingTab === type ? 'active' : ''}
-                                onClick={() => this.changeBrewingTab(type)}
+                                className={brewingType === type ? 'active' : ''}
+                                onClick={() => this.changeBrewingType(type)}
                                 key={i}
                             >
                                 {brewingTypes[type]}
                             </li>
                         )}
                     </ul>
-                    {Object.entries(tea.brewing).map(([type], i) =>
-                        <BrewingInstructions name={tea.name} data={tea.brewing[type]} active={brewingTab === type} key={i} />
-                    )}
+                    <BrewingInstructions name={tea.name} data={tea.brewing[brewingType]} brewingType={brewingType} timerToggleCallback={this.timerToggleCallback} />
                 </div>
             </div>
         )
@@ -282,6 +310,27 @@ class BrewingInstructions extends PureComponent {
         this.increaseInfusion = this.increaseInfusion.bind(this)
         this.toggleTimer = this.toggleTimer.bind(this)
         this.runTimer = this.runTimer.bind(this)
+    }
+
+    // When the brewing tab changes
+    componentDidUpdate(prevProps) {
+        const { data, brewingType } = this.props
+        const { timer, infusion } = this.state
+
+        if (brewingType !== prevProps.brewingType) {
+
+            // If the timer is running, stop it
+            if (timer) {
+                this.toggleTimer()
+            }
+
+            // Cap the maximum infusion number to max possible
+            if (infusion > data.infusions) {
+                this.setState({
+                    infusion: data.infusions,
+                })
+            }
+        }
     }
 
     // Decrease infustion to a minimum of 1
@@ -314,7 +363,7 @@ class BrewingInstructions extends PureComponent {
     // Turn the timer on or off based on whether it's running
     toggleTimer() {
         const { timer, infusion, timeoutId } = this.state
-        const { data } = this.props
+        const { data, timerToggleCallback } = this.props
 
         // Stop the timer if it is runing
         if (timer) {
@@ -326,6 +375,9 @@ class BrewingInstructions extends PureComponent {
                 timer: false,
                 noSleep: undefined,
             })
+
+            // Tell the parent that the timer is off
+            timerToggleCallback(false)
 
             return
         }
@@ -339,12 +391,15 @@ class BrewingInstructions extends PureComponent {
             timer: data.baseDuration + (data.durationIncrease * (infusion - 1)),
             noSleep: noSleep,
         }, this.runTimer)
+
+        // Tell the parent that the timer is on
+        timerToggleCallback(true)
     }
 
     // Timer loop to decremenet each second
     runTimer() {
         const { infusion, timer } = this.state
-        const { name } = this.props
+        const { name, timerToggleCallback } = this.props
 
         // Decrement the current timer value
         this.setState({
@@ -364,6 +419,8 @@ class BrewingInstructions extends PureComponent {
                     alert(`Timer for ${Ordinal(infusion)} infusion of ${name} done.`)
                 }, 100)
 
+                timerToggleCallback(false)
+
                 return
             }
 
@@ -378,11 +435,11 @@ class BrewingInstructions extends PureComponent {
     }
 
     render() {
-        const { data, active } = this.props
+        const { data } = this.props
         const { timer, infusion } = this.state
 
         return (
-            <div className={`card-tabs-content ${active ? 'active' : ''}`}>
+            <div className="card-tabs-content">
                 <ul className="brewing-data">
                     <li>
                         <strong>Amount</strong>
@@ -421,34 +478,36 @@ class BrewingInstructions extends PureComponent {
                         </div>
                     </li>
                 </ul>
-                <div className="card-section timer-body">
-                    <div className="timer-control">
-                        <button
-                            className="timer-duration decrease"
-                            onClick={this.decreaseInfusion}
-                            disabled={infusion === 1 || !!timer}
-                        />
+                <div className="timer">
+                    <div className="card-section timer-body">
+                        <div className="timer-control">
+                            <button
+                                className="timer-duration decrease"
+                                onClick={this.decreaseInfusion}
+                                disabled={infusion === 1 || !!timer}
+                            />
+                        </div>
+                        <div className="timer-content">
+                            <span className="timer-infusion">{Ordinal(infusion)} Infusion</span>
+                            <strong className="timer-clock">
+                                {timer ?
+                                    formatTime(timer, true) :
+                                    formatTime(data.baseDuration + (data.durationIncrease * (infusion - 1)), true)}
+                            </strong>
+                        </div>
+                        <div className="timer-control">
+                            <button
+                                className="timer-duration increase"
+                                onClick={this.increaseInfusion}
+                                disabled={infusion === data.infusions || !!timer}
+                            />
+                        </div>
                     </div>
-                    <div className="timer-content">
-                        <span className="timer-infusion">{Ordinal(infusion)} Infusion</span>
-                        <strong className="timer-clock">
-                            {timer ?
-                                formatTime(timer, true) :
-                                formatTime(data.baseDuration + (data.durationIncrease * (infusion - 1)), true)}
-                        </strong>
+                    <div className="card-section">
+                        <button className="timer-start" onClick={this.toggleTimer}>
+                            {timer ? 'Stop' : 'Start'} Brewing Timer
+                        </button>
                     </div>
-                    <div className="timer-control">
-                        <button
-                            className="timer-duration increase"
-                            onClick={this.increaseInfusion}
-                            disabled={infusion === data.infusions || !!timer}
-                        />
-                    </div>
-                </div>
-                <div className="card-section">
-                    <button className="timer-start" onClick={this.toggleTimer}>
-                        {timer ? 'Stop' : 'Start'} Brewing Timer
-                    </button>
                 </div>
             </div>
         )

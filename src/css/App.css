@@ -13,6 +13,7 @@ body {
     --border-color: rgba(0, 0, 0, 0.1);
     --border-radius: 0.25rem;
     --shadow-color: rgba(0, 0, 0, 0.05);
+    --shadow-dark-color: rgba(0, 0, 0, 0.15);
     --spacing: 1.25rem;
     background: #fff;
     margin: 0;
@@ -145,6 +146,7 @@ button {
 
     button[disabled] {
         opacity: 0.25;
+        cursor: default;
     }
 
     button:not([disabled]):hover {
@@ -164,14 +166,54 @@ button {
     justify-content: center;
 }
 
+#cards.timer-on .card.timer-off {
+    pointer-events: none;
+    filter: grayscale(100%);
+    opacity: 0.75;
+}
+
 .card {
+    /* autoprefixer: off */
     background: var(--tea-color);
     display: flex;
+    position: relative;
     flex-direction: column;
+    width: 100%;
     border: 2px solid var(--tea-color);
     border-radius: var(--border-radius);
-    box-shadow: 0 0.1rem 0.5rem var(--shadow-color);
+    z-index: 1;
+    transition-property: z-index, width, transform, filter, opacity;
+    transition-duration: 0s, 0.15s, 0.15s, 0.15s, 0.15s;
+    /* Need to delay z-index and overflow to allow the element to collapse first */
+    transition-delay: 0.15s, 0s, 0s, 0s, 0s;
+    transition-timing-function: ease-in-out;
 }
+
+    .card:hover, .card.timer-on {
+        /* autoprefixer: off */
+        width: calc(100% + var(--spacing));
+        z-index: 10;
+        transform: translate(calc(var(--spacing) / 2 * -1), calc(-7.625rem / 2));
+        transition-delay: 0s, 0s, 0s, 0s, 0s;
+    }
+
+    .card:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        bottom: -2px;
+        right: -2px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 0.1rem 0.5rem var(--shadow-color);
+        transition: bottom 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+        .card:hover:before, .card.timer-on:before {
+            bottom: -7.625rem;
+            box-shadow: 0 0.1rem 1rem var(--shadow-dark-color);
+        }
 
 .card-header {
     background: var(--tea-color);
@@ -185,7 +227,7 @@ button {
 .card-body {
     background: var(--background-color);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     border-radius: calc(var(--border-radius) * 0.75);
     transition: height 0.3s ease-in-out;
 }
@@ -274,6 +316,12 @@ button {
                 color: #000;
             }
 
+            .card.timer-on .card-tabs li:not(.active),
+            .card.timer-on .card-tabs li:not(.active):hover {
+                color: hsl(0, 0%, 75%);
+                cursor: default;
+            }
+
         .card-tabs li:only-child {
             border-left: none !important;
             border-right: none !important;
@@ -300,13 +348,8 @@ button {
 
     .card-tabs-content {
         background: #fff;
-        display: none;
         flex-direction: column;
     }
-
-        .card-tabs-content.active {
-            display: flex;
-        }
 
 /* Brewing info grid */
 .brewing-data {
@@ -351,6 +394,7 @@ button {
             background: var(--tea-color);
             height: 100%;
             position: absolute;
+            transition: width 0.15s ease-in-out;
             z-index: 2;
         }
 
@@ -367,6 +411,26 @@ button {
             }
 
 /* Brewing timer */
+.timer {
+    background: #fff;
+    height: calc(var(--border-radius) * 2);
+    position: absolute;
+    top: calc(100% - var(--border-radius));
+    left: -2px;
+    right: -2px;
+    z-index: 10;
+    border: 2px solid var(--tea-color);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    transition: height 0.15s ease-in-out, top 0.15s ease-in-out;
+    overflow: hidden;
+}
+
+    .card:hover .timer, .card.timer-on .timer {
+        top: 100%;
+        height: 7.625rem;
+    }
+
 .timer-body {
     display: flex;
     align-items: center;
@@ -472,6 +536,10 @@ input[type="search"] {
         display: none;
     }
 
+    input[disabled] {
+        pointer-events: none;
+    }
+
 /* Footer info and wishlist */
 footer {
     display: flex;
@@ -556,6 +624,16 @@ footer {
         border-width: 1px;
     }
 
+    .card:hover, .card.timer-on {
+        width: 100%;
+        transform: none;
+        z-index: 1;
+    }
+
+    .card:before {
+        display: none;
+    }
+
     .card-header {
         padding: var(--spacing) calc(var(--spacing) * 1.5);
         cursor: pointer;
@@ -564,10 +642,23 @@ footer {
 
     .card-body {
         height: 0;
+        overflow: hidden;
     }
 
     .card.expanded .card-body {
         height: 511px;
+    }
+
+    .timer {
+        background: none;
+        display: block;
+        position: relative;
+        height: auto;
+        border: none;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
     }
 
     .timer-duration {
