@@ -11,10 +11,11 @@ html {
 body {
     --background-color: hsl(0, 0%, 98%);
     --border-color: rgba(0, 0, 0, 0.1);
-    --border-radius: 0.25rem;
+    --border-radius: 5px;
     --shadow-color: rgba(0, 0, 0, 0.05);
-    --shadow-dark-color: rgba(0, 0, 0, 0.15);
-    --spacing: 1.25rem;
+    --shadow-dark-color: rgba(0, 0, 0, 0.25);
+    --spacing: 1.75rem;
+    --speed: 0.15s;
     background: #fff;
     margin: 0;
     font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI",
@@ -122,7 +123,7 @@ a, a:visited, a:hover, a:active, a:focus {
 }
 
 .store-link {
-    transition: transform 0.15s ease-in-out;
+    transition: transform var(--speed) ease-in-out;
 }
 
 .store-link:hover {
@@ -136,7 +137,7 @@ button {
     padding: 0.375rem 0.75rem;
     border: none;
     border-radius: var(--border-radius);
-    transition: opacity 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    transition: opacity var(--speed) ease-in-out, background-color var(--speed) ease-in-out;
     font-family: inherit;
     font-size: 1rem;
     line-height: 1.5;
@@ -161,7 +162,7 @@ button {
 #cards {
     display: grid;
     margin: var(--spacing);
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
     grid-gap: var(--spacing);
     justify-content: center;
 }
@@ -183,15 +184,16 @@ button {
     border-radius: var(--border-radius);
     z-index: 1;
     transition-property: z-index, width, transform, filter, opacity;
-    transition-duration: 0s, 0.15s, 0.15s, 0.15s, 0.15s;
+    transition-duration: 0s, var(--speed), var(--speed), var(--speed), var(--speed);
     /* Need to delay z-index and overflow to allow the element to collapse first */
-    transition-delay: 0.15s, 0s, 0s, 0s, 0s;
+    transition-delay: var(--speed), 0s, 0s, 0s, 0s;
     transition-timing-function: ease-in-out;
 }
 
     .card:hover, .card.timer-on {
         /* autoprefixer: off */
         width: calc(100% + var(--spacing));
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
         z-index: 10;
         transform: translate(calc(var(--spacing) / 2 * -1), calc(-7.625rem / 2));
         transition-delay: 0s, 0s, 0s, 0s, 0s;
@@ -206,17 +208,16 @@ button {
         bottom: -2px;
         right: -2px;
         border-radius: var(--border-radius);
-        box-shadow: 0 0.1rem 0.5rem var(--shadow-color);
-        transition: bottom 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        box-shadow: 0 calc(var(--spacing) * 0.1) calc(var(--spacing) * 0.5) var(--shadow-color);
+        transition: bottom var(--speed) ease-in-out, box-shadow var(--speed) ease-in-out;
     }
 
         .card:hover:before, .card.timer-on:before {
+            box-shadow: 0 calc(var(--spacing) * 0.25) var(--spacing) var(--shadow-dark-color);
             bottom: -7.625rem;
-            box-shadow: 0 0.1rem 1rem var(--shadow-dark-color);
         }
 
 .card-header {
-    background: var(--tea-color);
     margin: 0;
     padding: 0.75rem 0.25rem;
     position: relative;
@@ -228,7 +229,7 @@ button {
     background: var(--background-color);
     position: relative;
     overflow: visible;
-    border-radius: calc(var(--border-radius) * 0.75);
+    border-radius: calc(var(--border-radius) - 2px);
     transition: height 0.3s ease-in-out;
 }
 
@@ -294,9 +295,8 @@ button {
         flex: 1 1 auto;
         padding: 0.5rem 1rem;
         text-align: center;
-        cursor: pointer;
         transition-property: background, border-color, color;
-        transition-duration: 0.15s;
+        transition-duration: var(--speed);
         transition-timing-function: ease-in-out;
     }
 
@@ -310,6 +310,7 @@ button {
             border-top: 1px solid transparent;
             border-bottom: 1px solid var(--border-color);
             color: hsl(0, 0%, 50%);
+            cursor: pointer;
         }
 
             .card-tabs li:not(.active):hover {
@@ -349,6 +350,11 @@ button {
     .card-tabs-content {
         background: #fff;
         flex-direction: column;
+        border-radius: calc(var(--border-radius) - 2px);
+    }
+
+    .card:hover .card-tabs-content, .card.timer-on .card-tabs-content {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
 
 /* Brewing info grid */
@@ -394,7 +400,7 @@ button {
             background: var(--tea-color);
             height: 100%;
             position: absolute;
-            transition: width 0.15s ease-in-out;
+            transition: width var(--speed) ease-in-out;
             z-index: 2;
         }
 
@@ -413,16 +419,15 @@ button {
 /* Brewing timer */
 .timer {
     background: #fff;
-    height: calc(var(--border-radius) * 2);
+    height: calc(var(--border-radius) + 2px);
     position: absolute;
     top: calc(100% - var(--border-radius));
     left: -2px;
     right: -2px;
-    z-index: 10;
     border: 2px solid var(--tea-color);
     border-top: none;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
-    transition: height 0.15s ease-in-out, top 0.15s ease-in-out;
+    transition: height var(--speed) ease-in-out, top var(--speed) ease-in-out;
     overflow: hidden;
 }
 
@@ -506,7 +511,7 @@ input[type="search"] {
     transform: translateX(-50%);
     border: none;
     border-radius: var(--border-radius);
-    transition: background 0.15s ease-in-out, border 0.15s ease-in-out;
+    transition: background var(--speed) ease-in-out, border var(--speed) ease-in-out;
     font-family: inherit;
     font-size: 1rem;
     text-align: left;
@@ -516,7 +521,7 @@ input[type="search"] {
 
     input::placeholder {
         color: hsl(0, 0%, 50%);
-        transition: color 0.15s ease-in-out;
+        transition: color var(--speed) ease-in-out;
     }
 
     input[type="search"]:hover, input[type="search"]:focus {
@@ -643,10 +648,15 @@ footer {
     .card-body {
         height: 0;
         overflow: hidden;
+        border-radius: calc(var(--border-radius) - 1px);
     }
 
     .card.expanded .card-body {
         height: 511px;
+    }
+
+    .card-tabs-content {
+        border-radius: calc(var(--border-radius) - 1px);
     }
 
     .timer {
