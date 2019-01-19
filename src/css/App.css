@@ -617,13 +617,7 @@ footer {
     }
 
     h1 {
-        font-size: 1.25rem;
-        font-weight: normal;
-    }
-
-    h2 {
-        font-size: 1rem;
-        font-weight: normal;
+        font-size: 1.5rem;
     }
 
     #cards {
@@ -643,7 +637,7 @@ footer {
     }
 
     .card-header {
-        padding: calc(var(--spacing) * 0.5);
+        padding: calc(var(--spacing) * 0.75);
         cursor: pointer;
     }
 
