@@ -13,7 +13,7 @@ body {
     --border-color: rgba(0, 0, 0, 0.1);
     --border-radius: 5px;
     --shadow-color: rgba(0, 0, 0, 0.05);
-    --shadow-dark-color: rgba(0, 0, 0, 0.25);
+    --shadow-dark-color: rgba(0, 0, 0, 0.15);
     --spacing: 1.75rem;
     --speed: 0.15s;
     background: #fff;
@@ -433,7 +433,7 @@ button {
 
     .card:hover .timer, .card.timer-on .timer {
         top: 100%;
-        height: 7.625rem;
+        height: calc(7.625rem + 2px);
     }
 
 .timer-body {
@@ -633,6 +633,7 @@ footer {
         width: 100%;
         transform: none;
         z-index: 1;
+        border-radius: var(--border-radius);
     }
 
     .card:before {
