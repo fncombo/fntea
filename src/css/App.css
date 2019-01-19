@@ -594,7 +594,7 @@ footer {
     }
 
     body {
-        --spacing: 0.75rem;
+        --spacing: 1rem;
     }
 
     header {
@@ -617,16 +617,18 @@ footer {
     }
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        font-weight: normal;
+    }
+
+    h2 {
+        font-size: 1rem;
+        font-weight: normal;
     }
 
     #cards {
         margin: 0 var(--spacing) var(--spacing);
         grid-template-columns: repeat(1, 1fr);
-    }
-
-    .card {
-        border-width: 1px;
     }
 
     .card:hover, .card.timer-on {
@@ -641,23 +643,17 @@ footer {
     }
 
     .card-header {
-        padding: var(--spacing) calc(var(--spacing) * 1.5);
+        padding: calc(var(--spacing) * 0.5);
         cursor: pointer;
-        text-align: left;
     }
 
     .card-body {
         height: 0;
         overflow: hidden;
-        border-radius: calc(var(--border-radius) - 1px);
     }
 
     .card.expanded .card-body {
         height: 511px;
-    }
-
-    .card-tabs-content {
-        border-radius: calc(var(--border-radius) - 1px);
     }
 
     .timer {
