@@ -7,7 +7,7 @@ import ZenScroll from 'zenscroll'
 // React
 import React, { PureComponent, Fragment } from 'react'
 
-// App
+// Components
 import Brewing from './Brewing.js'
 
 // Card for a single tea

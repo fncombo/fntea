@@ -16,7 +16,7 @@ import '../css/Timer.css'
 // Data
 import data from './data.json'
 
-// App
+// Componenets
 import Card from './Card.js'
 
 // Search and card gallery
