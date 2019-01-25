@@ -12,8 +12,6 @@ body {
     --background-color: hsl(0, 0%, 98%);
     --border-color: rgba(0, 0, 0, 0.1);
     --border-radius: 5px;
-    --shadow-color: rgba(0, 0, 0, 0.05);
-    --shadow-dark-color: rgba(0, 0, 0, 0.15);
     --spacing: 1.75rem;
     --speed: 0.15s;
     background: #fff;
@@ -170,7 +168,7 @@ button {
 #cards.timer-on .card.timer-off {
     pointer-events: none;
     filter: grayscale(100%);
-    opacity: 0.75;
+    opacity: 0.5;
 }
 
 .card {
@@ -203,17 +201,19 @@ button {
         content: '';
         display: block;
         position: absolute;
-        top: -2px;
-        left: -2px;
-        bottom: -2px;
-        right: -2px;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
         border-radius: var(--border-radius);
-        box-shadow: 0 calc(var(--spacing) * 0.1) calc(var(--spacing) * 0.5) var(--shadow-color);
+        box-shadow: 0 calc(var(--spacing) * 0.25) calc(var(--spacing) * 0.75) var(--shadow-color);
         transition: bottom var(--speed) ease-in-out, box-shadow var(--speed) ease-in-out;
     }
 
         .card:hover:before, .card.timer-on:before {
-            box-shadow: 0 calc(var(--spacing) * 0.25) var(--spacing) var(--shadow-dark-color);
+            box-shadow:
+                0 0 0 4px var(--darker-tea-color),
+                0 calc(var(--spacing) * 0.5) calc(var(--spacing) * 1.25) var(--shadow-dark-color);
             bottom: -7.625rem;
         }
 
@@ -419,13 +419,11 @@ button {
 /* Brewing timer */
 .timer {
     background: #fff;
-    height: calc(var(--border-radius) + 2px);
+    height: 0;
     position: absolute;
-    top: calc(100% - var(--border-radius));
-    left: -2px;
-    right: -2px;
-    border: 2px solid var(--tea-color);
-    border-top: none;
+    top: 100%;
+    left: 0;
+    right: 0;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     transition: height var(--speed) ease-in-out, top var(--speed) ease-in-out;
     overflow: hidden;
@@ -433,7 +431,7 @@ button {
 
     .card:hover .timer, .card.timer-on .timer {
         top: 100%;
-        height: calc(7.625rem + 2px);
+        height: 7.625rem;
     }
 
 .timer-body {
@@ -559,33 +557,6 @@ footer {
         color: hsl(0, 0%, 50%);
         text-align: center;
     }
-
-    footer ul {
-        width: 100%;
-        max-width: 20rem;
-        margin: 0 0 var(--spacing);
-        padding: 0;
-        border: 2px solid var(--border-color);
-        border-radius: var(--border-radius);
-        list-style: none;
-        box-shadow: 0 0.1rem 0.5rem var(--shadow-color);
-    }
-
-    footer li {
-        background: #fff;
-        padding: 0.75rem 1.25rem;
-        border-bottom: none;
-    }
-
-        footer li:first-child {
-            background: var(--border-color);
-            border: none;
-            text-align: center;
-        }
-
-        footer li:not(:last-child):not(:first-child) {
-            border-bottom: 1px solid var(--border-color);
-        }
 
 /* Size media queries */
 @media (max-width: 600px) {

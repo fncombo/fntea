@@ -117,7 +117,7 @@ export default class App extends Component {
                 <header>
                     <input
                         type="search"
-                        placeholder="Filter... pun intended"
+                        placeholder="🍵 Filter... pun intended"
                         value={searchQuery}
                         disabled={timerState}
                         onChange={event => this.search(event.target.value)}
@@ -233,11 +233,18 @@ class Card extends PureComponent {
 
         // const textColor = teaColor.isLight() ? teaColor.darken(0.75) : teaColor.lighten(2)
         const style = {
+            // Background
             '--tea-color': teaColor,
+            // Text
             '--text-color': textColor,
+            // Bars background
             '--faded-tea-color': teaColor.fade(0.75),
-            '--faded-text-color': textColor.fade(0.75),
+            // Buton hover
             '--darker-tea-color': teaColor.darken(0.25),
+            // Default shadow
+            '--shadow-color': teaColor.fade(0.75),
+            // Hover sahdow
+            '--shadow-dark-color': teaColor.darken(0.5).fade(0.25),
         }
 
         return (
