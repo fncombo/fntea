@@ -1,0 +1,104 @@
+/* Timer */
+
+.timer {
+    background: #fff;
+    height: calc(var(--border-radius) + 2px);
+    position: absolute;
+    top: calc(100% - var(--border-radius));
+    left: -2px;
+    right: -2px;
+    border: 2px solid var(--tea-color);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    transition: height var(--speed) ease-in-out, top var(--speed) ease-in-out;
+    overflow: hidden;
+}
+
+.card:hover .timer,
+.card.timer-on .timer {
+    top: 100%;
+    height: calc(7.625rem + 2px);
+}
+
+.timer-body {
+    display: flex;
+    align-items: center;
+}
+
+.timer-duration {
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+}
+
+.timer-duration:before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: calc(50% - 0.5rem);
+}
+
+.timer-duration.decrease:before {
+    border-top: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid transparent;
+    border-right: 0.5rem solid var(--text-color);
+    left: calc(50% - 0.3rem);
+}
+
+.timer-duration.increase:before {
+    border-top: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid transparent;
+    border-left: 0.5rem solid var(--text-color);
+    left: calc(50% - 0.2rem);
+}
+
+.timer-control {
+    flex: 0 1 20%;
+}
+
+.timer-control:first-child {
+    text-align: left;
+}
+
+.timer-control:last-child {
+    text-align: right;
+}
+
+.timer-content {
+    flex: 1 0 60%;
+    text-align: center;
+}
+
+.timer-content strong {
+    display: block;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+/* Media queries */
+
+@media (max-width: 600px) {
+
+    .timer {
+        background: none;
+        display: block;
+        position: relative;
+        height: auto;
+        border: none;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .timer-duration {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .timer-duration:before {
+        transform: scale(1.25);
+    }
+
+}
