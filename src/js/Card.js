@@ -156,7 +156,7 @@ export default class Card extends PureComponent {
                         {tea.organic ? 'Organic ' : ''}
                         {searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.type)} /> : tea.type}
                         {!!tea.link &&
-                            <a className="store-link" href={tea.link} target="_blank" title="Visit store page">
+                            <a className="store-link" href={tea.link} target="_blank" title="Visit store page" rel="noopener noreferrer">
                                 <span role="img" aria-label="emoji">&#128722;</span>
                             </a>
                         }
