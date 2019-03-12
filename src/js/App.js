@@ -103,7 +103,7 @@ export default class App extends Component {
                 <header>
                     <input
                         type="search"
-                        placeholder="🍵 Filter... pun intended"
+                        placeholder="Filter... pun intended"
                         value={searchQuery}
                         disabled={timerState}
                         onChange={event => this.search(event.target.value)}
@@ -111,6 +111,7 @@ export default class App extends Component {
                         autoCorrect="off"
                         autoCapitalize="off"
                         autoComplete="off"
+                        aria-label="Search Tea List"
                     />
                 </header>
                 <div id="cards" className={`timer-${timerState ? 'on' : 'off'}`}>

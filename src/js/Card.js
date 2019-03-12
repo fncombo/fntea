@@ -1,14 +1,14 @@
 // Libraries
 import ClassNames from 'classnames'
 import Color from 'color'
-import FuzzySort from 'fuzzysort'
 import ZenScroll from 'zenscroll'
 
 // React
 import React, { PureComponent, Fragment } from 'react'
 
 // Components
-import Brewing from './Brewing.js'
+import SearchableText from './SearchableText'
+import Brewing from './Brewing'
 
 // Card for a single tea
 export default class Card extends PureComponent {
@@ -65,17 +65,6 @@ export default class Card extends PureComponent {
         this.setState({
             brewingType: type,
         })
-    }
-
-    // Highlight the current search in a text string
-    highlightSearch(value) {
-        const { searchQuery } = this.props
-
-        const result = FuzzySort.single(searchQuery, value)
-
-        return {
-            __html: result ? FuzzySort.highlight(result, '<strong>', '</strong>') : value,
-        }
     }
 
     // Callback for when the timer is turned off and on
@@ -136,59 +125,53 @@ export default class Card extends PureComponent {
             'timer-off': !timerState,
         })
 
-        // Highlight search query in these texts
-        const season = searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.season)} /> : tea.season
-        const cultivar = searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.cultivar)} /> : tea.cultivar
-        const origin = searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.origin)} /> : tea.origin
-
         return (
             <div id={tea.name.replace(/\s/g, '-').toLowerCase()} className={cardClasses} style={style}>
-                <div className="card-header" onClick={this.toggleExpand}>
-                    <h1>
-                        {searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.name)} /> : tea.name}
-                    </h1>
-                    {tea.nameOther &&
-                        <h2>{(searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.nameOther)} /> : tea.nameOther)}</h2>
-                    }
-                </div>
+                <hgroup className="card-header" onClick={this.toggleExpand}>
+                    <h2><SearchableText text={tea.name} searchQuery={searchQuery} /></h2>
+                    {tea.nameOther && <h3><SearchableText text={tea.nameOther} searchQuery={searchQuery} /></h3>}
+                </hgroup>
                 <div className="card-body">
-                    <h3>
-                        {tea.organic ? 'Organic ' : ''}
-                        {searchQuery.length ? <span dangerouslySetInnerHTML={this.highlightSearch(tea.type)} /> : tea.type}
-                        {!!tea.link &&
-                            <a className="store-link" href={tea.link} target="_blank" title="Visit store page" rel="noopener noreferrer">
-                                <span role="img" aria-label="emoji">&#128722;</span>
-                            </a>
-                        }
-                        {tea.rating ?
-                            <span className="rating">
-                                {new Array(tea.rating).fill(0).map((n, i) => <span key={i}>&#x2605;</span>)}
-                                {new Array(5 - tea.rating).fill(0).map((n, i) => <Fragment key={i}>&#x2605;</Fragment>)}
-                            </span> :
-                            <span className="rating unrated">Unrated</span>
-                        }
-                    </h3>
+                    <h4>
+                        {tea.organic && 'Organic '}
+                        <SearchableText text={tea.type} searchQuery={searchQuery} />
+                    </h4>
+                    {!!tea.link &&
+                        <a className="store-link" href={tea.link} target="_blank" title="Visit store page" rel="noopener noreferrer">
+                            <span role="img" aria-label="emoji">&#128722;</span>
+                        </a>
+                    }
+                    {tea.rating > 0 ?
+                        <span className="rating" role="img" aria-label={`${tea.rating} Star Emojis`}>
+                            {/* eslint-disable-next-line */}
+                            {new Array(tea.rating).fill(0).map((n, i) => <Fragment key={i}>&#11088;</Fragment>)}
+                        </span> :
+                        <span className="rating unrated">Unrated</span>
+                    }
                     <ul className="card-list">
                         <li>
-                            <span role="img" aria-label="emoji">&#128197;</span>
+                            <span role="img" aria-label="Calendar Emoji">&#128197;</span>
                             <div>
-                                <strong>Season:</strong> {tea.season ? season : <Fragment>&mdash;</Fragment>}
+                                <strong>Season:</strong>&nbsp;
+                                {tea.season ? <SearchableText text={tea.season} searchQuery={searchQuery} /> : <Fragment>&mdash;</Fragment>}
                             </div>
                         </li>
                         <li>
-                            <span role="img" aria-label="emoji">&#127793;</span>
+                            <span role="img" aria-label="Plant Emoji">&#127793;</span>
                             <div>
-                                <strong>{tea.type === 'Tisane' ? 'Plant' : 'Cultivar'}:</strong> {tea.cultivar ? cultivar : <Fragment>&mdash;</Fragment>}
+                                <strong>{tea.type === 'Tisane' ? 'Plant' : 'Cultivar'}:</strong>&nbsp;
+                                {tea.cultivar ? <SearchableText text={tea.cultivar} searchQuery={searchQuery} /> : <Fragment>&mdash;</Fragment>}
                             </div>
                         </li>
                         <li>
-                            <span role="img" aria-label="emoji">&#127759;</span>
+                            <span role="img" aria-label="Globe Emoji">&#127759;</span>
                             <div>
-                                <strong>Origin:</strong> {tea.origin ? origin : <Fragment>&mdash;</Fragment>}
+                                <strong>Origin:</strong>&nbsp;
+                                {tea.origin ? <SearchableText text={tea.origin} searchQuery={searchQuery} /> : <Fragment>&mdash;</Fragment>}
                             </div>
                         </li>
                     </ul>
-                    <h3>Brewing Instructions</h3>
+                    <h4>Brewing Instructions</h4>
                     <ul className="card-tabs">
                         {Object.entries(tea.brewing).map(([type], i) =>
                             <li className={ClassNames({'active': brewingType === type})} onClick={() => this.changeBrewingType(type)} key={i}>

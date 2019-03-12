@@ -168,47 +168,41 @@ export default class Brewing extends PureComponent {
                     <li>
                         <strong>Amount</strong>
                         <span>{data.amount}g &#8725; 100ml</span>
-                        <div className="bar">
-                            {new Array(6).fill(0).map((n, i) => <span key={i} />)}
-                            <div></div>
-                            <div style={{ width: `${(data.amount * 10) * 2}%` }}></div>
+                        <div className="bar bar-5">
+                            <div style={{ width: `${(data.amount * 10) * 2}%` }} />
                         </div>
                     </li>
                     <li>
                         <strong>Temperature</strong>
                         <span>{data.temperature}&deg; C</span>
-                        <div className="bar">
-                            {new Array(6).fill(0).map((n, i) => <span key={i} />)}
-                            <div></div>
+                        <div />
+                        <div className="bar bar-5">
                             <div style={{ width: `${(data.temperature - 50) * 2}%` }}></div>
                         </div>
                     </li>
                     <li>
                         <strong>Infusions</strong>
                         <span>{data.infusions}</span>
-                        <div className="bar">
-                            {new Array(11).fill(0).map((n, i) => <span key={i} />)}
-                            <div></div>
+                        <div className="bar bar-10">
                             <div style={{ width: `${data.infusions * 10}%` }}></div>
                         </div>
                     </li>
                     <li>
                         <strong>Infusion Time</strong>
                         <span>{this.formatTime(data.baseDuration)} base, +{this.formatTime(data.durationIncrease)} per extra</span>
-                        <div className="bar">
-                            {new Array(4).fill(0).map((n, i) => <span key={i} />)}
-                            <div></div>
+                        <div className="bar bar-3">
                             <div style={{ width: `${(data.baseDuration / 180) * 100}%` }}></div>
                         </div>
                     </li>
                 </ul>
                 <div className="timer">
-                    <div className="card-section timer-body">
+                    <div className="timer-section timer-body">
                         <div className="timer-control">
                             <button
                                 className="timer-duration decrease"
                                 onClick={this.decreaseInfusion}
                                 disabled={infusion === 1 || !!timer}
+                                aria-label="Decrease Infusion Number"
                             />
                         </div>
                         <div className="timer-content">
@@ -225,11 +219,12 @@ export default class Brewing extends PureComponent {
                                 className="timer-duration increase"
                                 onClick={this.increaseInfusion}
                                 disabled={infusion === data.infusions || !!timer}
+                                aria-label="Increase Infusion Number"
                             />
                         </div>
                     </div>
-                    <div className="card-section">
-                        <button className="timer-start" onClick={this.toggleTimer}>
+                    <div className="timer-section">
+                        <button className="timer-start" onClick={this.toggleTimer} aria-label="Start Timer">
                             {timer ? 'Stop' : 'Start'} Brewing Timer
                         </button>
                     </div>

@@ -76,6 +76,11 @@
     line-height: 1.2;
 }
 
+.timer-section {
+    padding: 0 1.25rem 0.75rem 1.25rem;
+    text-align: center;
+}
+
 /* Media queries */
 
 @media (max-width: 600px) {

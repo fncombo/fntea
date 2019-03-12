@@ -74,21 +74,20 @@
 
 .card-body {
     background: var(--background-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     position: relative;
     overflow: visible;
     border-radius: calc(var(--border-radius) - 2px);
     transition: height 0.3s ease-in-out;
 }
 
-.card-section {
-    padding: 0 1.25rem 0.75rem 1.25rem;
-    text-align: center;
-}
-
 /* Card info list and list items */
 
 .card-list {
     background: #fff;
+    flex: 0 0 100%;
     margin: 0;
     padding: 0;
     border-top: 1px solid var(--border-color);
@@ -117,6 +116,7 @@
 
 .card-tabs {
     display: flex;
+    flex: 0 0 100%;
     justify-content: space-around;
     margin: 0;
     padding: 0;
@@ -141,7 +141,6 @@
 .card-tabs li:not(.active) {
     border-top: 1px solid transparent;
     border-bottom: 1px solid var(--border-color);
-    color: hsl(0, 0%, 50%);
     cursor: pointer;
 }
 
@@ -181,6 +180,7 @@
 
 .card-tabs-content {
     background: #fff;
+    flex: 0 0 100%;
     flex-direction: column;
     border-radius: calc(var(--border-radius) - 2px);
 }
