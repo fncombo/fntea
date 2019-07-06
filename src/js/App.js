@@ -98,22 +98,24 @@ export default class App extends Component {
         return (
             <Fragment>
                 <div className="fnheader">
-                    <h1>Tea Shelf <a href="https://fncombo.me"><span>fn</span><span>combo</span></a></h1>
+                    <h1>Tea Shelf <a href="https://fncombo.me">fncombo</a></h1>
                 </div>
-                <header>
-                    <input
-                        type="search"
-                        placeholder="Filter... pun intended"
-                        value={searchQuery}
-                        disabled={timerState}
-                        onChange={event => this.search(event.target.value)}
-                        autoFocus={window.innerWidth > 600}
-                        autoCorrect="off"
-                        autoCapitalize="off"
-                        autoComplete="off"
-                        aria-label="Search Tea List"
-                    />
-                </header>
+                <div id="header">
+                    <header>
+                        <input
+                            type="search"
+                            placeholder="Filter... pun intended"
+                            value={searchQuery}
+                            disabled={timerState}
+                            onChange={event => this.search(event.target.value)}
+                            autoFocus={window.innerWidth > 600}
+                            autoCorrect="off"
+                            autoCapitalize="off"
+                            autoComplete="off"
+                            aria-label="Search Tea List"
+                        />
+                    </header>
+                </div>
                 <div id="cards" className={`timer-${timerState ? 'on' : 'off'}`}>
                     {tea.map(tea =>
                         <Card tea={tea} searchQuery={searchQuery} key={tea.name} masterTimerToggleCallback={this.masterTimerToggleCallback} />

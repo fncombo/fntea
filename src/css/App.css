@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-html {
-    font-size: 16px;
-    scroll-behavior: smooth;
-}
-
 body {
     --background-color: hsl(0, 0%, 98%);
     --border-color: rgba(0, 0, 0, 0.1);
@@ -17,8 +12,9 @@ body {
     --speed: 0.15s;
     background: #fff;
     margin: 0;
-    font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
+    font-size: 16px;
 }
 
 .hide {
@@ -26,60 +22,49 @@ body {
     visibility: hidden !important;
 }
 
-#root {
-    overflow-x: hidden;
-}
-
 /* fn */
 
 .fnheader {
-    text-align: center;
-}
-
-.fnheader:before {
-    content: '';
-    background: linear-gradient(to right, #82b432, #50a0f0);
-    display: block;
-    width: 100%;
-    height: 2px;
+    background: linear-gradient(to right, rgba(130, 180, 50, 0.75), rgba(80, 160, 240, 0.75));
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    backdrop-filter: blur(10px);
 }
 
 .fnheader h1 {
-    margin: 16px 0;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.2;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: #000;
     font-family: inherit;
 }
 
 .fnheader h1 a {
-    margin-left: 8px;
-}
-
-.fnheader h1 a span:first-child {
-    color: #82b432;
-}
-
-.fnheader h1 a span:last-child {
-    color: #50a0f0;
+    margin-left: 0.5rem;
+    color: #fff;
 }
 
 .fnheader h1 a:hover {
-    text-decoration: none;
-}
-
-.fnheader h1 a:hover span {
     text-decoration: underline;
 }
 
 /* Header */
 
+#header {
+    width: 100%;
+    overflow: hidden;
+}
+
 header {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-gap: var(--spacing);
-    margin: var(--spacing);
+    margin: var(--spacing) var(--spacing) 0;
     justify-content: center;
     align-items: center;
     transform: translateX(50%);
