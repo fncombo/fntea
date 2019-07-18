@@ -1,7 +1,6 @@
 // Libraries
 import ClassNames from 'classnames'
 import Color from 'color'
-import ZenScroll from 'zenscroll'
 
 // React
 import React, { PureComponent, Fragment } from 'react'
@@ -49,7 +48,14 @@ export default class Card extends PureComponent {
         })
 
         if (!expanded) {
-            ZenScroll.to(document.querySelector(`#${tea.name.replace(/\s/g, '-').toLowerCase()}`))
+            // Get offset of the element from top of the document
+            const scrollTop = document.querySelector(`#${tea.name.replace(/\s/g, '-').toLowerCase()}`).getBoundingClientRect().top
+
+            // Current scroll amount, plus element offset, minus spacing for the sticky header
+            window.scrollTo({
+                top: window.pageYOffset + scrollTop - 70,
+                behavior: 'smooth',
+            })
         }
     }
 

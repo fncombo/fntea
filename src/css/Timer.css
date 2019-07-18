@@ -29,40 +29,41 @@
     width: 2rem;
     height: 2rem;
     position: relative;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.timer-duration:before {
-    content: '';
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: calc(50% - 0.5rem);
+.timer-duration svg {
+    width: 16px;
+    height: 16px;
+    display: block;
 }
 
-.timer-duration.decrease:before {
-    border-top: 0.5rem solid transparent;
-    border-bottom: 0.5rem solid transparent;
-    border-right: 0.5rem solid var(--text-color);
-    left: calc(50% - 0.3rem);
-}
-
-.timer-duration.increase:before {
-    border-top: 0.5rem solid transparent;
-    border-bottom: 0.5rem solid transparent;
-    border-left: 0.5rem solid var(--text-color);
-    left: calc(50% - 0.2rem);
+.timer-duration polygon {
+    fill: var(--text-color);
 }
 
 .timer-control {
+    display: flex;
     flex: 0 1 20%;
 }
 
 .timer-control:first-child {
-    text-align: left;
+    justify-content: flex-start;
+}
+
+.timer-control:first-child svg {
+    margin-right: 2px;
 }
 
 .timer-control:last-child {
-    text-align: right;
+    justify-content: flex-end;
+}
+
+.timer-control:last-child svg {
+    margin-left: 2px;
 }
 
 .timer-content {

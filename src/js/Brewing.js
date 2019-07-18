@@ -167,7 +167,7 @@ export default class Brewing extends PureComponent {
                 <ul className="brewing-data">
                     <li>
                         <strong>Amount</strong>
-                        <span>{data.amount}g &#8725; 100ml</span>
+                        <span>{data.amount}g</span>
                         <div className="bar bar-5">
                             <div style={{ width: `${(data.amount * 10) * 2}%` }} />
                         </div>
@@ -199,11 +199,15 @@ export default class Brewing extends PureComponent {
                     <div className="timer-section timer-body">
                         <div className="timer-control">
                             <button
-                                className="timer-duration decrease"
+                                className="timer-duration"
                                 onClick={this.decreaseInfusion}
                                 disabled={infusion === 1 || !!timer}
                                 aria-label="Decrease Infusion Number"
-                            />
+                            >
+                                <svg viewBox="0 0 16 16">
+                                    <polygon points="12,0 4,8 12,16 12,0" />
+                                </svg>
+                            </button>
                         </div>
                         <div className="timer-content">
                             <span className="timer-infusion">{Ordinal(infusion)} Infusion</span>
@@ -216,11 +220,15 @@ export default class Brewing extends PureComponent {
                         </div>
                         <div className="timer-control">
                             <button
-                                className="timer-duration increase"
+                                className="timer-duration"
                                 onClick={this.increaseInfusion}
                                 disabled={infusion === data.infusions || !!timer}
                                 aria-label="Increase Infusion Number"
-                            />
+                            >
+                                <svg viewBox="0 0 16 16">
+                                    <polygon points="4,0 12,8 4,16 4,0" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
                     <div className="timer-section">

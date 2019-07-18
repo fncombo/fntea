@@ -1,6 +1,5 @@
 // Libraries
 import FuzzySort from 'fuzzysort'
-import ZenScroll from 'zenscroll'
 
 // React
 import React, { Component, Fragment } from 'react'
@@ -32,9 +31,6 @@ export default class App extends Component {
 
         this.search = this.search.bind(this)
         this.masterTimerToggleCallback = this.masterTimerToggleCallback.bind(this)
-
-        // Calculate offset to center scrolling elements on the screen
-        ZenScroll.setup(false, (window.innerHeight - 580) / 2)
     }
 
     // Sort by rating then alphabetically
@@ -122,7 +118,7 @@ export default class App extends Component {
                     )}
                 </div>
                 <footer>
-                    <p>Carefully researched and tweaked for personal taste and preference. Actual colours may vary.</p>
+                    <p>Carefully researched and tweaked for personal taste and preference.<br />Actual colours may vary.<br />All amounts are per 100ml.</p>
                 </footer>
             </Fragment>
         )
