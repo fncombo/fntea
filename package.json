@@ -7,9 +7,9 @@
     "color": "^3.1.2",
     "fuzzysort": "^1.1.4",
     "ordinal": "^1.0.3",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1"
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "^3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,7 +18,10 @@
     "eject": "react-scripts eject"
   },
   "browserslist": [
-    ">1%",
+    ">5%",
+    "last 2 chrome versions",
+    "last 2 firefox versions",
+    "last 1 safari versions",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
