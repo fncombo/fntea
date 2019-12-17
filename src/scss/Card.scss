@@ -45,7 +45,6 @@
         transform: translate(calc(var(--spacing) / 2 * -1), calc(-7.625rem / 2));
         transition-delay: 0s, 0s, 0s, 0s, 0s;
 
-        &::before,
         &::before {
             box-shadow: 0 calc(var(--spacing) * 0.25) var(--spacing) var(--shadow-dark-color);
             bottom: -7.625rem;
