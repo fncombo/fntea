@@ -53,8 +53,9 @@ export default function Card({ tea }) {
         }
     }, [ isExpanded ])
 
-    // Whether this tea has a colour
+    // Various properties about this tea
     const isColorless = tea.color === '#000'
+    const isTisane = tea.type === 'Tisane'
 
     // Base colour
     const teaColor = color(tea.color)
@@ -120,7 +121,7 @@ export default function Card({ tea }) {
                     <Info icon="📅" title="Season">
                         {tea.season}
                     </Info>
-                    <Info icon="🌱" title={tea.type === 'Tisane' ? 'Plant' : 'Cultivar'}>
+                    <Info icon={isTisane ? '🌿' : '🌱'} title={isTisane ? 'Plant' : 'Cultivar'}>
                         {tea.cultivar}
                     </Info>
                     <Info icon="🌏" title="Origin">
