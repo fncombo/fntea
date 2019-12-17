@@ -1,5 +1,5 @@
 .fnheader {
-    background: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     height: 60px;
     display: flex;
     justify-content: center;
@@ -12,13 +12,13 @@
 
 @supports (backdrop-filter: blur(20px)) {
     .fnheader {
-        background: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.5);
         backdrop-filter: blur(20px) saturate(200%);
     }
 }
 
 .fnheader::before {
-    background: linear-gradient(to right, rgb(130, 180, 50), rgb(80, 160, 240));
+    background-image: linear-gradient(to right, rgb(130, 180, 50), rgb(80, 160, 240));
     content: '';
     display: block;
     position: absolute;
@@ -38,7 +38,7 @@
 
 .fnheader h1 a {
     margin-left: 0.25rem;
-    background: linear-gradient(to right, rgb(130, 180, 50), rgb(80, 160, 240));
+    background-image: linear-gradient(to right, rgb(130, 180, 50), rgb(80, 160, 240));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -46,7 +46,7 @@
 
 .fnheader h1 a::after {
     content: '';
-    background: linear-gradient(to right, rgb(130, 180, 50), rgb(80, 160, 240));
+    background-image: linear-gradient(to right, rgb(130, 180, 50), rgb(80, 160, 240));
     display: block;
     position: absolute;
     bottom: 0;

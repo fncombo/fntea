@@ -76,7 +76,7 @@
 
 // Card body content container
 .card-body {
-    background: var(--background-color);
+    background-color: var(--background-color);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -88,7 +88,7 @@
 
 // List of info at the start of the card
 .card-list {
-    background: #fff;
+    background-color: #fff;
     flex: 0 0 100%;
     margin: 0;
     padding: 0;
@@ -132,7 +132,7 @@
         transition-timing-function: ease-in-out;
 
         &.is-active {
-            background: #fff;
+            background-color: #fff;
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid #fff;
         }
@@ -181,7 +181,7 @@
 
 // Contaienr of the content of the tabs
 .card-tabs-content {
-    background: #fff;
+    background-color: #fff;
     flex: 0 0 100%;
     flex-direction: column;
     border-radius: calc(var(--border-radius) - 2px);

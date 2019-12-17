@@ -20,7 +20,7 @@
 
 // Divided bars to measure everything
 .bars {
-    background: var(--faded-tea-color);
+    background-color: var(--faded-tea-color);
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -54,7 +54,7 @@
     }
 
     div {
-        background: var(--tea-color);
+        background-color: var(--tea-color);
         height: 100%;
         position: absolute;
         transition: width var(--speed) ease-in-out;

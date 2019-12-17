@@ -1,6 +1,6 @@
 // Buttons
 button {
-    background: var(--tea-color);
+    background-color: var(--tea-color);
     margin: 0;
     padding: 0.375rem 0.75rem;
     border: none;
@@ -18,7 +18,7 @@ button {
     }
 
     &:not([disabled]):hover {
-        background: var(--darker-tea-color);
+        background-color: var(--darker-tea-color);
     }
 
     &:focus {
@@ -28,7 +28,7 @@ button {
 
 // Inputs
 input[type="search"] {
-    background: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.05);
     width: 100%;
     margin: 0;
     padding: 0.5rem 0.75rem;
@@ -44,7 +44,7 @@ input[type="search"] {
 
     &:hover,
     &:focus {
-        background: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.1);
         outline: none;
         color: #000;
     }
@@ -79,6 +79,6 @@ input[disabled] {
     }
 
     button:not([disabled]):hover {
-        background: var(--tea-color);
+        background-color: var(--tea-color);
     }
 }
