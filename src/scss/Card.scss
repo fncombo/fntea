@@ -1,0 +1,230 @@
+// Container for all cards
+#cards {
+    display: grid;
+    margin: var(--spacing);
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+    grid-gap: var(--spacing);
+    justify-content: center;
+}
+
+// Single card
+.card {
+    background: var(--tea-color);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid var(--tea-color);
+    border-radius: var(--border-radius);
+    z-index: 1;
+    transition-property: z-index, width, transform, filter, opacity;
+    transition-duration: 0s, var(--speed), var(--speed), var(--speed), var(--speed);
+
+    // Need to delay z-index and overflow to allow the element to collapse first
+    transition-delay: var(--speed), 0s, 0s, 0s, 0s;
+    transition-timing-function: ease-in-out;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        bottom: -2px;
+        right: -2px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 calc(var(--spacing) * 0.1) calc(var(--spacing) * 0.5) var(--shadow-color);
+        transition: bottom var(--speed) ease-in-out, box-shadow var(--speed) ease-in-out;
+    }
+
+    &:hover,
+    &.timer-on {
+        width: calc(100% + var(--spacing));
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+        z-index: 10;
+        transform: translate(calc(var(--spacing) / 2 * -1), calc(-7.625rem / 2));
+        transition-delay: 0s, 0s, 0s, 0s, 0s;
+
+        &::before,
+        &::before {
+            box-shadow: 0 calc(var(--spacing) * 0.25) var(--spacing) var(--shadow-dark-color);
+            bottom: -7.625rem;
+        }
+    }
+
+    .timer-on &.timer-off {
+        pointer-events: none;
+        filter: grayscale(100%);
+        opacity: 0.5;
+    }
+
+    hgroup {
+        margin: 0;
+        padding: 0.75rem 0.25rem;
+        position: relative;
+        color: var(--text-color);
+        text-align: center;
+    }
+
+    a {
+        transition: transform var(--speed) ease-in-out;
+
+        &:hover {
+            transform: scale(1.333);
+        }
+    }
+}
+
+// Card body content container
+.card-body {
+    background: var(--background-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+    border-radius: calc(var(--border-radius) - 2px);
+    transition: height 0.3s ease-in-out;
+}
+
+// List of info at the start of the card
+.card-list {
+    background: #fff;
+    flex: 0 0 100%;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    list-style: none;
+
+    li {
+        display: flex;
+
+        & > span {
+            padding: 0.75rem;
+        }
+    }
+
+    div {
+        flex: 1 0 auto;
+        padding: 0.75rem 1.25rem 0.75rem 0;
+    }
+
+    li:not(:last-child) div:last-child {
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+
+// Tabs to switch between brewing styles
+.card-tabs {
+    display: flex;
+    flex: 0 0 100%;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        flex: 1 1 auto;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        transition-property: background, border-color, color;
+        transition-duration: var(--speed);
+        transition-timing-function: ease-in-out;
+
+        &.is-active {
+            background: #fff;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid #fff;
+        }
+
+        &:not(.is-active) {
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+
+            &:hover {
+                color: #000;
+            }
+        }
+
+        .card.timer-on &:not(.is-active),
+        .card.timer-on &:not(.is-active):hover {
+            color: hsl(0, 0%, 75%);
+            cursor: default;
+        }
+
+        &:only-child {
+            border-left: none !important;
+            border-right: none !important;
+            border-radius: 0 !important;
+        }
+
+        &:first-child {
+            border-right: 1px solid var(--background-color);
+            border-top-right-radius: var(--border-radius);
+
+            &.is-active {
+                border-right-color: var(--border-color);
+            }
+        }
+
+        &:last-child {
+            border-left: 1px solid var(--background-color);
+            border-top-left-radius: var(--border-radius);
+
+            &.is-active {
+                border-left-color: var(--border-color);
+            }
+        }
+    }
+}
+
+// Contaienr of the content of the tabs
+.card-tabs-content {
+    background: #fff;
+    flex: 0 0 100%;
+    flex-direction: column;
+    border-radius: calc(var(--border-radius) - 2px);
+
+    .card:hover &,
+    .card.timer-on & {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+}
+
+// Mobile
+@media (max-width: 600px) {
+    #cards {
+        margin: 0 var(--spacing) var(--spacing);
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .card {
+        &:hover,
+        &.timer-on {
+            width: 100%;
+            transform: none;
+            z-index: 1;
+            border-radius: var(--border-radius);
+        }
+
+        &::before {
+            display: none;
+        }
+
+        & hgroup {
+            padding: calc(var(--spacing) * 0.75);
+            cursor: pointer;
+        }
+    }
+
+    .card-body {
+        height: 0;
+        overflow: hidden;
+
+        .card.is-expanded & {
+            height: 38.42857142857143rem;
+        }
+    }
+}

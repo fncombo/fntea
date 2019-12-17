@@ -1,0 +1,63 @@
+// Grid of brewing details
+.brewing {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.25rem;
+    margin: 0;
+    padding: 1.25rem 1.25rem;
+    list-style: none;
+    text-align: center;
+
+    li {
+        display: flex;
+        flex-direction: column;
+
+        &:last-child {
+            grid-area: auto / span 3;
+        }
+    }
+}
+
+// Divided bars to measure everything
+.bars {
+    background: var(--faded-tea-color);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 5px;
+    margin-top: 0.25rem;
+    position: relative;
+    border-radius: 2.5px;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        background-size: calc(100% + 2px) 100%;
+    }
+
+    &.is-3::before {
+        background-image: repeating-linear-gradient(to right, transparent, transparent calc(33.333% - 2px), #fff calc(33.333% - 2px), #fff 33.333%);
+    }
+
+    &.is-5::before {
+        background-image: repeating-linear-gradient(to right, transparent, transparent calc(20% - 2px), #fff calc(20% - 2px), #fff 20%);
+    }
+
+    &.is-10::before {
+        background-image: repeating-linear-gradient(to right, transparent, transparent calc(10% - 2px), #fff calc(10% - 2px), #fff 10%);
+    }
+
+    div {
+        background: var(--tea-color);
+        height: 100%;
+        position: absolute;
+        transition: width var(--speed) ease-in-out;
+        z-index: 2;
+    }
+}

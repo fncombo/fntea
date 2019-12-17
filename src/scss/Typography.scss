@@ -1,0 +1,65 @@
+// Headings
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.2;
+
+    hgroup &:last-child {
+        margin: 0.75rem 0;
+    }
+}
+
+h3 {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+h4 {
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+
+    a {
+        margin: -0.75rem -1.25rem 0 0;
+        padding: 0.75rem 1.25rem;
+        float: right;
+    }
+}
+
+// Text
+strong {
+    font-weight: 600;
+}
+
+// Links
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+}
+
+// Rating stars
+.rating {
+    padding: 0 1.25rem;
+
+    &.is-unrated {
+        color: #000;
+    }
+}
+
+// Mobile
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}

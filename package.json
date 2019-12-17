@@ -1,29 +1,55 @@
 {
   "name": "fntea",
-  "version": "0.1.0",
+  "homepage": "https://tea.fncombo.me",
+  "description": "Colourful card gallery of teas and tisanes.",
+  "version": "1.0.0",
   "private": true,
+  "license": "ISC",
+  "author": {
+    "name": "fncombo",
+    "url": "https://fncombo.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fncombo/fntea"
+  },
   "dependencies": {
     "classnames": "^2.2.6",
     "color": "^3.1.2",
-    "fuzzysort": "^1.1.4",
+    "node-sass": "^4.13.0",
+    "nosleep.js": "^0.9.0",
     "ordinal": "^1.0.3",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-scripts": "^3.2.0"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "^3.3.0",
+    "react-snap": "^1.23.0",
+    "react-string-replace": "^0.4.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "browserslist": [
     ">5%",
-    "last 2 chrome versions",
-    "last 2 firefox versions",
-    "last 1 safari versions",
+    "last 3 chrome versions",
+    "last 3 firefox versions",
+    "last 2 safari versions",
+    "ios > 12",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "stylelint": "^12.0.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-scss": "^3.12.1"
+  }
 }

@@ -1,9 +1,21 @@
 // React
 import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './js/App'
-import registerServiceWorker from './registerServiceWorker'
+import { render, hydrate } from 'react-dom'
 
-// Rendering
-ReactDOM.render(<App />, document.getElementById('root'))
-registerServiceWorker()
+// Components
+import App from 'js/components/App'
+
+// Service worker
+import * as serviceWorker from 'serviceWorker'
+
+// Root element of the app
+const rootEl = document.getElementById('root')
+
+// Hydrate server rendered HTML or render from scratch
+if (rootEl.hasChildNodes()) {
+    hydrate(<App />, rootEl)
+} else {
+    render(<App />, rootEl)
+}
+
+serviceWorker.register()

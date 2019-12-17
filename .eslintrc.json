@@ -1,47 +1,87 @@
 {
     "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "node": true
+        "browser": true
     },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
+    "extends": [
+        "airbnb",
+        "airbnb/hooks"
     ],
+    "parser": "babel-eslint",
     "rules": {
-        "indent": [
-            "error",
-            4
+        // Changed rules
+        "semi": [ "error", "never" ],
+        "indent": [ "error", 4 ],
+        "max-len": [ "error", 120 ],
+        "arrow-parens": [ "error", "as-needed" ],
+        "array-bracket-spacing": [ "error", "always" ],
+        "object-curly-newline": [ "error", {
+            "consistent": true
+        } ],
+        "operator-linebreak": [ "error", "before", {
+            "overrides": {
+                "&&": "after"
+            }
+        } ],
+        "comma-dangle": [ "error", {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "never"
+        } ],
+        "no-multiple-empty-lines": [
+            "error", {
+                "max": 1,
+                "maxBOF": 0,
+                "maxEOF": 1
+            }
         ],
-        "linebreak-style": [
-            "error",
-            "unix"
+        "padding-line-between-statements": [
+            "error", {
+                "blankLine": "always",
+                "prev": "*",
+                "next": "*"
+            }, {
+                "blankLine": "any",
+                "prev": [
+                    "const",
+                    "let",
+                    "import"
+                ],
+                "next": [
+                    "const",
+                    "let",
+                    "import"
+                ]
+            }
         ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ],
-        "comma-dangle": [
-            "error",
-            "always-multiline"
-        ],
-        "eqeqeq": [
-            "error",
-            "always"
-        ],
+
+        // Disabled rules
+        "implicit-arrow-linebreak": 0,
+        "symbol-description": 0,
+        "function-paren-newline": 0,
+        "no-restricted-syntax": 0,
+        "no-continue": 0,
         "no-console": 0,
-        "no-unused-vars": 0
+        "no-alert": 0,
+
+        "import/no-unresolved": 0,
+        "import/no-extraneous-dependencies": 0,
+
+        "react/jsx-indent": [ "error", 4 ],
+        "react/jsx-indent-props": [ "error", 4 ],
+        "react/jsx-filename-extension": 0,
+        "react/jsx-wrap-multilines": 0,
+        "react/jsx-one-expression-per-line": 0,
+        "react/jsx-props-no-spreading": 0,
+        "react/jsx-curly-newline": 0,
+        "react/prop-types": 0,
+
+        "jsx-a11y/no-autofocus": 0,
+        "jsx-a11y/no-noninteractive-element-interactions": 0,
+        "jsx-a11y/no-static-element-interactions": 0,
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/control-has-associated-label": 0,
+        "jsx-a11y/mouse-events-have-key-events": 0
     }
 }

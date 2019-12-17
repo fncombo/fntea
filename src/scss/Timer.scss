@@ -1,0 +1,116 @@
+// Timer container
+.timer {
+    background: #fff;
+    height: calc(var(--border-radius) + 2px);
+    position: absolute;
+    top: calc(100% - var(--border-radius));
+    left: -2px;
+    right: -2px;
+    border: 2px solid var(--tea-color);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    transition: height var(--speed) ease-in-out, top var(--speed) ease-in-out;
+    overflow: hidden;
+
+    .card:hover &,
+    .card.timer-on & {
+        top: 100%;
+        height: calc(7.625rem + 2px);
+    }
+}
+
+.timer-body {
+    display: flex;
+    align-items: center;
+}
+
+.timer-duration {
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Timer buttons and their icons
+.timer-control {
+    display: flex;
+    flex: 0 1 20%;
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+        display: block;
+    }
+
+    &:first-child {
+        justify-content: flex-start;
+
+        svg {
+            margin-right: 2px;
+        }
+    }
+
+    &:last-child {
+        justify-content: flex-end;
+
+        svg {
+            margin-left: 2px;
+        }
+    }
+
+    polygon {
+        fill: var(--text-color);
+    }
+}
+
+.timer-content {
+    flex: 1 0 60%;
+    text-align: center;
+
+    strong {
+        display: block;
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+}
+
+.timer-section {
+    padding: 0 1.25rem 0.75rem 1.25rem;
+    text-align: center;
+}
+
+// Mobile
+@media (max-width: 600px) {
+    .timer {
+        background: none;
+        display: block;
+        position: relative;
+        height: auto;
+        border: none;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .timer-duration {
+        width: 2.5rem;
+        height: 2.5rem;
+
+        &::before {
+            transform: scale(1.25);
+        }
+    }
+}

@@ -1,0 +1,85 @@
+// Tiniest reset ever
+* {
+    box-sizing: border-box;
+}
+
+body {
+    --background-color: hsl(0, 0%, 98%);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-radius: 5px;
+    --spacing: 1.75rem;
+    --speed: 0.15s;
+
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+// Header
+#header {
+    width: 100%;
+    overflow: hidden;
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: var(--spacing);
+    margin: var(--spacing) var(--spacing) 0;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(50%);
+}
+
+// Footer
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: var(--spacing);
+}
+
+footer p {
+    margin: 0;
+    color: hsl(0, 0%, 50%);
+    text-align: center;
+    line-height: 1.75;
+}
+
+// No search results message
+#no-search-results {
+    margin: var(--spacing);
+    text-align: center;
+    font-style: italic;
+    font-size: 1.25rem;
+
+    & + #cards {
+        display: none;
+    }
+}
+
+// Mobile
+@media (max-width: 600px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        --spacing: 1rem;
+    }
+
+    header {
+        grid-template-columns: repeat(1, 1fr);
+        margin: 16px var(--spacing);
+        transform: none;
+    }
+}
+
+// Imports for other global styles
+@import "fnheader.scss";
+@import "Inputs.scss";
+@import "Typography.scss";
