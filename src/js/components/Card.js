@@ -19,12 +19,12 @@ import 'scss/Card.scss'
 /**
  * Info item in the card details list. Search text is highlighted and empty values are replaced with a dash.
  */
-const Info = ({ icon, title, children }) =>
+const Info = ({ icon, title, children: text }) =>
     <li>
         <span role="img" aria-label={`${title} Icon`}>{icon}</span>
         <div>
             <strong>{title}:</strong>{' '}
-            {children ? <SearchableText>{children}</SearchableText> : <>&mdash;</>}
+            {text ? <SearchableText>{text}</SearchableText> : <>&mdash;</>}
         </div>
     </li>
 
