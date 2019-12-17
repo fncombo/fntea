@@ -53,6 +53,9 @@ export default function Card({ tea }) {
         }
     }, [ isExpanded ])
 
+    // Whether this tea has a colour
+    const isColorless = tea.color === '#000'
+
     // Base colour
     const teaColor = color(tea.color)
 
@@ -87,10 +90,11 @@ export default function Card({ tea }) {
     // Card classes
     const classes = classNames('card', activeTimer === tea.name ? 'timer-on' : 'timer-off', {
         'is-expanded': isExpanded,
+        'is-colorless': isColorless,
     })
 
     return (
-        <div className={classes} style={style} ref={ref}>
+        <div className={classes} style={isColorless ? null : style} ref={ref}>
             <hgroup onClick={() => setIsExpanded(!isExpanded)}>
                 <SearchableText as="h2">{tea.name}</SearchableText>
                 {tea.altName && <SearchableText as="h3">{tea.altName}</SearchableText>}

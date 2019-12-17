@@ -9,7 +9,14 @@
 
 // Single card
 .card {
-    background: var(--tea-color);
+    --tea-color: rgb(212, 212, 212);
+    --text-color: hsl(0, 0%, 20%);
+    --faded-tea-color: rgba(212, 212, 212, 0.25);
+    --darker-tea-color: hsl(0, 0%, 60%);
+    --shadow-color: rgba(212, 212, 212, 0.25);
+    --shadow-dark-color: hsla(0, 0%, 20%, 0.25);
+
+    background-color: var(--tea-color);
     display: flex;
     position: relative;
     flex-direction: column;
@@ -23,6 +30,10 @@
     // Need to delay z-index and overflow to allow the element to collapse first
     transition-delay: var(--speed), 0s, 0s, 0s, 0s;
     transition-timing-function: ease-in-out;
+
+    &.is-colorless {
+        background-image: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 20px, transparent 20px, transparent 40px);
+    }
 
     &::before {
         content: '';

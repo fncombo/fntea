@@ -602,7 +602,7 @@
     {
         "type": "Green",
         "organic": false,
-        "color": "#d4d4d4",
+        "color": "#000",
         "name": "Uji Miyabi Sencha",
         "altName": false,
         "season": "Shincha 2014",
@@ -637,7 +637,7 @@
     {
         "type": "Green",
         "organic": false,
-        "color": "#d4d4d4",
+        "color": "#000",
         "name": "Sae Midori Sencha",
         "altName": false,
         "season": "Shincha 2014",
@@ -672,7 +672,7 @@
     {
         "type": "Green",
         "organic": true,
-        "color": "#d4d4d4",
+        "color": "#000",
         "name": "Oku Yutaka Sencha",
         "altName": false,
         "season": "Shincha 2015",
@@ -707,7 +707,7 @@
     {
         "type": "Green",
         "organic": true,
-        "color": "#d4d4d4",
+        "color": "#000",
         "name": "Uji Asamushi Aio Sencha",
         "altName": false,
         "season": "Shincha 2015",
