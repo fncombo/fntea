@@ -5,11 +5,11 @@
         "color": "#e3dc65",
         "name": "Dragon Well",
         "altName": "Long Jing",
-        "season": "28th March 2017",
-        "cultivar": "Xiao Ye",
-        "origin": "Xinchang, Zhejiang, China",
+        "season": "23rd March 2019",
+        "cultivar": "Qun Ti Zhong",
+        "origin": "Shaoxing, Zhejiang, China",
         "rating": 5,
-        "updated": "13/01/2018",
+        "updated": "17/12/2019",
         "link": "https://meileaf.com/tea/imperial-green-pre-qing-ming/",
         "brewing": [
             {
@@ -273,14 +273,49 @@
         "type": "White",
         "organic": false,
         "color": "#e4c93d",
-        "name": "White Peony",
+        "name": "White Peony - Open Pluck",
         "altName": "Bai Mu Dan",
-        "season": "Spring 2016",
-        "cultivar": "Da Bai",
-        "origin": "Taimu, Fujian, China",
+        "season": "April 2019",
+        "cultivar": "Fuding Da Bai",
+        "origin": "Fuding, Fujian, China",
+        "rating": 5,
+        "updated": "17/12/2019",
+        "link": "https://meileaf.com/tea/white-peony/",
+        "brewing": [
+            {
+                "displayName": "Western",
+                "temperature": 85,
+                "amount": 0.5,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 5
+            },
+            {
+                "displayName": "Gong Fu",
+                "temperature": 85,
+                "amount": 3.5,
+                "duration": {
+                    "base": 20,
+                    "increase": 10
+                },
+                "maxInfusions": 7
+            }
+        ]
+    },
+    {
+        "type": "White",
+        "organic": false,
+        "color": "#e4c93d",
+        "name": "White Peony - Fine Pluck",
+        "altName": "Fuding Bai Mu Dan",
+        "season": "March 2019",
+        "cultivar": "Fuding Da Bai",
+        "origin": "Fuding, Fujian, China",
         "rating": 5,
         "updated": "13/01/2018",
-        "link": "https://meileaf.com/tea/white-peony/",
+        "link": "https://meileaf.com/tea/white-peony-fine-pluck/",
         "brewing": [
             {
                 "displayName": "Western",
@@ -534,12 +569,12 @@
         "organic": false,
         "color": "#dde35c",
         "name": "Iron Goddess",
-        "altName": "Gan De Zheng Wei Tie Guan Yin",
-        "season": "September 2017",
-        "cultivar": "Tie Guan Yin",
-        "origin": "Gan De, Anxi, Fujian, China",
+        "altName": "Zheng Wei Tie Guan Yin",
+        "season": "April 2019",
+        "cultivar": "Guan Yin",
+        "origin": "Xiping, Fujian, China",
         "rating": 4,
-        "updated": "16/05/2018",
+        "updated": "17/12/2018",
         "link": "https://meileaf.com/tea/superior-iron-goddess/",
         "brewing": [
             {
@@ -911,6 +946,41 @@
                     "increase": 5
                 },
                 "maxInfusions": 10
+            }
+        ]
+    },
+    {
+        "type": "Green",
+        "organic": false,
+        "color": "#000",
+        "name": "Fukamushi Saeakari Sencha",
+        "altName": false,
+        "season": "April 2019",
+        "cultivar": "Saeakari",
+        "origin": "Kirishima, Kagoshima, Japan",
+        "rating": 4,
+        "updated": "17/12/2019",
+        "link": "https://meileaf.com/tea/fukamushi-saeakari-sencha/",
+        "brewing": [
+            {
+                "displayName": "Western",
+                "temperature": 70,
+                "amount": 1,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 2
+            },
+            {
+                "displayName": "Gong Fu",
+                "temperature": 70,
+                "amount": 4.5,
+                "duration": {
+                    "base": 45,
+                    "increase": 10
+                },
+                "maxInfusions": 5
             }
         ]
     }
