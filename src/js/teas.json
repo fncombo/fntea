@@ -388,7 +388,7 @@
         "link": "https://innatureteas.com/shop/lotus-tea/lotus-tea",
         "brewing": [
             {
-                "displayName": "Gong Fu",
+                "displayName": "Tisane",
                 "temperature": 90,
                 "amount": 3,
                 "duration": {
@@ -518,7 +518,7 @@
         "link": false,
         "brewing": [
             {
-                "displayName": "Western",
+                "displayName": "Tisane",
                 "temperature": 90,
                 "amount": 3,
                 "duration": {
