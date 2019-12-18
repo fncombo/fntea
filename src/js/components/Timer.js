@@ -18,13 +18,13 @@ const NO_SLEEP = new NoSleep()
 /**
  * Timer section for a card.
  */
-export default function Timer({ teaName, data }) {
+export default function Timer({ tea, data }) {
     const { activeTimer, setActiveTimer } = useContext(GlobalState)
     const [ currentInfusion, setCurrentInfusion ] = useState(1)
     const [ timerValue, setTimerValue ] = useState(data.duration.base)
 
     // Whether this particular timer is the active one
-    const isTimerActive = activeTimer === teaName
+    const isTimerActive = activeTimer?.name === tea.name
 
     // Status of the increment/decrement infusion buttons
     const canDecrement = currentInfusion === 1 || isTimerActive
@@ -52,7 +52,7 @@ export default function Timer({ teaName, data }) {
         }
 
         setTimerValue(data.duration.base + (data.duration.increase * (currentInfusion - 1)))
-    }, [ currentInfusion, data.duration.base, data.duration.increase, isTimerActive, setTimerValue ])
+    }, [ isTimerActive, data.duration.base, data.duration.increase, currentInfusion ])
 
     // Start this timer when it becomes active and clear it when it becomes inactive
     useEffect(() => {
@@ -69,7 +69,7 @@ export default function Timer({ teaName, data }) {
 
             clearInterval(id)
         }
-    }, [ currentInfusion, isTimerActive, setActiveTimer, teaName, timerValue ])
+    }, [ isTimerActive ])
 
     // Configure button text depending on timer state and value
     let buttonText = 'Start Brewing Timer'
@@ -118,7 +118,7 @@ export default function Timer({ teaName, data }) {
                 <button
                     type="button"
                     className="timer-start"
-                    onClick={() => setActiveTimer(isTimerActive ? null : teaName)}
+                    onClick={() => setActiveTimer(isTimerActive ? null : { ...tea, timerValue })}
                 >
                     {buttonText}
                 </button>

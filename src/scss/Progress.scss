@@ -1,0 +1,22 @@
+@keyframes progress {
+    from {
+        top: 100%;
+    }
+
+    to {
+        top: 60px;
+    }
+}
+
+.progress {
+    position: fixed;
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    animation-name: progress;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    backdrop-filter: blur(5px);
+}

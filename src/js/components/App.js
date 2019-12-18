@@ -3,6 +3,7 @@ import React, { useState, useReducer } from 'react'
 
 // Components
 import Card from 'js/components/Card'
+import Progress from 'js/components/Progress'
 
 // Helpers
 import { GlobalState, stateReducer, INITIAL_STATE } from 'js/helpers/App'
@@ -48,6 +49,7 @@ export default function App() {
                 <p>Actual colours may vary.</p>
                 <p>All amounts are per 100ml.</p>
             </footer>
+            <Progress />
         </GlobalState.Provider>
     )
 }

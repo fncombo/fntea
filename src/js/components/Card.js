@@ -37,6 +37,9 @@ export default function Card({ tea }) {
     const [ isExpanded, setIsExpanded ] = useState(false)
     const ref = useRef()
 
+    // Whether this particular timer is the active one
+    const isTimerActive = activeTimer && activeTimer.name === tea.name
+
     // Scroll window to the top of the card when it's expanded on mobile
     useEffect(() => {
         // Only on mobile
@@ -89,7 +92,7 @@ export default function Card({ tea }) {
     }
 
     // Card classes
-    const classes = classNames('card', activeTimer === tea.name ? 'timer-on' : 'timer-off', {
+    const classes = classNames('card', isTimerActive ? 'timer-on' : 'timer-off', {
         'is-expanded': isExpanded,
         'is-colorless': isColorless,
     })
@@ -143,7 +146,7 @@ export default function Card({ tea }) {
                 </ul>
                 <div className="card-tabs-content">
                     <Brewing data={tea.brewing[currentBrewing]} />
-                    <Timer teaName={tea.name} data={tea.brewing[currentBrewing]} />
+                    <Timer tea={tea} data={tea.brewing[currentBrewing]} />
                 </div>
             </div>
         </div>
