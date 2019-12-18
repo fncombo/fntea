@@ -53,7 +53,7 @@ function filterTeas(teas, searchQuery) {
 
     return teas.filter(tea =>
         SEARCH_KEYS.some(key =>
-            (tea[key] ? tea[key].toUpperCase().includes(normalizedSearch) : false)
+            !!tea[key]?.toUpperCase?.().includes(normalizedSearch)
         )
     )
 }
