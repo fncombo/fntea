@@ -11,7 +11,8 @@ const GlobalState = createContext()
 const SEARCH_KEYS = [
     'type',
     'name',
-    'nameAlt',
+    'altName',
+    'season',
     'cultivar',
     'origin',
 ]
