@@ -4,6 +4,7 @@ import React, { useContext, useState, useRef, useEffect } from 'react'
 // Libraries
 import classNames from 'classnames'
 import color from 'color'
+import debounce from 'debounce'
 
 // Components
 import SearchableText from 'js/components/SearchableText'
@@ -12,6 +13,7 @@ import Timer from 'js/components/Timer'
 
 // Helpers
 import { GlobalState } from 'js/helpers/App'
+import { calculateStyle } from 'js/helpers/functions'
 
 // Style
 import 'scss/Card.scss'
@@ -32,10 +34,11 @@ const Info = ({ icon, title, children: text }) =>
  * Card for a single tea.
  */
 export default function Card({ tea }) {
-    const { activeTimer } = useContext(GlobalState)
+    const { activeTimer, cardsRef } = useContext(GlobalState)
     const [ currentBrewing, setCurrentBrewing ] = useState(0)
     const [ isExpanded, setIsExpanded ] = useState(false)
-    const ref = useRef()
+    const [ style, setStyle ] = useState(null)
+    const cardRef = useRef()
 
     // Whether this particular timer is the active one
     const isTimerActive = activeTimer && activeTimer.name === tea.name
@@ -50,11 +53,38 @@ export default function Card({ tea }) {
         // Current scroll amount, plus element offset from top of the document, minus spacing for the sticky header
         if (isExpanded) {
             window.scrollTo({
-                top: window.pageYOffset + ref.current.getBoundingClientRect().top - 70,
+                top: window.pageYOffset + cardRef.current.getBoundingClientRect().top - 70,
                 behavior: 'smooth',
             })
         }
     }, [ isExpanded ])
+
+    // Center the card when the timer starts and restore the position when it ends
+    useEffect(() => {
+        // Only on desktop when the timer is active
+        if (window.innerWidth < 600 || !isTimerActive) {
+            return undefined
+        }
+
+        // Apply the style initially
+        setStyle(calculateStyle(cardsRef, cardRef))
+
+        // Add event listeners to correctly apply the style at all times
+        const debounced = debounce(() => setStyle(calculateStyle(cardsRef, cardRef)), 150)
+
+        window.addEventListener('scroll', debounced)
+
+        window.addEventListener('resize', debounced)
+
+        // Remove the style and event listeners when timer ends
+        return () => {
+            setStyle(null)
+
+            window.removeEventListener('scroll', debounced)
+
+            window.removeEventListener('resize', debounced)
+        }
+    }, [ isTimerActive, cardsRef ])
 
     // Various properties about this tea
     const isColorless = tea.color === '#000'
@@ -76,7 +106,7 @@ export default function Card({ tea }) {
     }
 
     // Per-card style which includes unique colours for different UI elements
-    const style = {
+    const colorStyle = isColorless ? null : {
         // Background
         '--tea-color': teaColor,
         // Text
@@ -88,7 +118,7 @@ export default function Card({ tea }) {
         // Default shadow
         '--shadow-color': teaColor.fade(0.75),
         // Hover shadow
-        '--shadow-dark-color': teaColor.darken(0.75).fade(0.75),
+        '--shadow-dark-color': teaColor.saturate(1.5).darken(0.5).fade(0.75),
     }
 
     // Card classes
@@ -98,7 +128,7 @@ export default function Card({ tea }) {
     })
 
     return (
-        <div className={classes} style={isColorless ? null : style} ref={ref}>
+        <div className={classes} style={{ ...style, ...colorStyle }} ref={cardRef}>
             <hgroup onClick={() => setIsExpanded(!isExpanded)}>
                 <SearchableText as="h2">{tea.name}</SearchableText>
                 {tea.altName && <SearchableText as="h3">{tea.altName}</SearchableText>}

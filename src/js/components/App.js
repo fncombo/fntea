@@ -1,5 +1,5 @@
 // React
-import React, { useState, useReducer } from 'react'
+import React, { useState, useReducer, useRef } from 'react'
 
 // Components
 import Card from 'js/components/Card'
@@ -17,9 +17,10 @@ import 'scss/App.scss'
 export default function App() {
     const [ activeTimer, setActiveTimer ] = useState(null)
     const [ { teas, searchQuery }, setSearchQuery ] = useReducer(stateReducer, INITIAL_STATE)
+    const cardsRef = useRef()
 
     return (
-        <GlobalState.Provider value={{ activeTimer, setActiveTimer, searchQuery }}>
+        <GlobalState.Provider value={{ activeTimer, setActiveTimer, searchQuery, cardsRef }}>
             <div className="fnheader">
                 <h1>Tea Shelf <a href="https://fncombo.me">fncombo</a></h1>
             </div>
@@ -39,7 +40,7 @@ export default function App() {
                 </header>
             </div>
             {!teas.length && <div id="no-search-results">What kind of tea is that?</div>}
-            <div id="cards" className={`timer-${activeTimer ? 'on' : 'off'}`}>
+            <div id="cards" className={`timer-${activeTimer ? 'on' : 'off'}`} ref={cardsRef}>
                 {teas.map(tea =>
                     <Card tea={tea} key={tea.name} />
                 )}
