@@ -11,19 +11,22 @@ import { GlobalState } from 'js/helpers/App'
 import 'scss/SearchableText.scss'
 
 /**
+ * Callback to replace found search matches with a highlight tag.
+ */
+const searchReplacer = (match, i) =>
+    <strong className="search-highlight" key={match + i}>
+        {match}
+    </strong>
+
+/**
  * Text with the search query highlighted.
  */
-export default function SearchableText({ as: Element = 'span', children: text, ...rest }) {
+export default function SearchableText({ as: Element = null, children: text, ...rest }) {
     const { searchQuery } = useContext(GlobalState)
 
-    return (
-        <Element {...rest}>
-            {searchQuery
-                ? reactStringReplace(text, searchQuery, (match, i) =>
-                    <strong className="search-highlight" key={match + i}>{match}</strong>
-                )
-                : text
-            }
-        </Element>
-    )
+    const highlightedText = searchQuery
+        ? reactStringReplace(text, searchQuery, searchReplacer)
+        : text
+
+    return Element ? <Element {...rest}>{highlightedText}</Element> : highlightedText
 }
