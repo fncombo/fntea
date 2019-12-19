@@ -42,16 +42,11 @@ export default function Timer({ tea, data }) {
         setTimerValue(data.duration.base + (data.duration.increase * (currentInfusion - 1)))
     }, [ currentInfusion, data.maxInfusions, data.duration.base, data.duration.increase ])
 
-    // Immediately reduce the timer value by 1 second on click to make it feel responsive and
-    // reset the timer value when it turns off
+    // Reset the timer value when it turns off
     useEffect(() => {
-        if (isTimerActive) {
-            setTimerValue(currentTimerValue => currentTimerValue - 1)
-
-            return
+        if (!isTimerActive) {
+            setTimerValue(data.duration.base + (data.duration.increase * (currentInfusion - 1)))
         }
-
-        setTimerValue(data.duration.base + (data.duration.increase * (currentInfusion - 1)))
     }, [ isTimerActive, data.duration.base, data.duration.increase, currentInfusion ])
 
     // Start this timer when it becomes active and clear it when it becomes inactive
@@ -74,10 +69,8 @@ export default function Timer({ tea, data }) {
     // Configure button text depending on timer state and value
     let buttonText = 'Start Brewing Timer'
 
-    if (isTimerActive && timerValue >= 0) {
-        buttonText = 'Stop Brewing Timer'
-    } else if (isTimerActive && timerValue < 0) {
-        buttonText = 'Okay'
+    if (isTimerActive) {
+        buttonText = timerValue > 0 ? 'Stop Brewing Timer' : 'Okay'
     }
 
     return (
@@ -99,7 +92,7 @@ export default function Timer({ tea, data }) {
                         {ordinal(currentInfusion)} infusion
                     </span>
                     <strong className="timer-clock">
-                        {timerValue < 0 ? 'Done' : formatSeconds(timerValue)}
+                        {timerValue > 0 ? formatSeconds(timerValue) : 'Done'}
                     </strong>
                 </div>
                 <div className="timer-control">
