@@ -20,7 +20,7 @@ function formatSeconds(seconds, useShortFormat) {
 /**
  * Calculate the X and Y transform values for a card in order to move it to the middle of the window.
  */
-function calculateStyle(cardsRef, cardRef) {
+function calculateStyle(cardsRef, cardRef, timerRef) {
     // Final calculated style of the cards container
     const cardsStyle = window.getComputedStyle(cardsRef.current)
 
@@ -50,7 +50,7 @@ function calculateStyle(cardsRef, cardRef) {
 
     // Total height of the card when it is expanded
     const cardHeight = cardRef.current.getBoundingClientRect().height
-        + cardRef.current.querySelector('.timer').getBoundingClientRect().height
+        + timerRef.current.getBoundingClientRect().height
 
     // Calculate the total offset from the top of the card and by how much to move it for it to be centered
     const topCardsOffset = cardsRef.current.getBoundingClientRect().top

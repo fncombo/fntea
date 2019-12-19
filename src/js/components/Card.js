@@ -39,6 +39,7 @@ export default function Card({ tea }) {
     const [ isExpanded, setIsExpanded ] = useState(false)
     const [ style, setStyle ] = useState(null)
     const cardRef = useRef()
+    const timerRef = useRef()
 
     // Whether this particular timer is the active one
     const isTimerActive = activeTimer && activeTimer.name === tea.name
@@ -67,10 +68,10 @@ export default function Card({ tea }) {
         }
 
         // Apply the style initially
-        setStyle(calculateStyle(cardsRef, cardRef))
+        setStyle(calculateStyle(cardsRef, cardRef, timerRef))
 
         // Add event listeners to correctly apply the style at all times
-        const debounced = debounce(() => setStyle(calculateStyle(cardsRef, cardRef)), 150)
+        const debounced = debounce(() => setStyle(calculateStyle(cardsRef, cardRef, timerRef)), 150)
 
         window.addEventListener('scroll', debounced)
 
@@ -176,7 +177,7 @@ export default function Card({ tea }) {
                 </ul>
                 <div className="card-tabs-content">
                     <Brewing data={tea.brewing[currentBrewing]} />
-                    <Timer tea={tea} data={tea.brewing[currentBrewing]} />
+                    <Timer tea={tea} data={tea.brewing[currentBrewing]} timerRef={timerRef} />
                 </div>
             </div>
         </div>

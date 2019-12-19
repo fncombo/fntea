@@ -18,7 +18,7 @@ const NO_SLEEP = new NoSleep()
 /**
  * Timer section for a card.
  */
-export default function Timer({ tea, data }) {
+export default function Timer({ tea, data, timerRef }) {
     const { activeTimer, setActiveTimer } = useContext(GlobalState)
     const [ currentInfusion, setCurrentInfusion ] = useState(1)
     const [ timerValue, setTimerValue ] = useState(data.duration.base)
@@ -74,7 +74,7 @@ export default function Timer({ tea, data }) {
     }
 
     return (
-        <div className="timer">
+        <div className="timer" ref={timerRef}>
             <div className="timer-section timer-body">
                 <div className="timer-control">
                     <button
