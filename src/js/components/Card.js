@@ -31,6 +31,21 @@ const Info = ({ icon, title, children: text }) =>
     </li>
 
 /**
+ * Creates stars equal to the rating number, or returns "Unrated" when there is no rating.
+ */
+function Rating({ children: rating }) {
+    if (!rating) {
+        return <span className="rating is-unrated">Unrated</span>
+    }
+
+    return (
+        <span className="rating" role="img" aria-label={`${rating} Star Icons`}>
+            {Array.from({ length: rating }, () => '⭐')}
+        </span>
+    )
+}
+
+/**
  * Card for a single tea.
  */
 export default function Card({ tea }) {
@@ -143,14 +158,7 @@ export default function Card({ tea }) {
                         <span role="img" aria-label="Cart Icon">🛒</span>
                     </a>
                 }
-                {tea.rating
-                    ? (
-                        <span className="rating" role="img" aria-label={`${tea.rating} Star Icons`}>
-                            {Array.from({ length: tea.rating }, () => '⭐')}
-                        </span>
-                    )
-                    : <span className="rating is-unrated">Unrated</span>
-                }
+                <Rating>{tea.rating}</Rating>
                 <ul className="card-list">
                     <Info icon="📅" title="Season">
                         {tea.season}
