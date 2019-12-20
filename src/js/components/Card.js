@@ -132,9 +132,13 @@ export default function Card({ tea }) {
         // Button hover
         '--darker-tea-color': teaColor.darken(0.25),
         // Default shadow
-        '--shadow-color': teaColor.fade(0.75),
+        '--r': teaColor.red(),
+        '--g': teaColor.green(),
+        '--b': teaColor.blue(),
         // Hover shadow
-        '--shadow-dark-color': teaColor.saturate(1.5).darken(0.5).fade(0.75),
+        '--r-h': teaColor.saturate(1.5).darken(0.5).red(),
+        '--g-h': teaColor.saturate(1.5).darken(0.5).green(),
+        '--b-h': teaColor.saturate(1.5).darken(0.5).blue(),
     }
 
     // Card classes

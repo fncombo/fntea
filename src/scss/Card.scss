@@ -13,8 +13,12 @@
     --text-color: hsl(0, 0%, 20%);
     --faded-tea-color: rgba(212, 212, 212, 0.25);
     --darker-tea-color: hsl(0, 0%, 60%);
-    --shadow-color: rgba(212, 212, 212, 0.25);
-    --shadow-dark-color: hsla(0, 0%, 20%, 0.25);
+    --r: 212;
+    --g: 212;
+    --b: 212;
+    --r-h: 51;
+    --g-h: 51;
+    --b-h: 51;
 
     background-color: var(--tea-color);
     display: flex;
@@ -44,8 +48,15 @@
         bottom: -2px;
         right: -2px;
         border-radius: var(--border-radius);
-        box-shadow: 0 calc(var(--spacing) * 0.1) calc(var(--spacing) * 0.5) var(--shadow-color);
+        // box-shadow: 0 calc(var(--spacing) * 0.1) calc(var(--spacing) * 0.5) var(--shadow-color);
         transition: bottom var(--speed) ease-in-out, box-shadow var(--speed) ease-in-out;
+        // https://brumm.af/shadows 5, 0.1, 25px, 25px, 0px
+        box-shadow:
+            0 0.9px 0.9px rgba(var(--r), var(--g), var(--b), 0.25),
+            0 2.2px 2.2px rgba(var(--r), var(--g), var(--b), 0.172),
+            0 4.4px 4.4px rgba(var(--r), var(--g), var(--b), 0.139),
+            0 9.1px 9.1px rgba(var(--r), var(--g), var(--b), 0.111),
+            0 25px 25px rgba(var(--r), var(--g), var(--b), 0.078);
     }
 
     &:hover,
@@ -57,8 +68,14 @@
         transition-delay: 0s, 0s, 0s, 0s, 0s;
 
         &::before {
-            box-shadow: 0 calc(var(--spacing) * 0.25) var(--spacing) var(--shadow-dark-color);
             bottom: -7.625rem;
+            // https://brumm.af/shadows 5, 0.25, 25px, 50px, 0px
+            box-shadow:
+                0 0.9px 1.7px rgba(var(--r-h), var(--g-h), var(--b-h), 0.25),
+                0 2.2px 4.3px rgba(var(--r-h), var(--g-h), var(--b-h), 0.172),
+                0 4.4px 8.9px rgba(var(--r-h), var(--g-h), var(--b-h), 0.139),
+                0 9.1px 18.3px rgba(var(--r-h), var(--g-h), var(--b-h), 0.111),
+                0 25px 50px rgba(var(--r-h), var(--g-h), var(--b-h), 0.078);
         }
     }
 
