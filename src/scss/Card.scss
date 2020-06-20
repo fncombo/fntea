@@ -32,6 +32,9 @@
 
     &.is-colorless {
         background-image: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 20px, transparent 20px, transparent 40px);
+        background-position: top center;
+        background-repeat: repeat;
+        background-size: 57px 57px;
     }
 
     &:hover,

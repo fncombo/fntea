@@ -80,10 +80,10 @@ export default function App() {
                     ))}
                 </SearchQueryProvider>
             </div>
-            <div className="statistics">
-                {statistics.map((statistic, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <ul key={index}>
+            {statistics.map((statistic, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <div className="statistics" key={index}>
+                    <ul>
                         {statistic.map(([title, count]) => (
                             <li key={title}>
                                 <strong>{title}</strong>
@@ -91,8 +91,8 @@ export default function App() {
                             </li>
                         ))}
                     </ul>
-                ))}
-            </div>
+                </div>
+            ))}
             <footer>
                 <p>Carefully researched and tweaked for personal taste and preference.</p>
                 <p>Actual colours may vary.</p>

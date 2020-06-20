@@ -62,13 +62,13 @@ footer {
     align-items: center;
     justify-content: center;
     margin: var(--spacing);
-}
 
-footer p {
-    margin: 0;
-    color: hsl(0, 0%, 50%);
-    line-height: 1.75;
-    text-align: center;
+    p {
+        margin: 0;
+        color: hsl(0, 0%, 50%);
+        line-height: 1.75;
+        text-align: center;
+    }
 }
 
 // No search results message
@@ -114,7 +114,6 @@ footer p {
 // Statistics table
 .statistics {
     margin: var(--spacing);
-    color: hsl(0, 0%, 50%);
 
     ul {
         display: flex;
@@ -122,19 +121,31 @@ footer p {
         justify-content: center;
         padding: 0;
         margin: 0;
+        margin: calc(var(--spacing) / 4 * -1);
         list-style: none;
-
-        &:last-child {
-            margin-bottom: calc(var(--spacing) * -1);
-        }
     }
 
     li {
         display: flex;
-        flex: 0 0 80px;
-        flex-direction: column;
-        margin-bottom: var(--spacing);
+        flex: 0 0 auto;
+        align-items: center;
+        padding: calc(var(--spacing) / 2);
+        margin: calc(var(--spacing) / 4);
+        background: hsl(0, 0, 95%);
+        border-radius: var(--border-radius);
+        color: hsl(0, 0%, 25%);
+        line-height: 1.25;
         text-align: center;
+
+        .is-standalone & {
+            background: rgba(255, 255, 255, 0.1);
+            color: hsl(0, 0%, 75%);
+        }
+    }
+
+    strong {
+        padding-right: calc(var(--spacing) / 2);
+        white-space: nowrap;
     }
 }
 
@@ -152,6 +163,15 @@ footer p {
         margin: 16px var(--spacing);
         grid-template-columns: repeat(1, 1fr);
         transform: none;
+    }
+
+    footer p {
+        margin-bottom: var(--spacing);
+        line-height: 1.25;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
