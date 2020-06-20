@@ -2,7 +2,7 @@
 #cards {
     display: grid;
     justify-content: center;
-    margin: var(--spacing);
+    margin: var(--spacing) var(--spacing) calc(var(--spacing) * 2);
     grid-gap: var(--spacing);
     grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
 }
@@ -229,7 +229,7 @@
 // Mobile
 @media (max-width: 600px) {
     #cards {
-        margin: 0 var(--spacing) var(--spacing);
+        margin-top: 0;
         grid-template-columns: repeat(1, 1fr);
     }
 
