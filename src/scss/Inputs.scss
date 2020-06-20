@@ -1,20 +1,20 @@
 // Buttons
 button {
-    background-color: var(--tea-color);
-    margin: 0;
     padding: 0.375rem 0.75rem;
     border: none;
+    margin: 0;
+    background-color: var(--tea-color);
     border-radius: var(--border-radius);
-    transition: opacity var(--speed) ease-in-out, background-color var(--speed) ease-in-out;
+    color: var(--text-color);
+    cursor: pointer;
     font-family: inherit;
     font-size: 1rem;
     line-height: 1.5;
-    color: var(--text-color);
-    cursor: pointer;
+    transition: opacity var(--speed-fast) var(--easing-fast), background-color var(--speed-fast) var(--easing-fast);
 
     &[disabled] {
-        opacity: 0.25;
         cursor: default;
+        opacity: 0.25;
     }
 
     &:not([disabled]):hover {
@@ -28,25 +28,29 @@ button {
 
 // Inputs
 input[type="search"] {
-    background-color: rgba(0, 0, 0, 0.05);
     width: 100%;
-    margin: 0;
     padding: 0.5rem 0.75rem;
-    transform: translateX(-50%);
     border: none;
+    margin: 0;
+    appearance: none;
+    background-color: rgba(0, 0, 0, 0.05);
     border-radius: var(--border-radius);
-    transition: background var(--speed) ease-in-out, border var(--speed) ease-in-out;
+    color: #000;
     font-family: inherit;
     font-size: 1rem;
     text-align: left;
-    appearance: none;
-    color: #000;
+    transform: translateX(-50%);
+    transition: background var(--speed-fast) var(--easing-fast), border var(--speed-fast) var(--easing-fast);
+
+    .is-standalone & {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
 
     &:hover,
     &:focus {
         background-color: rgba(0, 0, 0, 0.1);
-        outline: none;
         color: #000;
+        outline: none;
     }
 
     &::-webkit-search-decoration,
@@ -59,7 +63,7 @@ input[type="search"] {
 
 input::placeholder {
     color: hsl(0, 0%, 50%);
-    transition: color var(--speed) ease-in-out;
+    transition: color var(--speed-fast) var(--easing-fast);
 }
 
 input:hover::placeholder,
@@ -74,8 +78,8 @@ input[disabled] {
 // Mobile
 @media (max-width: 600px) {
     input[type="search"] {
-        transform: none;
         max-width: 100%;
+        transform: none;
     }
 
     button:not([disabled]):hover {

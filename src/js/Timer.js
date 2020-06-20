@@ -1,80 +1,87 @@
-// React
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
-// Libraries
-import ordinal from 'ordinal'
 import NoSleep from 'nosleep.js'
+import ordinal from 'ordinal'
 
-// Helpers
-import { GlobalState } from 'js/helpers/App'
-import { formatSeconds } from 'js/helpers/functions'
+import FormattedSeconds from 'src/js/FormattedSeconds'
+import { TeaPropTypes, useActiveTimerTea } from 'src/js/utils'
 
-// Style
-import 'scss/Timer.scss'
+import 'src/scss/Timer.scss'
 
-// No sleep class to enable during the timer to prevent the user's screen from turning off
 const NO_SLEEP = new NoSleep()
 
 /**
  * Timer section for a card.
  */
-export default function Timer({ tea, data, timerRef }) {
-    const { activeTimer, setActiveTimer } = useContext(GlobalState)
-    const [ currentInfusion, setCurrentInfusion ] = useState(1)
-    const [ timerValue, setTimerValue ] = useState(data.duration.base)
+export default function Timer({ tea, currentBrewing }) {
+    const {
+        maxInfusions,
+        duration: { base, increase },
+    } = tea.brewing[currentBrewing]
+
+    const [activeTimerTea, setActiveTimerTea] = useActiveTimerTea()
+    const [currentInfusion, setCurrentInfusion] = useState(1)
+    const [timerValue, setTimerValue] = useState(base)
 
     // Whether this particular timer is the active one
-    const isTimerActive = activeTimer?.name === tea.name
+    const isActiveTimer = activeTimerTea?.name === tea.name
 
     // Status of the increment/decrement infusion buttons
-    const canDecrement = currentInfusion === 1 || isTimerActive
-    const canIncrement = currentInfusion === data.maxInfusions || isTimerActive
+    const canDecrement = currentInfusion === 1 || isActiveTimer
+    const canIncrement = currentInfusion === maxInfusions || isActiveTimer
 
     // Update timer value when either duration or infusion data changes
     useEffect(() => {
         // Limit the current infusion number to the maximum
-        if (currentInfusion > data.maxInfusions) {
-            setCurrentInfusion(data.maxInfusions)
+        if (currentInfusion > maxInfusions) {
+            setCurrentInfusion(maxInfusions)
 
             return
         }
 
-        setTimerValue(data.duration.base + (data.duration.increase * (currentInfusion - 1)))
-    }, [ currentInfusion, data.maxInfusions, data.duration.base, data.duration.increase ])
+        setTimerValue(base + increase * (currentInfusion - 1))
+    }, [currentInfusion, maxInfusions, base, increase])
 
     // Reset the timer value when it turns off
     useEffect(() => {
-        if (!isTimerActive) {
-            setTimerValue(data.duration.base + (data.duration.increase * (currentInfusion - 1)))
+        if (!isActiveTimer) {
+            setTimerValue(base + increase * (currentInfusion - 1))
         }
-    }, [ isTimerActive, data.duration.base, data.duration.increase, currentInfusion ])
+    }, [isActiveTimer, base, increase, currentInfusion])
 
     // Start this timer when it becomes active and clear it when it becomes inactive
     useEffect(() => {
-        if (!isTimerActive) {
+        if (!isActiveTimer) {
             return undefined
         }
 
-        NO_SLEEP.enable()
-
-        const id = setInterval(() => setTimerValue(currentTimerValue => currentTimerValue - 1), 1000)
+        const id = setInterval(() => setTimerValue((currentTimerValue) => currentTimerValue - 1), 1000)
 
         return () => {
-            NO_SLEEP.disable()
-
             clearInterval(id)
         }
-    }, [ isTimerActive ])
+    }, [isActiveTimer])
+
+    const toggleTimer = () => {
+        setActiveTimerTea(isActiveTimer ? null : { ...tea, timerValue })
+
+        if (isActiveTimer) {
+            NO_SLEEP.disable()
+        } else {
+            NO_SLEEP.enable()
+        }
+    }
 
     // Configure button text depending on timer state and value
     let buttonText = 'Start Brewing Timer'
 
-    if (isTimerActive) {
+    if (isActiveTimer) {
         buttonText = timerValue > 0 ? 'Stop Brewing Timer' : 'Okay'
     }
 
     return (
-        <div className="timer" ref={timerRef}>
+        <div className="timer">
             <div className="timer-section timer-body">
                 <div className="timer-control">
                     <button
@@ -88,11 +95,9 @@ export default function Timer({ tea, data, timerRef }) {
                     </button>
                 </div>
                 <div className="timer-content">
-                    <span className="timer-infusion">
-                        {ordinal(currentInfusion)} infusion
-                    </span>
+                    <span className="timer-infusion">{ordinal(currentInfusion)} infusion</span>
                     <strong className="timer-clock">
-                        {timerValue > 0 ? formatSeconds(timerValue) : 'Done'}
+                        {timerValue > 0 ? <FormattedSeconds seconds={timerValue} /> : 'Done'}
                     </strong>
                 </div>
                 <div className="timer-control">
@@ -108,14 +113,15 @@ export default function Timer({ tea, data, timerRef }) {
                 </div>
             </div>
             <div className="timer-section">
-                <button
-                    type="button"
-                    className="timer-start"
-                    onClick={() => setActiveTimer(isTimerActive ? null : { ...tea, timerValue })}
-                >
+                <button type="button" className="timer-start" onClick={toggleTimer}>
                     {buttonText}
                 </button>
             </div>
         </div>
     )
+}
+
+Timer.propTypes = {
+    tea: TeaPropTypes.tea.isRequired,
+    currentBrewing: PropTypes.number.isRequired,
 }

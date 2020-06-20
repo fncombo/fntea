@@ -1,1 +1,5 @@
+# CSS in JS
 *.js
+
+# Dependency directories
+node_modules/

@@ -1,14 +1,10 @@
-// React
 import React from 'react'
-import { render, hydrate } from 'react-dom'
+import { hydrate, render } from 'react-dom'
 
-// Components
-import App from 'js/components/App'
+import smoothscroll from 'smoothscroll-polyfill'
 
-// Service worker
-import * as serviceWorker from 'serviceWorker'
+import App from 'src/js/App'
 
-// Root element of the app
 const rootEl = document.getElementById('root')
 
 // Hydrate server rendered HTML or render from scratch
@@ -18,4 +14,4 @@ if (rootEl.hasChildNodes()) {
     render(<App />, rootEl)
 }
 
-serviceWorker.register()
+smoothscroll.polyfill()

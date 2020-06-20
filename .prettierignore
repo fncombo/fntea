@@ -1,8 +1,9 @@
+# Package files
+package.json
+package-lock.json
+
 # Dependency directories
 node_modules/
-
-# Mac files
-.DS_Store
 
 # Editor files
 .vscode

@@ -1,16 +1,16 @@
 // Timer container
 .timer {
-    background-color: #fff;
-    height: calc(var(--border-radius) + 2px);
     position: absolute;
     top: calc(100% - var(--border-radius));
-    left: -2px;
     right: -2px;
+    left: -2px;
+    overflow: hidden;
+    height: calc(var(--border-radius) + 2px);
     border: 2px solid var(--tea-color);
     border-top: none;
+    background-color: #fff;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
-    transition: height var(--speed) ease-in-out, top var(--speed) ease-in-out;
-    overflow: hidden;
+    transition: height var(--speed-slow) var(--easing-slow), top var(--speed-slow) var(--easing-slow);
 
     .card:hover &,
     .card.timer-on & {
@@ -25,13 +25,13 @@
 }
 
 .timer-duration {
+    position: relative;
+    display: flex;
     width: 2rem;
     height: 2rem;
-    position: relative;
-    padding: 0;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 // Timer buttons and their icons
@@ -41,17 +41,17 @@
 
     button {
         display: flex;
-        justify-content: center;
-        align-items: center;
         width: 36px;
         height: 36px;
+        align-items: center;
+        justify-content: center;
         padding: 0;
     }
 
     svg {
+        display: block;
         width: 16px;
         height: 16px;
-        display: block;
     }
 
     &:first-child {
@@ -94,15 +94,15 @@
 // Mobile
 @media (max-width: 600px) {
     .timer {
-        background: none;
-        display: block;
         position: relative;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
         height: auto;
         border: none;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+        background: none;
     }
 
     .timer-duration {

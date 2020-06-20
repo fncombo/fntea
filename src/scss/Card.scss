@@ -1,10 +1,10 @@
 // Container for all cards
 #cards {
     display: grid;
-    margin: var(--spacing);
-    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
-    grid-gap: var(--spacing);
     justify-content: center;
+    margin: var(--spacing);
+    grid-gap: var(--spacing);
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
 }
 
 // Single card
@@ -20,81 +20,44 @@
     --g-h: 51;
     --b-h: 51;
 
-    background-color: var(--tea-color);
-    display: flex;
     position: relative;
-    flex-direction: column;
-    width: 100%;
-    border: 2px solid var(--tea-color);
-    border-radius: var(--border-radius);
     z-index: 1;
-    transition-property: z-index, width, transform, filter, opacity;
-    transition-duration: 0s, var(--speed), var(--speed), var(--speed), var(--speed);
-
-    // Need to delay z-index and overflow to allow the element to collapse first
-    transition-delay: var(--speed), 0s, 0s, 0s, 0s;
-    transition-timing-function: ease-in-out;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    border: 2px solid var(--tea-color);
+    background-color: var(--tea-color);
+    border-radius: var(--border-radius);
+    transition: all var(--speed-slow) var(--easing-slow);
 
     &.is-colorless {
         background-image: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 20px, transparent 20px, transparent 40px);
     }
 
-    &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        bottom: -2px;
-        right: -2px;
-        border-radius: var(--border-radius);
-        // box-shadow: 0 calc(var(--spacing) * 0.1) calc(var(--spacing) * 0.5) var(--shadow-color);
-        transition: bottom var(--speed) ease-in-out, box-shadow var(--speed) ease-in-out;
-        // https://brumm.af/shadows 5, 0.1, 25px, 25px, 0px
-        box-shadow:
-            0 0.9px 0.9px rgba(var(--r), var(--g), var(--b), 0.25),
-            0 2.2px 2.2px rgba(var(--r), var(--g), var(--b), 0.172),
-            0 4.4px 4.4px rgba(var(--r), var(--g), var(--b), 0.139),
-            0 9.1px 9.1px rgba(var(--r), var(--g), var(--b), 0.111),
-            0 25px 25px rgba(var(--r), var(--g), var(--b), 0.078);
-    }
-
     &:hover,
     &.timer-on {
+        z-index: 1000;
         width: calc(100% + var(--spacing));
         border-radius: var(--border-radius) var(--border-radius) 0 0;
-        z-index: 10;
         transform: translate(calc(var(--spacing) / 2 * -1), calc(-7.625rem / 2));
-        transition-delay: 0s, 0s, 0s, 0s, 0s;
-
-        &::before {
-            bottom: -7.625rem;
-            // https://brumm.af/shadows 5, 0.25, 25px, 50px, 0px
-            box-shadow:
-                0 0.9px 1.7px rgba(var(--r-h), var(--g-h), var(--b-h), 0.25),
-                0 2.2px 4.3px rgba(var(--r-h), var(--g-h), var(--b-h), 0.172),
-                0 4.4px 8.9px rgba(var(--r-h), var(--g-h), var(--b-h), 0.139),
-                0 9.1px 18.3px rgba(var(--r-h), var(--g-h), var(--b-h), 0.111),
-                0 25px 50px rgba(var(--r-h), var(--g-h), var(--b-h), 0.078);
-        }
     }
 
     .timer-on &.timer-off {
-        pointer-events: none;
         filter: grayscale(100%);
         opacity: 0.5;
+        pointer-events: none;
     }
 
     hgroup {
-        margin: 0;
-        padding: 0.75rem 0.25rem;
         position: relative;
+        padding: 0.75rem 0.25rem;
+        margin: 0;
         color: var(--text-color);
         text-align: center;
     }
 
     a {
-        transition: transform var(--speed) ease-in-out;
+        transition: transform var(--speed-slow) var(--easing-slow);
 
         &:hover {
             transform: scale(1.333);
@@ -102,26 +65,59 @@
     }
 }
 
+// Full height shadow for the card
+.card-shadow {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    display: block;
+    border-radius: var(--border-radius);
+    // https://brumm.af/shadows 5, 0.1, 25px, 25px, 0px
+    box-shadow:
+        0 0.9px 0.9px rgba(var(--r), var(--g), var(--b), 0.25),
+        0 2.2px 2.2px rgba(var(--r), var(--g), var(--b), 0.172),
+        0 4.4px 4.4px rgba(var(--r), var(--g), var(--b), 0.139),
+        0 9.1px 9.1px rgba(var(--r), var(--g), var(--b), 0.111),
+        0 25px 25px rgba(var(--r), var(--g), var(--b), 0.078);
+    content: "";
+    // box-shadow: 0 calc(var(--spacing) * 0.1) calc(var(--spacing) * 0.5) var(--shadow-color);
+    transition: bottom var(--speed-slow) var(--easing-slow), box-shadow var(--speed-slow) var(--easing-slow);
+
+    .card:hover &,
+    .card.timer-on & {
+        bottom: -7.625rem;
+        // https://brumm.af/shadows 5, 0.25, 25px, 50px, 0px
+        box-shadow:
+            0 0.9px 1.7px rgba(var(--r-h), var(--g-h), var(--b-h), 0.25),
+            0 2.2px 4.3px rgba(var(--r-h), var(--g-h), var(--b-h), 0.172),
+            0 4.4px 8.9px rgba(var(--r-h), var(--g-h), var(--b-h), 0.139),
+            0 9.1px 18.3px rgba(var(--r-h), var(--g-h), var(--b-h), 0.111),
+            0 25px 50px rgba(var(--r-h), var(--g-h), var(--b-h), 0.078);
+    }
+}
+
 // Card body content container
 .card-body {
-    background-color: var(--background-color);
+    position: relative;
     display: flex;
+    overflow: visible;
     flex-wrap: wrap;
     align-items: center;
-    position: relative;
-    overflow: visible;
+    background-color: var(--background-color);
     border-radius: calc(var(--border-radius) - 2px);
-    transition: height 0.3s ease-in-out;
+    transition: height var(--speed-low) var(--easing-slow);
 }
 
 // List of info at the start of the card
 .card-list {
-    background-color: #fff;
     flex: 0 0 100%;
-    margin: 0;
     padding: 0;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
+    margin: 0;
+    background-color: #fff;
     list-style: none;
 
     li {
@@ -147,22 +143,20 @@
     display: flex;
     flex: 0 0 100%;
     justify-content: space-around;
-    margin: 0;
     padding: 0;
+    margin: 0;
     list-style: none;
 
     li {
         flex: 1 1 auto;
         padding: 0.5rem 1rem;
         text-align: center;
-        transition-property: background, border-color, color;
-        transition-duration: var(--speed);
-        transition-timing-function: ease-in-out;
+        transition: all var(--speed-fast) var(--easing-fast);
 
         &.is-active {
-            background-color: #fff;
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid #fff;
+            background-color: #fff;
         }
 
         &:not(.is-active) {
@@ -182,8 +176,8 @@
         }
 
         &:only-child {
-            border-left: none !important;
             border-right: none !important;
+            border-left: none !important;
             border-radius: 0 !important;
         }
 
@@ -207,17 +201,26 @@
     }
 }
 
-// Contaienr of the content of the tabs
+// Container of the content of the tabs
 .card-tabs-content {
-    background-color: #fff;
     flex: 0 0 100%;
     flex-direction: column;
+    background-color: #fff;
     border-radius: calc(var(--border-radius) - 2px);
 
     .card:hover &,
     .card.timer-on & {
         border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
+}
+
+// Highlight searched text
+.search-highlight {
+    padding: 0 2px;
+    margin: 0 -2px;
+    background-color: rgb(80, 160, 240);
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 // Mobile
@@ -231,12 +234,8 @@
         &:hover,
         &.timer-on {
             width: 100%;
-            transform: none;
             border-radius: var(--border-radius);
-        }
-
-        &::before {
-            display: none;
+            transform: none;
         }
 
         & hgroup {
@@ -245,9 +244,14 @@
         }
     }
 
+    .card-shadow {
+        display: none;
+    }
+
     .card-body {
-        height: 0;
         overflow: hidden;
+        height: 0;
+        transition: height var(--speed-slow) var(--easing-slow);
 
         .card.is-expanded & {
             height: 38.42857142857143rem;

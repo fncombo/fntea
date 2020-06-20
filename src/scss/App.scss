@@ -8,29 +8,50 @@ body {
     --border-color: rgba(0, 0, 0, 0.1);
     --border-radius: 5px;
     --spacing: 1.75rem;
-    --speed: 0.15s;
+    --speed-fast: 200ms;
+    --speed-slow: 400ms;
+    --easing-fast: ease-out;
+    --easing-slow: cubic-bezier(0.23, 1, 0.32, 1); // ease-out-quint
 
-    background-color: #fff;
-    margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.5;
+    margin: 0;
+    background-color: #fff;
+    font-family: "Open Sans", sans-serif;
     font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+
+    &.is-standalone {
+        background-color: #000;
+
+        &::before {
+            position: fixed;
+            z-index: 2000;
+            top: -100px;
+            right: 0;
+            left: 0;
+            display: block;
+            height: 100px;
+            backdrop-filter: blur(20px) saturate(200%);
+            background-color: rgba(0, 0, 0, 0.5);
+            content: "";
+        }
+    }
 }
 
 // Header
 #header {
-    width: 100%;
     overflow: hidden;
+    width: 100%;
 }
 
 header {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: var(--spacing);
-    margin: var(--spacing) var(--spacing) 0;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    margin: var(--spacing) var(--spacing) 0;
+    grid-gap: var(--spacing);
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
     transform: translateX(50%);
 }
 
@@ -38,27 +59,82 @@ header {
 footer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin: var(--spacing);
 }
 
 footer p {
     margin: 0;
     color: hsl(0, 0%, 50%);
-    text-align: center;
     line-height: 1.75;
+    text-align: center;
 }
 
 // No search results message
 #no-search-results {
     margin: var(--spacing);
-    text-align: center;
-    font-style: italic;
     font-size: 1.25rem;
+    font-style: italic;
+    text-align: center;
 
     & + #cards {
         display: none;
+    }
+}
+
+// Brewing progress overlay
+@keyframes progress {
+    from {
+        top: 100%;
+    }
+
+    to {
+        top: 60px;
+    }
+}
+
+.progress {
+    position: fixed;
+    z-index: 5;
+    top: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation-fill-mode: forwards;
+    animation-name: progress;
+    animation-timing-function: linear;
+    backdrop-filter: blur(20px);
+
+    .is-standalone & {
+        display: none;
+    }
+}
+
+// Statistics table
+.statistics {
+    margin: var(--spacing);
+    color: hsl(0, 0%, 50%);
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        &:last-child {
+            margin-bottom: calc(var(--spacing) * -1);
+        }
+    }
+
+    li {
+        display: flex;
+        flex: 0 0 80px;
+        flex-direction: column;
+        margin-bottom: var(--spacing);
+        text-align: center;
     }
 }
 
@@ -73,8 +149,8 @@ footer p {
     }
 
     header {
-        grid-template-columns: repeat(1, 1fr);
         margin: 16px var(--spacing);
+        grid-template-columns: repeat(1, 1fr);
         transform: none;
     }
 }
