@@ -74,6 +74,10 @@ input::placeholder {
 input:hover::placeholder,
 input:focus::placeholder {
     color: hsl(0, 0%, 25%);
+
+    .is-standalone & {
+        color: hsl(0, 0%, 50%);
+    }
 }
 
 input[disabled] {
