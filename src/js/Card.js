@@ -10,6 +10,7 @@ import { TeaPropTypes, useActiveTimerTea, useCardCentering, useSearchQuery } fro
 
 import 'src/scss/Card.scss'
 
+const STORE_NAME_REGEX = /(?:\/\/|w{3}\.)([a-z0-9-]+\.(?:[a-z.]+))\//
 /**
  * Text with the search query highlighted.
  */
@@ -68,6 +69,7 @@ export default function Card({ tea, index, cardsRef }) {
 
     const isActiveTimerTea = activeTimerTea?.name === name
     const isTisane = type === 'Tisane'
+    const storeName = useMemo(() => STORE_NAME_REGEX.exec(link)?.[1], [link])
 
     const { cardRef, cardShadowRef } = useCardCentering(isActiveTimerTea, cardsRef, index)
 
@@ -148,7 +150,7 @@ export default function Card({ tea, index, cardsRef }) {
                     {type}
                 </SearchableText>
                 {!!link && (
-                    <a href={link} target="_blank" title="Visit store" rel="noopener noreferrer">
+                    <a href={link} target="_blank" title={`Visit store at ${storeName}`} rel="noopener noreferrer">
                         <span role="img" aria-label="Cart Icon">
                             🛒
                         </span>
