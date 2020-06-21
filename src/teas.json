@@ -983,5 +983,40 @@
                 "maxInfusions": 5
             }
         ]
+    },
+    {
+        "type": "Oolong",
+        "isOrganic": false,
+        "color": "#edd333",
+        "name": "Midnight Sun",
+        "altName": "Nong Xiang Jin Xuan",
+        "season": "Spring 2019",
+        "cultivar": "Jin Xuan",
+        "origin": "Alishan, Chiayi, Taiwan",
+        "rating": 7,
+        "updated": "21/06/2020",
+        "link": "https://meileaf.com/tea/midnight-sun/",
+        "brewing": [
+            {
+                "name": "Western",
+                "temperature": 99,
+                "amount": 1,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 5
+            },
+            {
+                "name": "Gong Fu",
+                "temperature": 99,
+                "amount": 6,
+                "duration": {
+                    "base": 20,
+                    "increase": 5
+                },
+                "maxInfusions": 10
+            }
+        ]
     }
 ]
