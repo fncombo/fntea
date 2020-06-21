@@ -87,7 +87,7 @@ export default function App() {
                     ))}
                 </SearchQueryProvider>
             </div>
-            {teas.length && (
+            {!!teas.length && (
                 <footer>
                     <p>Carefully researched and tweaked for personal taste and preference.</p>
                     <p>Actual colours may vary.</p>
