@@ -125,6 +125,10 @@ function getTeas(searchQuery = '') {
 
     return TEAS.filter((tea) => searchKeys.some((key) => !!tea[key]?.toLowerCase().includes(normalizedSearch))).sort(
         (teaA, teaB) => {
+            if (teaA.rating === null && teaB.rating !== null) {
+                return 1
+            }
+
             if (teaA.rating < teaB.rating) {
                 return 1
             }
@@ -175,7 +179,7 @@ function useTeas() {
     statistics.push(sortStatistics(typeStatistics))
 
     const countryStatistics = teas.reduce((accumulator, { origin }) => {
-        const country = /(?!,\s)?(\w+)$/.exec(origin)?.[1]
+        const country = /(?:,\s)?(\w+)$/.exec(origin)?.[1]
 
         if (country) {
             accumulator[country] = accumulator[country] ? accumulator[country] + 1 : 1
@@ -218,7 +222,7 @@ TeaPropTypes.tea = PropTypes.exact({
     season: PropTypes.string,
     cultivar: PropTypes.string,
     origin: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
+    rating: PropTypes.number,
     updated: PropTypes.string,
     link: PropTypes.string,
     brewing: TeaPropTypes.brewing.isRequired,

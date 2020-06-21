@@ -11,6 +11,20 @@ import { TeaPropTypes, useActiveTimerTea, useCardCentering, useSearchQuery } fro
 import 'src/scss/Card.scss'
 
 const STORE_NAME_REGEX = /(?:\/\/|w{3}\.)([a-z0-9-]+\.(?:[a-z.]+))\//
+const RATINGS = {
+    0: 'Poison',
+    1: 'Bongwater',
+    2: 'Hold your nose',
+    3: 'You can call it tea',
+    4: 'Meh',
+    5: 'Worth reinfusing',
+    6: 'Stashable',
+    7: 'A proper session',
+    8: 'Recommended',
+    9: 'Super high grade',
+    10: 'Pinnacle tea',
+}
+
 /**
  * Text with the search query highlighted.
  */
@@ -148,12 +162,14 @@ export default function Card({ tea, index, cardsRef }) {
                         </span>
                     </a>
                 )}
-                {rating ? (
-                    <span className="rating" role="img" aria-label={`${rating} Star Icons`}>
-                        {Array.from({ length: rating }, () => '⭐')}
+                {rating !== null ? (
+                    <span className="rating" title={RATINGS[rating]}>
+                        {rating}/10
                     </span>
                 ) : (
-                    <span className="rating is-unrated">Unrated</span>
+                    <span className="rating" title="Unrated">
+                        Unrated
+                    </span>
                 )}
                 <ul className="card-list">
                     <InfoItem icon="📅" title="Season">

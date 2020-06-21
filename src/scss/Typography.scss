@@ -52,11 +52,8 @@ a:focus {
     text-decoration: none;
 }
 
-// Rating stars
+// Rating
 .rating {
     padding: 0 1.25rem;
-
-    &.is-unrated {
-        color: #000;
-    }
+    cursor: help;
 }
