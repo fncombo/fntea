@@ -90,8 +90,8 @@ export default function App() {
             {!!teas.length && (
                 <footer>
                     <p>Carefully researched and tweaked for personal taste and preference.</p>
-                    <p>Actual colours may vary.</p>
-                    <p>All amounts are per 100ml, adjust accordingly.</p>
+                    <p>Season, cultivar, and origin are reflective of the latest purchase.</p>
+                    <p>Actual colours may vary. All amounts are per 100ml.</p>
                 </footer>
             )}
             <Progress />
