@@ -2,7 +2,7 @@
 #cards {
     display: grid;
     justify-content: center;
-    margin: var(--spacing) var(--spacing) calc(var(--spacing) * 2);
+    margin: var(--spacing);
     grid-gap: var(--spacing);
     grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
 }

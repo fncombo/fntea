@@ -72,7 +72,14 @@ export default function App() {
                     />
                 </header>
             </div>
-            {!teas.length && <div id="no-search-results">What kind of tea is that?</div>}
+            {!teas.length && (
+                <div id="no-search-results">
+                    Hmm, no tea found! Have a recommendation? Drop me an email{' '}
+                    <span role="img" aria-label="Smiley">
+                        😃
+                    </span>
+                </div>
+            )}
             <div id="cards" className={`timer-${activeTimerTea ? 'on' : 'off'}`} ref={cardsRef}>
                 <SearchQueryProvider value={searchQuery}>
                     {teas.map((tea, index) => (
@@ -80,11 +87,13 @@ export default function App() {
                     ))}
                 </SearchQueryProvider>
             </div>
-            <footer>
-                <p>Carefully researched and tweaked for personal taste and preference.</p>
-                <p>Actual colours may vary.</p>
-                <p>All amounts are per 100ml.</p>
-            </footer>
+            {teas.length && (
+                <footer>
+                    <p>Carefully researched and tweaked for personal taste and preference.</p>
+                    <p>Actual colours may vary.</p>
+                    <p>All amounts are per 100ml, adjust accordingly.</p>
+                </footer>
+            )}
             <Progress />
         </ActiveTimerTeaProvider>
     )
