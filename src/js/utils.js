@@ -151,11 +151,6 @@ function getTeas(searchQuery = '') {
 }
 
 /**
- * Sorts the statistics object by the count of each statistic.
- */
-const sortStatistics = (statistics) => Object.entries(statistics).sort(([, a], [, b]) => b - a)
-
-/**
  * Custom hook to returned filtered and sorted teas.
  */
 function useTeas() {
@@ -168,29 +163,7 @@ function useTeas() {
         setTeas(getTeas(value))
     }, [])
 
-    const statistics = []
-
-    const typeStatistics = teas.reduce((accumulator, { type }) => {
-        accumulator[type] = accumulator[type] ? accumulator[type] + 1 : 1
-
-        return accumulator
-    }, {})
-
-    statistics.push(sortStatistics(typeStatistics))
-
-    const countryStatistics = teas.reduce((accumulator, { origin }) => {
-        const country = /(?:,\s)?(\w+)$/.exec(origin)?.[1]
-
-        if (country) {
-            accumulator[country] = accumulator[country] ? accumulator[country] + 1 : 1
-        }
-
-        return accumulator
-    }, {})
-
-    statistics.push(sortStatistics(countryStatistics))
-
-    return { teas, statistics, searchQuery, updateSearchQuery }
+    return { teas, searchQuery, updateSearchQuery }
 }
 
 /**

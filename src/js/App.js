@@ -39,7 +39,7 @@ function Progress() {
  * Header, search UI, and the grid of tea cards.
  */
 export default function App() {
-    const { teas, statistics, searchQuery, updateSearchQuery } = useTeas()
+    const { teas, searchQuery, updateSearchQuery } = useTeas()
     const [activeTimerTea, setActiveTimerTea] = useState(null)
     const cardsRef = useRef(null)
 
@@ -79,19 +79,6 @@ export default function App() {
                         <Card tea={tea} index={index} cardsRef={cardsRef} key={tea.name} />
                     ))}
                 </SearchQueryProvider>
-            </div>
-            <div className="statistics">
-                {statistics.map((statistic, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <ul key={index}>
-                        {statistic.map(([title, count]) => (
-                            <li key={title}>
-                                <strong>{title}</strong>
-                                {count}
-                            </li>
-                        ))}
-                    </ul>
-                ))}
             </div>
             <footer>
                 <p>Carefully researched and tweaked for personal taste and preference.</p>
