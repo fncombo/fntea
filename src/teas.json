@@ -132,7 +132,7 @@
     {
         "type": "Black",
         "isOrganic": false,
-        "color": "#a8000b",
+        "color": "#8f0710",
         "name": "Black Rose",
         "altName": null,
         "season": "April 2017",
@@ -167,7 +167,7 @@
     {
         "type": "Black",
         "isOrganic": false,
-        "color": "#a81b00",
+        "color": "#b2270d",
         "name": "Keemun",
         "altName": "Qimen Hao Ya",
         "season": "Spring 2017",
@@ -917,7 +917,7 @@
     {
         "type": "Pu-erh",
         "isOrganic": false,
-        "color": "#560003",
+        "color": "#3f0303",
         "name": "Lincang Ripe Pu-erh",
         "altName": null,
         "season": "Spring 2012",
