@@ -98,16 +98,8 @@ export default function Card({ tea, index, cardsRef }) {
         // Base colour
         const teaColor = color(baseColor)
 
-        // Make sure the text colour is readable compared to the background (light text for dark tea colour by default)
-        let textColor = teaColor.lighten(2)
-
-        if (teaColor.lightness() < 20 && teaColor.saturationv() > 90) {
-            // Very light and de-saturated text for very dark and saturated tea colours
-            textColor = teaColor.saturate(-0.5).lighten(4.5)
-        } else if (teaColor.isLight()) {
-            // Dark text for light tea colour
-            textColor = teaColor.darken(0.75)
-        }
+        // Dark text for light tea colour and white text for dark tea colour
+        const textColor = teaColor.lightness() >= 40 ? teaColor.darken(0.75) : color.rgb(255, 255, 255)
 
         // Per-card style which includes unique colours for different UI elements
         return {
