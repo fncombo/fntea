@@ -178,7 +178,6 @@ TeaPropTypes.brewingDuration = PropTypes.exact({
 
 TeaPropTypes.brewingMethod = PropTypes.exact({
     name: PropTypes.string.isRequired,
-    temperature: PropTypes.number.isRequired,
     amount: PropTypes.number.isRequired,
     duration: TeaPropTypes.brewingDuration.isRequired,
     maxInfusions: PropTypes.number.isRequired,
@@ -196,8 +195,8 @@ TeaPropTypes.tea = PropTypes.exact({
     cultivar: PropTypes.string,
     origin: PropTypes.string.isRequired,
     rating: PropTypes.number,
-    updated: PropTypes.string,
     link: PropTypes.string,
+    temperature: PropTypes.number.isRequired,
     brewing: TeaPropTypes.brewing.isRequired,
 })
 

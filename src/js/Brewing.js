@@ -47,7 +47,7 @@ ListItem.propTypes = {
 /**
  * Infusion full timing text.
  */
-function InfusionTiming({ brewingDuration: { base, increase } }) {
+function Duration({ brewingDuration: { base, increase } }) {
     return (
         <>
             <FormattedSeconds seconds={base} isShort />, +<FormattedSeconds seconds={increase} isShort />
@@ -55,26 +55,23 @@ function InfusionTiming({ brewingDuration: { base, increase } }) {
     )
 }
 
-InfusionTiming.propTypes = {
+Duration.propTypes = {
     brewingDuration: TeaPropTypes.brewingDuration,
 }
 
 /**
  * Details section about a brewing method.
  */
-function Brewing({ brewingMethod: { amount, temperature, maxInfusions, duration } }) {
+function Brewing({ brewingMethod: { amount, maxInfusions, duration } }) {
     return (
         <ul className="brewing">
             <ListItem title="Amount" subtitle={`${amount}g`}>
                 <Bars width={amount * 10 * 2} />
             </ListItem>
-            <ListItem title="Temperature" subtitle={<>{temperature}&deg; C</>}>
-                <Bars width={(temperature - 50) * 2} />
-            </ListItem>
             <ListItem title="Infusions" subtitle={maxInfusions}>
                 <Bars width={maxInfusions * 10} dividers={10} />
             </ListItem>
-            <ListItem title="Infusion" subtitle={<InfusionTiming brewingDuration={duration} />}>
+            <ListItem title="Duration" subtitle={<Duration brewingDuration={duration} />}>
                 <Bars width={(duration.base / 180) * 100} dividers={3} />
             </ListItem>
         </ul>

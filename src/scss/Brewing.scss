@@ -11,10 +11,6 @@
     li {
         display: flex;
         flex-direction: column;
-
-        &:last-child {
-            grid-area: auto / span 3;
-        }
     }
 }
 
