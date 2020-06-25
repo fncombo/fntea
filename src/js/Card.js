@@ -76,7 +76,19 @@ InfoItem.propTypes = {
  * Card for a tea.
  */
 export default function Card({ tea, index, cardsRef }) {
-    const { type, color: baseColor, isOrganic, name, altName, season, cultivar, origin, rating, link } = tea
+    const {
+        type,
+        color: baseColor,
+        isOrganic,
+        name,
+        altName,
+        season,
+        cultivar,
+        origin,
+        rating,
+        link,
+        temperature,
+    } = tea
 
     const [activeTimerTea] = useActiveTimerTea()
     const [isExpanded, setIsExpanded] = useState(false)
@@ -183,6 +195,7 @@ export default function Card({ tea, index, cardsRef }) {
                     </InfoItem>
                 </ul>
                 <h4>Brewing Instructions</h4>
+                <span className="temperature">{temperature}&deg; C</span>
                 <BrewingTabs tea={tea} />
             </div>
         </div>
