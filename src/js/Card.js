@@ -97,7 +97,7 @@ export default function Card({ tea, index, cardsRef }) {
                 // Current scroll amount
                 // Plus element offset from top of the document
                 // Minus spacing for the sticky header
-                top: window.pageYOffset + cardRef.current.getBoundingClientRect().top - topOffset,
+                top: window.pageYOffset + cardRef.current.getBoundingClientRect().top - topOffset - 443 / 4,
                 behavior: 'smooth',
             })
         }
