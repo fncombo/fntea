@@ -2,20 +2,19 @@
     {
         "type": "Green",
         "isOrganic": false,
-        "color": "#e3dc65",
-        "name": "Imperial Green",
-        "altName": "Long Jing (Dragon Well)",
+        "color": "#eceb77",
+        "name": "Dragon Well",
+        "altName": "Long Jing",
         "season": "23rd March 2019",
         "cultivar": "Qun Ti Zhong",
         "origin": "Shaoxing, Zhejiang, China",
         "rating": 9,
-        "updated": "17/12/2019",
         "link": "https://meileaf.com/tea/imperial-green-pre-qing-ming/",
+        "temperature": 85,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 80,
-                "amount": 1,
+                "amount": 0.6,
                 "duration": {
                     "base": 120,
                     "increase": 60
@@ -24,33 +23,31 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 80,
                 "amount": 3.5,
                 "duration": {
                     "base": 20,
-                    "increase": 15
+                    "increase": 5
                 },
-                "maxInfusions": 5
+                "maxInfusions": 6
             }
         ]
     },
     {
         "type": "White",
         "isOrganic": false,
-        "color": "#e7d373",
-        "name": "Yunnan Silver Needle",
+        "color": "#fbf2b7",
+        "name": "Silver Needle",
         "altName": "Bai Hao Yin Zhen",
-        "season": "19th March 2017",
-        "cultivar": "Da Bai",
-        "origin": "Songyang, Zhejiang, China",
+        "season": "8th March 2019",
+        "cultivar": "Da Bai Hao",
+        "origin": "Hengxian, Guangxi, China",
         "rating": 10,
-        "updated": "13/01/2018",
-        "link": "https://meileaf.com/tea/silver-needle/",
+        "link": "https://meileaf.com/tea/guangxi-silver-needle/",
+        "temperature": 90,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 80,
-                "amount": 1,
+                "amount": 0.7,
                 "duration": {
                     "base": 180,
                     "increase": 30
@@ -59,11 +56,10 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 80,
                 "amount": 4,
                 "duration": {
-                    "base": 60,
-                    "increase": 30
+                    "base": 45,
+                    "increase": 10
                 },
                 "maxInfusions": 5
             }
@@ -72,25 +68,24 @@
     {
         "type": "Green",
         "isOrganic": false,
-        "color": "#c9e539",
+        "color": "#b7f24a",
         "name": "Yame Gyokuro",
         "altName": null,
         "season": "Shincha 2017",
         "cultivar": "Yabukita",
         "origin": "Yame, Fukuoka, Japan",
         "rating": 7,
-        "updated": "13/01/2018",
         "link": "https://www.o-cha.com/yame-gyokuro.html",
+        "temperature": 60,
         "brewing": [
             {
                 "name": "Gong Fu",
-                "temperature": 60,
-                "amount": 4.5,
+                "amount": 4,
                 "duration": {
                     "base": 120,
                     "increase": 30
                 },
-                "maxInfusions": 5
+                "maxInfusions": 3
             }
         ]
     },
@@ -104,12 +99,11 @@
         "cultivar": "Kanaya Midori",
         "origin": "Kirishima, Kagoshima, Japan",
         "rating": 7,
-        "updated": "13/01/2018",
         "link": "https://www.o-cha.com/japanese-organic-sencha.html",
+        "temperature": 75,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 75,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -119,10 +113,9 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 75,
                 "amount": 3.5,
                 "duration": {
-                    "base": 60,
+                    "base": 45,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -139,13 +132,12 @@
         "cultivar": "Zheng He",
         "origin": "Wuyi, Fujian, China",
         "rating": 5,
-        "updated": "13/01/2018",
         "link": "https://meileaf.com/tea/black-rose/",
+        "temperature": 90,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 90,
-                "amount": 1,
+                "amount": 0.8,
                 "duration": {
                     "base": 120,
                     "increase": 60
@@ -154,7 +146,6 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 90,
                 "amount": 4.5,
                 "duration": {
                     "base": 10,
@@ -167,35 +158,33 @@
     {
         "type": "Black",
         "isOrganic": false,
-        "color": "#b2270d",
-        "name": "Superior Keemun",
+        "color": "#b03115",
+        "name": "Keemun",
         "altName": "Qimen Hao Ya",
         "season": "Spring 2017",
         "cultivar": "Zu Ye Zhong",
         "origin": "Mingzhou, Anhui, China",
         "rating": 4,
-        "updated": "13/01/2018",
         "link": "https://meileaf.com/tea/superior-keemun/",
+        "temperature": 75,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 90,
-                "amount": 1,
+                "amount": 0.8,
                 "duration": {
-                    "base": 120,
+                    "base": 240,
                     "increase": 60
                 },
-                "maxInfusions": 3
+                "maxInfusions": 2
             },
             {
                 "name": "Gong Fu",
-                "temperature": 90,
                 "amount": 4.5,
                 "duration": {
-                    "base": 10,
-                    "increase": 5
+                    "base": 60,
+                    "increase": 10
                 },
-                "maxInfusions": 8
+                "maxInfusions": 5
             }
         ]
     },
@@ -209,12 +198,11 @@
         "cultivar": "Huang Dan",
         "origin": "Jingu, Fujian, China",
         "rating": 6,
-        "updated": "13/01/2018",
         "link": "https://meileaf.com/tea/jasmine-jade-oolong/",
+        "temperature": 99,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 99,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -224,13 +212,12 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 99,
-                "amount": 5,
+                "amount": 6,
                 "duration": {
-                    "base": 20,
-                    "increase": 10
+                    "base": 25,
+                    "increase": 5
                 },
-                "maxInfusions": 9
+                "maxInfusions": 7
             }
         ]
     },
@@ -244,13 +231,12 @@
         "cultivar": "Various",
         "origin": "Various",
         "rating": 3,
-        "updated": "13/01/2018",
         "link": "https://meileaf.com/tea/white-blossom/",
+        "temperature": 90,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 80,
-                "amount": 0.5,
+                "amount": 0.6,
                 "duration": {
                     "base": 180,
                     "increase": 30
@@ -259,7 +245,6 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 80,
                 "amount": 3.5,
                 "duration": {
                     "base": 30,
@@ -272,20 +257,19 @@
     {
         "type": "White",
         "isOrganic": false,
-        "color": "#d9bd29",
+        "color": "#ebd965",
         "name": "White Peony (Open Pluck)",
         "altName": "Bai Mu Dan",
         "season": "April 2019",
         "cultivar": "Fuding Da Bai",
         "origin": "Fuding, Fujian, China",
         "rating": 8,
-        "updated": "17/12/2019",
         "link": "https://meileaf.com/tea/white-peony/",
+        "temperature": 90,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 85,
-                "amount": 0.5,
+                "amount": 0.6,
                 "duration": {
                     "base": 120,
                     "increase": 30
@@ -294,10 +278,9 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 85,
                 "amount": 3.5,
                 "duration": {
-                    "base": 20,
+                    "base": 15,
                     "increase": 10
                 },
                 "maxInfusions": 7
@@ -307,20 +290,19 @@
     {
         "type": "White",
         "isOrganic": false,
-        "color": "#e4c93d",
+        "color": "#f4e776",
         "name": "White Peony (Fine Pluck)",
-        "altName": "Fuding Bai Mu Dan",
+        "altName": "Bai Mu Dan",
         "season": "March 2019",
         "cultivar": "Fuding Da Bai",
         "origin": "Fuding, Fujian, China",
         "rating": 9,
-        "updated": "13/01/2018",
         "link": "https://meileaf.com/tea/white-peony-fine-pluck/",
+        "temperature": 90,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 85,
-                "amount": 0.5,
+                "amount": 0.6,
                 "duration": {
                     "base": 120,
                     "increase": 30
@@ -329,10 +311,9 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 85,
                 "amount": 3.5,
                 "duration": {
-                    "base": 20,
+                    "base": 15,
                     "increase": 10
                 },
                 "maxInfusions": 7
@@ -349,13 +330,12 @@
         "cultivar": "Xiao Ye",
         "origin": "Yu Yuan, Zhejiang, China",
         "rating": 5,
-        "updated": "13/01/2018",
         "link": "https://meileaf.com/tea/cloud-lake/",
+        "temperature": 80,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 80,
-                "amount": 0.5,
+                "amount": 0.6,
                 "duration": {
                     "base": 120,
                     "increase": 30
@@ -364,7 +344,6 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 80,
                 "amount": 3.5,
                 "duration": {
                     "base": 10,
@@ -377,45 +356,43 @@
     {
         "type": "Tisane",
         "isOrganic": false,
-        "color": "#ece74b",
+        "color": "#f9ef81",
         "name": "Lotus Leaf",
         "altName": "He Ye",
         "season": null,
         "cultivar": "Folium Nelumbinis",
         "origin": "Henan, China",
         "rating": 10,
-        "updated": "13/01/2018",
-        "link": "https://innatureteas.com/shop/lotus-tea/lotus-tea",
+        "link": "https://www.amazon.co.uk/dp/B07S29PHCZ/",
+        "temperature": 90,
         "brewing": [
             {
                 "name": "Tisane",
-                "temperature": 90,
-                "amount": 3,
+                "amount": 1,
                 "duration": {
-                    "base": 120,
-                    "increase": 30
+                    "base": 60,
+                    "increase": 60
                 },
-                "maxInfusions": 5
+                "maxInfusions": 2
             }
         ]
     },
     {
         "type": "Green",
         "isOrganic": false,
-        "color": "#f2dc6d",
+        "color": "#e1eb60",
         "name": "Green Snail Spring",
         "altName": "Suzhou Bi Luo Chun",
         "season": "27th March 2017",
         "cultivar": "Dong Ting Qunti",
         "origin": "Dong Ting, Jiangsu, China",
         "rating": 6,
-        "updated": "14/01/2018",
         "link": "https://meileaf.com/tea/green-coil-tea/",
+        "temperature": 80,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 80,
-                "amount": 0.5,
+                "amount": 0.6,
                 "duration": {
                     "base": 120,
                     "increase": 60
@@ -424,7 +401,6 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 80,
                 "amount": 3.5,
                 "duration": {
                     "base": 15,
@@ -436,20 +412,19 @@
     },
     {
         "type": "Oolong",
-        "isOrganic": false,
-        "color": "#af4a02",
-        "name": "Amber GABA Oolong",
+        "isOrganic": true,
+        "color": "#f2750f",
+        "name": "Amber GABA",
         "altName": null,
-        "season": "Spring 2016",
+        "season": "Spring 2019",
         "cultivar": "Chin Xin",
-        "origin": "Alishan, Chiayi, Taiwan",
+        "origin": "Alishan, Nantou, Taiwan",
         "rating": 9,
-        "updated": "14/01/2018",
         "link": "https://meileaf.com/tea/amber-gaba-oolong/",
+        "temperature": 99,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 99,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -459,8 +434,7 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 99,
-                "amount": 5,
+                "amount": 6,
                 "duration": {
                     "base": 25,
                     "increase": 5
@@ -479,12 +453,11 @@
         "cultivar": null,
         "origin": "Xiuning, Anhui, China",
         "rating": 8,
-        "updated": "15/01/2018",
         "link": "https://www.teavivre.com/organic-huang-shan-mao-feng-green-tea.html",
+        "temperature": 85,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 85,
                 "amount": 1,
                 "duration": {
                     "base": 180,
@@ -494,7 +467,6 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 85,
                 "amount": 3.5,
                 "duration": {
                     "base": 30,
@@ -514,12 +486,11 @@
         "cultivar": "Chamaenerion Angustifolium",
         "origin": "Russia",
         "rating": 4,
-        "updated": "17/01/2018",
         "link": null,
+        "temperature": 90,
         "brewing": [
             {
                 "name": "Tisane",
-                "temperature": 90,
                 "amount": 3,
                 "duration": {
                     "base": 180,
@@ -539,12 +510,11 @@
         "cultivar": null,
         "origin": "Uji, Kyoto, Japan",
         "rating": 0,
-        "updated": "19/01/2018",
         "link": null,
+        "temperature": 80,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 80,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -554,8 +524,7 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 80,
-                "amount": 5,
+                "amount": 6,
                 "duration": {
                     "base": 15,
                     "increase": 10
@@ -567,19 +536,18 @@
     {
         "type": "Oolong",
         "isOrganic": false,
-        "color": "#d5db4b",
-        "name": "Superior Iron Goddess",
+        "color": "#d9ed68",
+        "name": "Iron Goddess",
         "altName": "Zheng Wei Tie Guan Yin",
         "season": "April 2019",
         "cultivar": "Guan Yin",
         "origin": "Xiping, Fujian, China",
         "rating": 9,
-        "updated": "17/12/2018",
         "link": "https://meileaf.com/tea/superior-iron-goddess/",
+        "temperature": 99,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 99,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -589,10 +557,9 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 99,
-                "amount": 5,
+                "amount": 6,
                 "duration": {
-                    "base": 25,
+                    "base": 20,
                     "increase": 5
                 },
                 "maxInfusions": 9
@@ -609,12 +576,11 @@
         "cultivar": "Zairai",
         "origin": "Kirishima, Kagoshima, Japan",
         "rating": 9,
-        "updated": "16/05/2018",
         "link": "https://www.o-cha.com/organic-zairai-sencha.html",
+        "temperature": 80,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 80,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -624,10 +590,9 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 80,
-                "amount": 3.5,
+                "amount": 2,
                 "duration": {
-                    "base": 60,
+                    "base": 45,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -644,12 +609,11 @@
         "cultivar": "Blend",
         "origin": "Uji, Kyoto, Japan",
         "rating": null,
-        "updated": "16/05/2018",
         "link": "https://www.o-cha.com/uji-sencha-miyabi.html",
+        "temperature": 80,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 80,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -659,10 +623,9 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 80,
                 "amount": 3.5,
                 "duration": {
-                    "base": 60,
+                    "base": 45,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -679,12 +642,11 @@
         "cultivar": "Sae Midori",
         "origin": "Kirishima, Kagoshima, Japan",
         "rating": null,
-        "updated": "16/05/2018",
         "link": "https://www.o-cha.com/kagoshima-sencha.html",
+        "temperature": 80,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 80,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -694,10 +656,9 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 80,
                 "amount": 3.5,
                 "duration": {
-                    "base": 60,
+                    "base": 45,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -714,12 +675,11 @@
         "cultivar": "Oku Yutaka",
         "origin": "Shizuoka, Japan",
         "rating": null,
-        "updated": "16/05/2018",
         "link": "https://www.o-cha.com/organicsencha.html",
+        "temperature": 75,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 75,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -729,10 +689,9 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 75,
                 "amount": 3.5,
                 "duration": {
-                    "base": 60,
+                    "base": 45,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -749,12 +708,11 @@
         "cultivar": "Oku Midori, Yabukita",
         "origin": "Uji, Kyoto, Japan",
         "rating": null,
-        "updated": "16/05/2018",
         "link": "https://www.o-cha.com/uji-asamushi-sencha-aoi.html",
+        "temperature": 75,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 75,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -764,10 +722,9 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 75,
                 "amount": 3.5,
                 "duration": {
-                    "base": 60,
+                    "base": 45,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -777,20 +734,19 @@
     {
         "type": "Oolong",
         "isOrganic": false,
-        "color": "#c86903",
+        "color": "#fab81e",
         "name": "Eastern Beauty",
         "altName": "Dong Fang Mei Ren",
         "season": "2015",
         "cultivar": "Chin Xin",
         "origin": "Hsinchu, Taiwan",
         "rating": 9,
-        "updated": "16/05/2018",
         "link": null,
+        "temperature": 90,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 90,
-                "amount": 1,
+                "amount": 0.8,
                 "duration": {
                     "base": 120,
                     "increase": 30
@@ -799,7 +755,6 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 90,
                 "amount": 4.5,
                 "duration": {
                     "base": 20,
@@ -819,12 +774,11 @@
         "cultivar": "Jin Xuan",
         "origin": "Taiwan",
         "rating": 7,
-        "updated": "16/05/2018",
         "link": null,
+        "temperature": 99,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 99,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -834,8 +788,7 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 99,
-                "amount": 5,
+                "amount": 6,
                 "duration": {
                     "base": 20,
                     "increase": 5
@@ -854,12 +807,11 @@
         "cultivar": "Ginkgo Biloba",
         "origin": "Tian Mu, Zhejiang, China",
         "rating": 5,
-        "updated": "19/05/2018",
-        "link": null,
+        "link": "https://meileaf.com/tea/ginkgo-leaf-tips/",
+        "temperature": 99,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 99,
                 "amount": 0.3,
                 "duration": {
                     "base": 120,
@@ -869,7 +821,6 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 99,
                 "amount": 1.5,
                 "duration": {
                     "base": 15,
@@ -880,101 +831,29 @@
         ]
     },
     {
-        "type": "PuErh",
-        "isOrganic": false,
-        "color": "#560003",
-        "name": "Yunnan Raw PuErh",
-        "altName": null,
-        "season": "2013/2014",
-        "cultivar": null,
-        "origin": "Yunnan, China",
-        "rating": 6,
-        "updated": "16/01/2019",
-        "link": "https://www.theteamakers.co.uk/yunnan-puerh.html",
-        "brewing": [
-            {
-                "name": "Western",
-                "temperature": 99,
-                "amount": 1,
-                "duration": {
-                    "base": 120,
-                    "increase": 30
-                },
-                "maxInfusions": 5
-            },
-            {
-                "name": "Gong Fu",
-                "temperature": 99,
-                "amount": 5,
-                "duration": {
-                    "base": 10,
-                    "increase": 5
-                },
-                "maxInfusions": 10
-            }
-        ]
-    },
-    {
-        "type": "PuErh",
-        "isOrganic": false,
-        "color": "#3f0303",
-        "name": "Lincang Ripe PuErh",
-        "altName": null,
-        "season": "Spring 2012",
-        "cultivar": null,
-        "origin": "Lincang, Yunnan, China",
-        "rating": 6,
-        "updated": "16/01/2019",
-        "link": "https://www.theteamakers.co.uk/lincang-puerh-tea.html",
-        "brewing": [
-            {
-                "name": "Western",
-                "temperature": 99,
-                "amount": 1,
-                "duration": {
-                    "base": 120,
-                    "increase": 30
-                },
-                "maxInfusions": 5
-            },
-            {
-                "name": "Gong Fu",
-                "temperature": 99,
-                "amount": 5,
-                "duration": {
-                    "base": 10,
-                    "increase": 5
-                },
-                "maxInfusions": 10
-            }
-        ]
-    },
-    {
         "type": "Green",
         "isOrganic": false,
-        "color": "#c4e23f",
+        "color": "#c6f04a",
         "name": "Fukamushi Saeakari Sencha",
         "altName": null,
         "season": "April 2019",
         "cultivar": "Saeakari",
         "origin": "Kirishima, Kagoshima, Japan",
         "rating": 7,
-        "updated": "17/12/2019",
         "link": "https://meileaf.com/tea/fukamushi-saeakari-sencha/",
+        "temperature": 70,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 70,
                 "amount": 1,
                 "duration": {
                     "base": 120,
-                    "increase": 30
+                    "increase": 20
                 },
                 "maxInfusions": 2
             },
             {
                 "name": "Gong Fu",
-                "temperature": 70,
                 "amount": 4.5,
                 "duration": {
                     "base": 45,
@@ -994,12 +873,11 @@
         "cultivar": "Jin Xuan",
         "origin": "Alishan, Chiayi, Taiwan",
         "rating": 7,
-        "updated": "21/06/2020",
         "link": "https://meileaf.com/tea/midnight-sun/",
+        "temperature": 99,
         "brewing": [
             {
                 "name": "Western",
-                "temperature": 99,
                 "amount": 1,
                 "duration": {
                     "base": 120,
@@ -1009,13 +887,144 @@
             },
             {
                 "name": "Gong Fu",
-                "temperature": 99,
                 "amount": 6,
                 "duration": {
                     "base": 20,
                     "increase": 5
                 },
                 "maxInfusions": 10
+            }
+        ]
+    },
+    {
+        "type": "Yellow",
+        "isOrganic": false,
+        "color": "#f3ca56",
+        "name": "Amber Mountain",
+        "altName": "Huo Shan Huang Ya",
+        "season": "15th April 2019",
+        "cultivar": "Jin Ji",
+        "origin": "Huoshan, Anhui, China",
+        "rating": 8,
+        "link": "https://meileaf.com/tea/amber-mountain/",
+        "temperature": 75,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.6,
+                "duration": {
+                    "base": 120,
+                    "increase": 60
+                },
+                "maxInfusions": 2
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 3.5,
+                "duration": {
+                    "base": 60,
+                    "increase": 10
+                },
+                "maxInfusions": 5
+            }
+        ]
+    },
+    {
+        "type": "PuErh",
+        "isOrganic": false,
+        "color": "#732600",
+        "name": "Milk Float Nomad",
+        "altName": "Gong Ting Shu",
+        "season": "Spring 2010",
+        "cultivar": "Da Ye Zhong",
+        "origin": "Bulang, Yunnan, China",
+        "rating": 9,
+        "link": "https://meileaf.com/p/milk-float-nomad",
+        "temperature": 99,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.8,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 5
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 5,
+                "duration": {
+                    "base": 15,
+                    "increase": 5
+                },
+                "maxInfusions": 12
+            }
+        ]
+    },
+    {
+        "type": "PuErh",
+        "isOrganic": false,
+        "color": "#cbd42c",
+        "name": "Young Gushu",
+        "altName": null,
+        "season": "April 2019",
+        "cultivar": "Da Ye Zhong",
+        "origin": "Baka, Yunnan, China",
+        "rating": 4,
+        "link": "https://meileaf.com/tea/young-gushu-2019/",
+        "temperature": 95,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.8,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 5
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 5,
+                "duration": {
+                    "base": 20,
+                    "increase": 5
+                },
+                "maxInfusions": 12
+            }
+        ]
+    },
+    {
+        "type": "Green",
+        "isOrganic": false,
+        "color": "#cff76a",
+        "name": "Melon Seed Green",
+        "altName": "Lu An Gua Pian",
+        "season": "20th April 2020",
+        "cultivar": "Qiu Keng",
+        "origin": "Lu An, Anhui, China",
+        "rating": 9,
+        "link": "https://meileaf.com/tea/young-gushu-2019/",
+        "temperature": 99,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.6,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 2
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 3.5,
+                "duration": {
+                    "base": 30,
+                    "increase": 10
+                },
+                "maxInfusions": 5
             }
         ]
     }
