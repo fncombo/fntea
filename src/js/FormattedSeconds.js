@@ -3,37 +3,28 @@ import PropTypes from 'prop-types'
 
 /*
  * Format a number of seconds to a pretty string.
- * e.g.
- * `120` => `2 min` or `2:00`
- * `45` => `45 sec` or `0:45`
  */
-export default function FormattedSeconds({ seconds, isShortFormat = false }) {
+export default function FormattedSeconds({ seconds, isShort = false }) {
     if (!seconds) {
-        return isShortFormat ? <>0:00</> : <>0 sec</>
+        return isShort ? <>0s</> : <>0 sec</>
     }
 
     const min = Math.floor(seconds / 60)
     const sec = seconds % 60
 
-    if (isShortFormat) {
-        return (
-            <>
-                {min ? `${min}:` : '0:'}
-                {sec ? sec.toString().padStart(2, '0') : '00'}
-            </>
-        )
-    }
+    const minText = isShort ? 'm' : ' min'
+    const secText = isShort ? 's' : ' sec'
 
     return (
         <>
-            {!!min && `${min} min`}
+            {!!min && `${min}${minText}`}
             {!!min && !!sec && ' '}
-            {!!sec && `${sec} sec`}
+            {!!sec && `${sec}${secText}`}
         </>
     )
 }
 
 FormattedSeconds.propTypes = {
     seconds: PropTypes.number.isRequired,
-    isShortFormat: PropTypes.bool,
+    isShort: PropTypes.bool,
 }

@@ -50,7 +50,7 @@ ListItem.propTypes = {
 function InfusionTiming({ brewingDuration: { base, increase } }) {
     return (
         <>
-            <FormattedSeconds seconds={base} /> base, + <FormattedSeconds seconds={increase} /> per extra
+            <FormattedSeconds seconds={base} isShort />, +<FormattedSeconds seconds={increase} isShort />
         </>
     )
 }
