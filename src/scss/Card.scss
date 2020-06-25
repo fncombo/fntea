@@ -60,11 +60,18 @@
     }
 
     a {
-        transition: transform var(--speed-slow) var(--easing-slow);
+        opacity: 0;
+        transition-duration: var(--speed-slow);
+        transition-property: transform, opacity;
+        transition-timing-function: var(--easing-slow);
 
         &:hover {
             transform: scale(1.333);
         }
+    }
+
+    &:hover a {
+        opacity: 1;
     }
 }
 
@@ -244,6 +251,10 @@
         & hgroup {
             padding: calc(var(--spacing) * 0.75);
             cursor: pointer;
+        }
+
+        a {
+            opacity: 1;
         }
     }
 
