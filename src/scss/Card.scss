@@ -177,9 +177,12 @@
     margin: 0;
     list-style: none;
 
-    button {
+    .card-tab {
+        position: relative;
+        z-index: 1;
         flex: 1 0 auto;
         padding: 0.5rem 1rem;
+        border-bottom: none !important;
         background-color: var(--background-color);
         color: #000;
         text-align: center;
@@ -194,7 +197,24 @@
             font-weight: 600;
         }
 
+        &[disabled] {
+            opacity: 1;
+        }
+
+        &::after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: block;
+            height: 1px;
+            background-color: #fff;
+            content: "";
+            transition: background-color var(--speed-fast) var(--easing-fast);
+        }
+
         &.is-active {
+            z-index: 1000;
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid #fff;
             background-color: #fff;
@@ -206,11 +226,15 @@
 
         &:not(.is-active) {
             border-top: 1px solid transparent;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #fff;
             cursor: pointer;
 
             &:hover {
                 color: #000;
+            }
+
+            &::after {
+                background-color: var(--border-color);
             }
         }
 
@@ -228,14 +252,14 @@
         &:only-child {
             flex: 0 0 100%;
 
-            button {
+            .card-tab {
                 border-right: none !important;
                 border-left: none !important;
                 border-radius: 0 !important;
             }
         }
 
-        &:first-child button {
+        &:first-child .card-tab {
             border-right: 1px solid var(--background-color);
             border-radius: 0 var(--border-radius) 0 0;
 
@@ -244,7 +268,12 @@
             }
         }
 
-        &:last-child button {
+        &:first-child:not(:last-child) {
+            flex: 0 0 calc(50% + 1px);
+            margin-right: -1px;
+        }
+
+        &:last-child .card-tab {
             border-left: 1px solid var(--background-color);
             border-radius: var(--border-radius) 0 0 0;
 

@@ -96,9 +96,9 @@ export default function BrewingTabs({ tea }) {
                     <li key={name}>
                         <button
                             type="button"
-                            className={classNames({ 'is-active': currentBrewing === i })}
+                            className={classNames('card-tab', { 'is-active': currentBrewing === i })}
                             onClick={activeTimerTea ? undefined : () => setCurrentBrewing(i)}
-                            tabIndex={tea.brewing.length === 1 ? -1 : 0}
+                            disabled={currentBrewing === i}
                         >
                             {name}
                         </button>
