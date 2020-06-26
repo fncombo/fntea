@@ -155,9 +155,15 @@ export default function Card({ tea, index, cardsRef }) {
     })
 
     return (
-        // @ts-ignore
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-        <div className={classes} style={style} ref={cardRef} tabIndex={0}>
+        <div
+            className={classes}
+            // @ts-ignore
+            style={style}
+            ref={cardRef}
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+            tabIndex={0}
+            onMouseLeave={() => document.activeElement.blur()}
+        >
             <div className="card-shadow" ref={cardShadowRef} />
             <hgroup onClick={() => setIsExpanded(!isExpanded)}>
                 <h2>
