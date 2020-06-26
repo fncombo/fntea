@@ -3,7 +3,12 @@ import PropTypes from 'prop-types'
 
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
-import TEAS from 'src/teas.json'
+import teas from 'src/teas.json'
+
+const TEAS = teas.map((tea) => ({
+    ...tea,
+    key: JSON.stringify(tea),
+}))
 
 /**
  * Search query string helpers.
@@ -199,6 +204,7 @@ TeaPropTypes.tea = PropTypes.exact({
     link: PropTypes.string,
     temperature: PropTypes.number.isRequired,
     brewing: TeaPropTypes.brewing.isRequired,
+    key: PropTypes.string.isRequired,
 })
 
 export {

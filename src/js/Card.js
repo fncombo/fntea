@@ -87,12 +87,13 @@ export default function Card({ tea, index, cardsRef }) {
         rating,
         link,
         temperature,
+        key,
     } = tea
 
     const [activeTimerTea] = useActiveTimerTea()
     const [isExpanded, setIsExpanded] = useState(false)
 
-    const isActiveTimerTea = activeTimerTea?.name === name
+    const isActiveTimerTea = activeTimerTea?.key === key
     const isTisane = type === 'Tisane'
     const storeName = useMemo(() => STORE_NAME_REGEX.exec(link)?.[1], [link])
 
