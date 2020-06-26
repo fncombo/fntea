@@ -33,7 +33,7 @@
     },
     {
         "type": "White",
-        "color": "#fbf2b7",
+        "color": "#f7eeb2",
         "name": "Silver Needle",
         "altName": "Bai Hao Yin Zhen",
         "season": "8th March 2019",
@@ -1049,7 +1049,6 @@
         "cultivar": "Da Bai Hao",
         "origin": "Jinggu, Yunnan, China",
         "rating": 10,
-        "updated": "13/01/2018",
         "link": "https://meileaf.com/tea/silver-needle/",
         "temperature": 90,
         "brewing": [
