@@ -109,8 +109,9 @@
         0 9.1px 9.1px rgba(var(--r), var(--g), var(--b), 0.111),
         0 25px 25px rgba(var(--r), var(--g), var(--b), 0.078);
     content: "";
-    // box-shadow: 0 calc(var(--spacing) * 0.1) calc(var(--spacing) * 0.5) var(--shadow-color);
-    transition: bottom var(--speed-slow) var(--easing-slow), box-shadow var(--speed-slow) var(--easing-slow);
+    transition-duration: var(--speed-slow);
+    transition-property: bottom, box-shadow;
+    transition-timing-function: var(--easing-slow);
 
     .card:hover &,
     .card:focus &,

@@ -10,7 +10,9 @@
     border-top: none;
     background-color: #fff;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
-    transition: height var(--speed-slow) var(--easing-slow), top var(--speed-slow) var(--easing-slow);
+    transition-duration: var(--speed-slow);
+    transition-property: height, top;
+    transition-timing-function: var(--easing-slow);
 
     .card:hover &,
     .card:focus &,
