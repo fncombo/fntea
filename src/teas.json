@@ -1,7 +1,6 @@
 [
     {
         "type": "Green",
-        "isOrganic": false,
         "color": "#eceb77",
         "name": "Dragon Well",
         "altName": "Long Jing",
@@ -34,7 +33,6 @@
     },
     {
         "type": "White",
-        "isOrganic": false,
         "color": "#fbf2b7",
         "name": "Silver Needle",
         "altName": "Bai Hao Yin Zhen",
@@ -67,7 +65,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": false,
         "color": "#b7f24a",
         "name": "Yame Gyokuro",
         "altName": null,
@@ -124,9 +121,9 @@
     },
     {
         "type": "Black",
-        "isOrganic": false,
         "color": "#8f0710",
         "name": "Black Rose",
+        "isFancyName": true,
         "altName": "Rose Gongfu",
         "season": "April 2017",
         "cultivar": "Zheng He",
@@ -157,7 +154,6 @@
     },
     {
         "type": "Black",
-        "isOrganic": false,
         "color": "#b03115",
         "name": "Keemun",
         "altName": "Qimen Hao Ya",
@@ -190,7 +186,6 @@
     },
     {
         "type": "Oolong",
-        "isOrganic": false,
         "color": "#e4b34c",
         "name": "Jasmine Jade Oolong",
         "altName": "Mo Li Wu Long",
@@ -223,9 +218,9 @@
     },
     {
         "type": "Blend",
-        "isOrganic": false,
         "color": "#e0c159",
         "name": "White Blossom",
+        "isFancyName": true,
         "altName": "Jasmine Yin Zhen and Chrysanthemum",
         "season": "Various",
         "cultivar": "Various",
@@ -256,9 +251,9 @@
     },
     {
         "type": "White",
-        "isOrganic": false,
         "color": "#ebd965",
         "name": "White Peony (Open Pluck)",
+        "isFancyName": true,
         "altName": "Bai Mu Dan",
         "season": "April 2019",
         "cultivar": "Fuding Da Bai",
@@ -289,9 +284,9 @@
     },
     {
         "type": "White",
-        "isOrganic": false,
         "color": "#f4e776",
         "name": "White Peony (Fine Pluck)",
+        "isFancyName": true,
         "altName": "Bai Mu Dan",
         "season": "March 2019",
         "cultivar": "Fuding Da Bai",
@@ -322,10 +317,9 @@
     },
     {
         "type": "Green",
-        "isOrganic": false,
         "color": "#e3de54",
-        "name": "Cloud Lake",
-        "altName": "Yun Wu (Cloud & Mist Green)",
+        "name": "Cloud & Mist Green",
+        "altName": "Yun Wu",
         "season": "15th April 2017",
         "cultivar": "Xiao Ye",
         "origin": "Yu Yuan, Zhejiang, China",
@@ -355,7 +349,6 @@
     },
     {
         "type": "Tisane",
-        "isOrganic": false,
         "color": "#f9ef81",
         "name": "Lotus Leaf",
         "altName": "He Ye",
@@ -379,7 +372,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": false,
         "color": "#e1eb60",
         "name": "Green Snail Spring",
         "altName": "Suzhou Bi Luo Chun",
@@ -415,6 +407,7 @@
         "isOrganic": true,
         "color": "#f2750f",
         "name": "Amber GABA",
+        "isFancyName": true,
         "altName": null,
         "season": "Spring 2019",
         "cultivar": "Chin Xin",
@@ -445,7 +438,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": false,
         "color": "#dade68",
         "name": "Yellow Mountain Fur Peak",
         "altName": "Huang Shan Mao Feng",
@@ -478,7 +470,6 @@
     },
     {
         "type": "Tisane",
-        "isOrganic": false,
         "color": "#cdd22c",
         "name": "Fireweed Leaf",
         "altName": "Ivan Chai",
@@ -502,7 +493,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": false,
         "color": "#b4b84b",
         "name": "Uji Genmai Matcha",
         "altName": null,
@@ -535,7 +525,6 @@
     },
     {
         "type": "Oolong",
-        "isOrganic": false,
         "color": "#d9ed68",
         "name": "Iron Goddess",
         "altName": "Zheng Wei Tie Guan Yin",
@@ -601,7 +590,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": false,
         "color": null,
         "name": "Uji Miyabi Sencha",
         "altName": null,
@@ -634,7 +622,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": false,
         "color": null,
         "name": "Sae Midori Sencha",
         "altName": null,
@@ -733,7 +720,6 @@
     },
     {
         "type": "Oolong",
-        "isOrganic": false,
         "color": "#fab81e",
         "name": "Eastern Beauty",
         "altName": "Dong Fang Mei Ren",
@@ -766,9 +752,8 @@
     },
     {
         "type": "Oolong",
-        "isOrganic": false,
         "color": "#e4ce39",
-        "name": "Milk Oolong",
+        "name": "Golden Daylily",
         "altName": "Nai Xiang Jin Xuan",
         "season": "2015",
         "cultivar": "Jin Xuan",
@@ -799,7 +784,6 @@
     },
     {
         "type": "Tisane",
-        "isOrganic": false,
         "color": "#e2d899",
         "name": "Ginkgo Leaf",
         "altName": "Yin Xing Ye",
@@ -832,7 +816,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": false,
         "color": "#c6f04a",
         "name": "Fukamushi Saeakari Sencha",
         "altName": null,
@@ -865,9 +848,8 @@
     },
     {
         "type": "Oolong",
-        "isOrganic": false,
         "color": "#edd333",
-        "name": "Midnight Sun",
+        "name": "Golden Daylily",
         "altName": "Nong Xiang Jin Xuan",
         "season": "Spring 2019",
         "cultivar": "Jin Xuan",
@@ -898,9 +880,8 @@
     },
     {
         "type": "Yellow",
-        "isOrganic": false,
         "color": "#f3ca56",
-        "name": "Amber Mountain",
+        "name": "Huo Mountain Yellow Sprout",
         "altName": "Huo Shan Huang Ya",
         "season": "15th April 2019",
         "cultivar": "Jin Ji",
@@ -931,9 +912,9 @@
     },
     {
         "type": "PuErh",
-        "isOrganic": false,
         "color": "#732600",
         "name": "Milk Float Nomad",
+        "isFancyName": true,
         "altName": "Gong Ting Shu",
         "season": "Spring 2010",
         "cultivar": "Da Ye Zhong",
@@ -964,7 +945,6 @@
     },
     {
         "type": "PuErh",
-        "isOrganic": false,
         "color": "#cbd42c",
         "name": "Young Gushu",
         "altName": null,
@@ -997,15 +977,14 @@
     },
     {
         "type": "Green",
-        "isOrganic": false,
         "color": "#cff76a",
-        "name": "Melon Seed Green",
+        "name": "Lu'an Melon Seed",
         "altName": "Lu An Gua Pian",
         "season": "20th April 2020",
         "cultivar": "Qiu Keng",
         "origin": "Lu An, Anhui, China",
         "rating": 9,
-        "link": "https://meileaf.com/tea/young-gushu-2019/",
+        "link": "https://meileaf.com/tea/melon-seed-green/",
         "temperature": 99,
         "brewing": [
             {
@@ -1022,6 +1001,72 @@
                 "amount": 3.5,
                 "duration": {
                     "base": 30,
+                    "increase": 10
+                },
+                "maxInfusions": 5
+            }
+        ]
+    },
+    {
+        "type": "White",
+        "color": "#f09c35",
+        "name": "Midsummer Lightshow",
+        "isFancyName": true,
+        "altName": "Shou Mei",
+        "season": "Spring 2010",
+        "cultivar": "Fuding Da Hao",
+        "origin": "Fuding, Fujian, China",
+        "rating": 10,
+        "link": "https://meileaf.com/tea/midsummer-lightshow/",
+        "temperature": 95,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.6,
+                "duration": {
+                    "base": 120,
+                    "increase": 60
+                },
+                "maxInfusions": 3
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 4,
+                "duration": {
+                    "base": 30,
+                    "increase": 5
+                },
+                "maxInfusions": 10
+            }
+        ]
+    },
+    {
+        "type": "White",
+        "color": "#f6eca8",
+        "name": "Silver Needle",
+        "altName": "Bai Hao Yin Zhen",
+        "season": "March 2018",
+        "cultivar": "Da Bai Hao",
+        "origin": "Jinggu, Yunnan, China",
+        "rating": 10,
+        "updated": "13/01/2018",
+        "link": "https://meileaf.com/tea/silver-needle/",
+        "temperature": 90,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.7,
+                "duration": {
+                    "base": 180,
+                    "increase": 30
+                },
+                "maxInfusions": 3
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 4,
+                "duration": {
+                    "base": 45,
                     "increase": 10
                 },
                 "maxInfusions": 5
