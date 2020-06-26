@@ -10,7 +10,9 @@ button {
     font-family: inherit;
     font-size: 1rem;
     line-height: 1.5;
-    transition: opacity var(--speed-fast) var(--easing-fast), background-color var(--speed-fast) var(--easing-fast);
+    transition-duration: var(--speed-fast),;
+    transition-property: opacity, box-shadow, background-color;
+    transition-timing-function: var(--easing-fast);
 
     &[disabled] {
         cursor: default;
@@ -22,6 +24,7 @@ button {
     }
 
     &:focus {
+        box-shadow: 0 0 0 2px var(--text-color);
         outline: none;
     }
 }
@@ -40,7 +43,7 @@ input[type="search"] {
     font-size: 1rem;
     text-align: left;
     transform: translateX(-50%);
-    transition: background var(--speed-fast) var(--easing-fast), border var(--speed-fast) var(--easing-fast);
+    transition: background-color var(--speed-fast) var(--easing-fast), border var(--speed-fast) var(--easing-fast);
 
     .is-standalone & {
         background-color: rgba(255, 255, 255, 0.1);

@@ -38,10 +38,13 @@
     }
 
     &:hover,
+    &:focus,
+    &:focus-within,
     &.timer-on {
         z-index: 1000;
         width: calc(100% + var(--spacing));
         border-radius: var(--border-radius) var(--border-radius) 0 0;
+        outline: none;
         transform: translate(calc(var(--spacing) / 2 * -1), calc(-7.625rem / 2));
     }
 
@@ -60,17 +63,31 @@
     }
 
     a {
+        display: flex;
+        width: 2rem;
+        height: 2rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
         opacity: 0;
         transition-duration: var(--speed-slow);
-        transition-property: transform, opacity;
+        transition-property: transform, opacity, background-color;
         transition-timing-function: var(--easing-slow);
 
-        &:hover {
+        &:hover,
+        &:focus {
             transform: scale(1.333);
+        }
+
+        &:focus {
+            background-color: rgba(0, 0, 0, 0.25);
+            outline: none;
         }
     }
 
-    &:hover a {
+    &:hover a,
+    &:focus a,
+    &:focus-within a {
         opacity: 1;
     }
 }
@@ -96,6 +113,8 @@
     transition: bottom var(--speed-slow) var(--easing-slow), box-shadow var(--speed-slow) var(--easing-slow);
 
     .card:hover &,
+    .card:focus &,
+    .card:focus-within &,
     .card.timer-on & {
         bottom: -7.625rem;
         // https://brumm.af/shadows 5, 0.25, 25px, 50px, 0px
@@ -157,16 +176,31 @@
     margin: 0;
     list-style: none;
 
-    li {
-        flex: 1 1 auto;
+    button {
+        flex: 1 0 auto;
         padding: 0.5rem 1rem;
+        background-color: var(--background-color);
+        color: #000;
         text-align: center;
         transition: all var(--speed-fast) var(--easing-fast);
+
+        &:hover {
+            background-color: var(--background-color) !important;
+        }
+
+        &:focus {
+            box-shadow: none;
+            font-weight: 600;
+        }
 
         &.is-active {
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid #fff;
             background-color: #fff;
+
+            &:hover {
+                background-color: #fff;
+            }
         }
 
         &:not(.is-active) {
@@ -184,25 +218,34 @@
             color: hsl(0, 0%, 75%);
             cursor: default;
         }
+    }
+
+    li {
+        display: flex;
+        flex: 0 0 50%;
 
         &:only-child {
-            border-right: none !important;
-            border-left: none !important;
-            border-radius: 0 !important;
+            flex: 0 0 100%;
+
+            button {
+                border-right: none !important;
+                border-left: none !important;
+                border-radius: 0 !important;
+            }
         }
 
-        &:first-child {
+        &:first-child button {
             border-right: 1px solid var(--background-color);
-            border-top-right-radius: var(--border-radius);
+            border-radius: 0 var(--border-radius) 0 0;
 
             &.is-active {
                 border-right-color: var(--border-color);
             }
         }
 
-        &:last-child {
+        &:last-child button {
             border-left: 1px solid var(--background-color);
-            border-top-left-radius: var(--border-radius);
+            border-radius: var(--border-radius) 0 0 0;
 
             &.is-active {
                 border-left-color: var(--border-color);
@@ -219,6 +262,8 @@
     border-radius: calc(var(--border-radius) - 2px);
 
     .card:hover &,
+    .card:focus &,
+    .card:focus-within &,
     .card.timer-on & {
         border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
@@ -242,6 +287,8 @@
 
     .card {
         &:hover,
+        &:focus,
+        &:focus-within,
         &.timer-on {
             width: 100%;
             border-radius: var(--border-radius);

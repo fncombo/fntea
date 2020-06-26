@@ -93,12 +93,15 @@ export default function BrewingTabs({ tea }) {
         <>
             <ul className="card-tabs">
                 {tea.brewing.map(({ name }, i) => (
-                    <li
-                        className={classNames({ 'is-active': currentBrewing === i })}
-                        onClick={activeTimerTea ? undefined : () => setCurrentBrewing(i)}
-                        key={name}
-                    >
-                        {name}
+                    <li key={name}>
+                        <button
+                            type="button"
+                            className={classNames({ 'is-active': currentBrewing === i })}
+                            onClick={activeTimerTea ? undefined : () => setCurrentBrewing(i)}
+                            tabIndex={tea.brewing.length === 1 ? -1 : 0}
+                        >
+                            {name}
+                        </button>
                     </li>
                 ))}
             </ul>

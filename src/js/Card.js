@@ -155,7 +155,8 @@ export default function Card({ tea, index, cardsRef }) {
 
     return (
         // @ts-ignore
-        <div className={classes} style={style} ref={cardRef}>
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+        <div className={classes} style={style} ref={cardRef} tabIndex={0}>
             <div className="card-shadow" ref={cardShadowRef} />
             <hgroup onClick={() => setIsExpanded(!isExpanded)}>
                 <h2>
@@ -171,10 +172,8 @@ export default function Card({ tea, index, cardsRef }) {
             </hgroup>
             <div className="card-body">
                 <h4>
-                    <SearchableText>
-                        {isOrganic && 'Organic '}
-                        {type}
-                    </SearchableText>
+                    {isOrganic && 'Organic '}
+                    <SearchableText>{type}</SearchableText>
                 </h4>
                 {!!link && (
                     <a href={link} target="_blank" title={`Visit store at ${storeName}`} rel="noopener noreferrer">

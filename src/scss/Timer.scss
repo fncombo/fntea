@@ -13,6 +13,8 @@
     transition: height var(--speed-slow) var(--easing-slow), top var(--speed-slow) var(--easing-slow);
 
     .card:hover &,
+    .card:focus &,
+    .card:focus-within &,
     .card.timer-on & {
         top: 100%;
         height: calc(7.625rem + 2px);

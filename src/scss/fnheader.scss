@@ -62,7 +62,9 @@
                 transition: opacity var(--speed-fast) var(--easing-fast);
             }
 
-            &:hover {
+            &:hover,
+            &:focus, {
+                outline: none;
                 text-decoration: underline;
 
                 &::after {
