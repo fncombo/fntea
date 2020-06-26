@@ -190,6 +190,7 @@ TeaPropTypes.tea = PropTypes.exact({
     isOrganic: PropTypes.bool.isRequired,
     color: PropTypes.string,
     name: PropTypes.string.isRequired,
+    isFancyName: PropTypes.bool,
     altName: PropTypes.string,
     season: PropTypes.string,
     cultivar: PropTypes.string,

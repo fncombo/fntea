@@ -28,7 +28,7 @@ const RATINGS = {
 /**
  * Text with the search query highlighted.
  */
-function SearchableText({ as: Element = null, children, ...rest }) {
+function SearchableText({ children }) {
     const searchQuery = useSearchQuery()
 
     // Callback to replace found search matches with a highlight tag.
@@ -40,9 +40,7 @@ function SearchableText({ as: Element = null, children, ...rest }) {
         )
     }
 
-    const highlightedText = searchQuery ? reactStringReplace(children, searchQuery, searchReplacer) : children
-
-    return Element ? <Element {...rest}>{highlightedText}</Element> : highlightedText
+    return searchQuery ? reactStringReplace(children, searchQuery, searchReplacer) : children
 }
 
 SearchableText.propTypes = {
@@ -81,6 +79,7 @@ export default function Card({ tea, index, cardsRef }) {
         color: baseColor,
         isOrganic,
         name,
+        isFancyName,
         altName,
         season,
         cultivar,
@@ -159,14 +158,24 @@ export default function Card({ tea, index, cardsRef }) {
         <div className={classes} style={style} ref={cardRef}>
             <div className="card-shadow" ref={cardShadowRef} />
             <hgroup onClick={() => setIsExpanded(!isExpanded)}>
-                <SearchableText as="h2">{name}</SearchableText>
-                {altName && <SearchableText as="h3">{altName}</SearchableText>}
+                <h2>
+                    {isFancyName && <>&ldquo;</>}
+                    <SearchableText>{name}</SearchableText>
+                    {isFancyName && <>&rdquo;</>}
+                </h2>
+                {altName && (
+                    <h3>
+                        <SearchableText>{altName}</SearchableText>
+                    </h3>
+                )}
             </hgroup>
             <div className="card-body">
-                <SearchableText as="h4">
-                    {isOrganic && 'Organic '}
-                    {type}
-                </SearchableText>
+                <h4>
+                    <SearchableText>
+                        {isOrganic && 'Organic '}
+                        {type}
+                    </SearchableText>
+                </h4>
                 {!!link && (
                     <a href={link} target="_blank" title={`Visit store at ${storeName}`} rel="noopener noreferrer">
                         <span role="img" aria-label="Cart Icon">
