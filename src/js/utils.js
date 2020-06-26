@@ -187,7 +187,7 @@ TeaPropTypes.brewing = PropTypes.arrayOf(TeaPropTypes.brewingMethod)
 
 TeaPropTypes.tea = PropTypes.exact({
     type: PropTypes.string.isRequired,
-    isOrganic: PropTypes.bool.isRequired,
+    isOrganic: PropTypes.bool,
     color: PropTypes.string,
     name: PropTypes.string.isRequired,
     isFancyName: PropTypes.bool,
