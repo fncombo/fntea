@@ -88,6 +88,12 @@ input[disabled] {
     pointer-events: none;
 }
 
+label {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
 // Mobile
 @media (max-width: 600px) {
     input[type="search"] {

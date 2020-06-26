@@ -88,6 +88,7 @@ export default function Timer({ tea, currentBrewing }) {
                         type="button"
                         onClick={() => setCurrentInfusion(currentInfusion - 1)}
                         disabled={canDecrement}
+                        aria-label="Decrement infusion"
                     >
                         <svg viewBox="0 0 16 16">
                             <polygon points="12,0 4,8 12,16 12,0" />
@@ -105,6 +106,7 @@ export default function Timer({ tea, currentBrewing }) {
                         type="button"
                         onClick={() => setCurrentInfusion(currentInfusion + 1)}
                         disabled={canIncrement}
+                        aria-label="Increment infusion"
                     >
                         <svg viewBox="0 0 16 16">
                             <polygon points="4,0 12,8 4,16 4,0" />

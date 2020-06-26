@@ -58,8 +58,10 @@ export default function App() {
                 </h1>
             </div>
             <div id="header">
+                <label htmlFor="search">Search</label>
                 <header>
                     <input
+                        id="search"
                         type="search"
                         placeholder="Filter... pun intended"
                         value={searchQuery}
