@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
-import teas from 'src/teas.json'
+import TEAS_JSON from 'src/teas.json'
 
-const TEAS = teas.map((tea) => ({
+const TEAS = TEAS_JSON.map((tea) => ({
     ...tea,
     key: JSON.stringify(tea),
 }))
