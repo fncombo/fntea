@@ -83,7 +83,7 @@ export default function App() {
             <div id="cards" className={`timer-${activeTimerTea ? 'on' : 'off'}`} ref={cardsRef}>
                 <SearchQueryProvider value={searchQuery}>
                     {teas.map((tea, index) => (
-                        <Card tea={tea} index={index} cardsRef={cardsRef} key={tea.name} />
+                        <Card tea={tea} index={index} cardsRef={cardsRef} key={JSON.stringify(tea)} />
                     ))}
                 </SearchQueryProvider>
             </div>
