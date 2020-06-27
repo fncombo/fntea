@@ -123,9 +123,10 @@ export default function Card({ tea, index, cardsRef }) {
 
         // Base colour
         const teaColor = color(baseColor)
+        const isLight = teaColor.lightness() >= 40
 
         // Dark text for light tea colour and white text for dark tea colour
-        const textColor = teaColor.lightness() >= 40 ? teaColor.darken(0.75) : color.rgb(255, 255, 255)
+        const textColor = isLight ? teaColor.darken(0.75) : color.rgb(255, 255, 255)
 
         // Per-card style which includes unique colours for different UI elements
         return {
@@ -137,6 +138,8 @@ export default function Card({ tea, index, cardsRef }) {
             '--faded-tea-color': teaColor.fade(0.75),
             // Button hover
             '--darker-tea-color': teaColor.darken(0.25),
+            // Focus outline
+            '--focus-color': isLight ? textColor : teaColor.darken(0.9),
             // Default shadow
             '--r': teaColor.red(),
             '--g': teaColor.green(),
