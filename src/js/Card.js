@@ -99,21 +99,37 @@ export default function Card({ tea, index, cardsRef }) {
 
     const { cardRef, cardShadowRef } = useCardCentering(isActiveTimerTea, cardsRef, index)
 
-    // Scroll window to the top of the card when it's expanded on mobile
+    // Scroll card into the center when expanded on mobile
     useEffect(() => {
         if (window.innerWidth < 600 && isExpanded) {
             // @ts-ignore
-            const topOffset = window.navigator.standalone ? 10 : 70
+            const headerHeight = window.navigator.standalone ? 0 : 60
+            const headerOffset = headerHeight / 2
+            const centerOffset = (window.innerHeight - 514) / 2
 
             window.scrollTo({
-                // Current scroll amount
-                // Plus element offset from top of the document
-                // Minus spacing for the sticky header
-                top: window.pageYOffset + cardRef.current.getBoundingClientRect().top - topOffset - 443 / 4,
+                top: window.pageYOffset + cardRef.current.getBoundingClientRect().top - centerOffset - headerOffset,
                 behavior: 'smooth',
             })
         }
     }, [cardRef, isExpanded])
+
+    // Scroll card into the center when focused using keyboard on desktop
+    useEffect(() => {
+        const handler = () => {
+            if (document.activeElement === cardRef.current) {
+                cardRef.current.scrollIntoView({
+                    scrollMode: 'always',
+                    block: 'center',
+                    behavior: 'smooth',
+                })
+            }
+        }
+
+        document.addEventListener('keyup', handler)
+
+        return () => document.removeEventListener('keyup', handler)
+    }, [cardRef])
 
     // Tea colour properties
     const style = useMemo(() => {
