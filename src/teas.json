@@ -555,15 +555,15 @@
     },
     {
         "type": "Green",
-        "color": "#d8e247",
+        "color": "#b2ed82",
         "name": "Kirishima Zairai Sencha",
         "altName": null,
-        "season": "Shincha 2018",
+        "season": "Shincha 2020",
         "cultivar": "Zairai",
         "origin": "Kirishima, Kagoshima, Japan",
-        "rating": 9,
+        "rating": 10,
         "link": "https://www.o-cha.com/organic-zairai-sencha.html",
-        "temperature": 80,
+        "temperature": 70,
         "brewing": [
             {
                 "name": "Western",
@@ -576,7 +576,7 @@
             },
             {
                 "name": "Gong Fu",
-                "amount": 2,
+                "amount": 4.5,
                 "duration": {
                     "base": 45,
                     "increase": 10
