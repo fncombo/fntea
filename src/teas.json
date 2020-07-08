@@ -88,7 +88,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": true,
         "color": "#c5d941",
         "name": "Kanaya Midori Sencha",
         "altName": null,
@@ -404,7 +403,6 @@
     },
     {
         "type": "Oolong",
-        "isOrganic": true,
         "color": "#f2750f",
         "name": "Amber GABA",
         "isFancyName": true,
@@ -557,7 +555,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": true,
         "color": "#d8e247",
         "name": "Kirishima Zairai Sencha",
         "altName": null,
@@ -654,7 +651,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": true,
         "color": null,
         "name": "Oku Yutaka Sencha",
         "altName": null,
@@ -687,7 +683,6 @@
     },
     {
         "type": "Green",
-        "isOrganic": true,
         "color": null,
         "name": "Uji Asamushi Aoi Sencha",
         "altName": null,

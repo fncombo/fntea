@@ -77,7 +77,6 @@ export default function Card({ tea, index, cardsRef }) {
     const {
         type,
         color: baseColor,
-        isOrganic,
         name,
         isFancyName,
         altName,
@@ -198,7 +197,6 @@ export default function Card({ tea, index, cardsRef }) {
             </hgroup>
             <div className="card-body">
                 <h4>
-                    {isOrganic && 'Organic '}
                     <SearchableText>{type}</SearchableText>
                 </h4>
                 {!!link && (
