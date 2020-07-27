@@ -37,6 +37,18 @@
         content: "";
     }
 
+    &::after {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: var(--width);
+        height: 100%;
+        content: "";
+        background-color: var(--tea-color);
+        transition: width var(--speed-fast) var(--easing-fast);
+    }
+
     &.is-3::before {
         background-image: repeating-linear-gradient(to right, transparent, transparent calc(33.333% - 2px), #fff calc(33.333% - 2px), #fff 33.333%);
     }
@@ -47,13 +59,5 @@
 
     &.is-10::before {
         background-image: repeating-linear-gradient(to right, transparent, transparent calc(10% - 2px), #fff calc(10% - 2px), #fff 10%);
-    }
-
-    div {
-        position: absolute;
-        z-index: 2;
-        height: 100%;
-        background-color: var(--tea-color);
-        transition: width var(--speed-fast) var(--easing-fast);
     }
 }

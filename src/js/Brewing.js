@@ -13,11 +13,8 @@ import 'src/scss/Brewing.scss'
  * Fillable bar with section dividers.
  */
 function Bars({ width, dividers = 5 }) {
-    return (
-        <div className={`bars is-${dividers}`}>
-            <div style={{ width: `${width}%` }} />
-        </div>
-    )
+    // @ts-ignore
+    return <div className={`bars is-${dividers}`} style={{ '--width': `${width}%` }} />
 }
 
 Bars.propTypes = {
@@ -32,7 +29,7 @@ function ListItem({ title, subtitle, children }) {
     return (
         <li>
             <strong>{title}</strong>
-            <span>{subtitle}</span>
+            {subtitle}
             {children}
         </li>
     )
