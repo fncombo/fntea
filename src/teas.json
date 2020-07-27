@@ -587,13 +587,13 @@
     },
     {
         "type": "Green",
-        "color": null,
+        "color": "#a9e55e",
         "name": "Uji Miyabi Sencha",
         "altName": null,
-        "season": "Shincha 2014",
+        "season": "Shincha 2020",
         "cultivar": "Blend",
         "origin": "Uji, Kyoto, Japan",
-        "rating": null,
+        "rating": 4,
         "link": "https://www.o-cha.com/uji-sencha-miyabi.html",
         "temperature": 80,
         "brewing": [
