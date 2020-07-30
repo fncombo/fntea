@@ -111,7 +111,7 @@
                 "name": "Gong Fu",
                 "amount": 3.5,
                 "duration": {
-                    "base": 45,
+                    "base": 30,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -576,9 +576,9 @@
             },
             {
                 "name": "Gong Fu",
-                "amount": 4.5,
+                "amount": 3.5,
                 "duration": {
-                    "base": 45,
+                    "base": 30,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -610,7 +610,7 @@
                 "name": "Gong Fu",
                 "amount": 3.5,
                 "duration": {
-                    "base": 45,
+                    "base": 30,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -642,7 +642,7 @@
                 "name": "Gong Fu",
                 "amount": 3.5,
                 "duration": {
-                    "base": 45,
+                    "base": 30,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -674,7 +674,7 @@
                 "name": "Gong Fu",
                 "amount": 3.5,
                 "duration": {
-                    "base": 45,
+                    "base": 30,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -706,7 +706,7 @@
                 "name": "Gong Fu",
                 "amount": 3.5,
                 "duration": {
-                    "base": 45,
+                    "base": 30,
                     "increase": 10
                 },
                 "maxInfusions": 5
@@ -832,9 +832,9 @@
             },
             {
                 "name": "Gong Fu",
-                "amount": 4.5,
+                "amount": 3.5,
                 "duration": {
-                    "base": 45,
+                    "base": 30,
                     "increase": 10
                 },
                 "maxInfusions": 5
