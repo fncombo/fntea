@@ -593,7 +593,7 @@
         "season": "Shincha 2020",
         "cultivar": "Blend",
         "origin": "Uji, Kyoto, Japan",
-        "rating": 4,
+        "rating": 6,
         "link": "https://www.o-cha.com/uji-sencha-miyabi.html",
         "temperature": 80,
         "brewing": [
@@ -980,7 +980,7 @@
         "origin": "Lu An, Anhui, China",
         "rating": 9,
         "link": "https://meileaf.com/tea/melon-seed-green/",
-        "temperature": 99,
+        "temperature": 90,
         "brewing": [
             {
                 "name": "Western",
