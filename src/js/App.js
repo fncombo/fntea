@@ -54,7 +54,7 @@ export default function App() {
         <ActiveTimerTeaProvider value={[activeTimerTea, setActiveTimerTea]}>
             <div className="fnheader">
                 <h1>
-                    Tea Shelf <a href="https://fncombo.me">fncombo</a>
+                    Tea Shelf <a href="#">Aendy</a>
                 </h1>
             </div>
             <div id="header">
