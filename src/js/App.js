@@ -54,6 +54,7 @@ export default function App() {
         <ActiveTimerTeaProvider value={[activeTimerTea, setActiveTimerTea]}>
             <div className="fnheader">
                 <h1>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     Tea Shelf <a href="#">Aendy</a>
                 </h1>
             </div>
