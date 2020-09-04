@@ -44,22 +44,13 @@
         "temperature": 85,
         "brewing": [
             {
-                "name": "Western",
+                "name": "Tisane",
                 "amount": 0.6,
                 "duration": {
                     "base": 120,
                     "increase": 60
                 },
                 "maxInfusions": 2
-            },
-            {
-                "name": "Gong Fu",
-                "amount": 3.5,
-                "duration": {
-                    "base": 20,
-                    "increase": 5
-                },
-                "maxInfusions": 6
             }
         ]
     }
