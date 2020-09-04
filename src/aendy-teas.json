@@ -31,7 +31,7 @@
             }
         ]
     },
-        {
+    {
         "type": "Oolong",
         "color": "#eceb77",
         "name": "Amber Gaba",
@@ -63,5 +63,4 @@
             }
         ]
     }
-
 ]

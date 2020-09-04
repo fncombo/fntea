@@ -95,6 +95,7 @@
 // Full height shadow for the card
 .card-shadow {
     position: absolute;
+    z-index: 1;
     top: -2px;
     right: -2px;
     bottom: -2px;
@@ -109,11 +110,10 @@
         0 9.1px 9.1px rgba(var(--r), var(--g), var(--b), 0.111),
         0 25px 25px rgba(var(--r), var(--g), var(--b), 0.078);
     content: "";
+    pointer-events: none;
     transition-duration: var(--speed-slow);
     transition-property: bottom, box-shadow;
     transition-timing-function: var(--easing-slow);
-    z-index: 1;
-    pointer-events: none;
 
     .card:hover &,
     .card:focus &,
