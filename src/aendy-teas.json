@@ -31,27 +31,37 @@
             }
         ]
     },
-    {
-        "type": "Green",
-        "color": "#f0ef7d",
-        "name": "Dragon Well",
-        "altName": "Long Jing",
-        "season": "8th March 2020",
-        "cultivar": "Xiao Ye Fuding",
-        "origin": "Wuyi, Zhejiang, China",
+        {
+        "type": "Oolong",
+        "color": "#eceb77",
+        "name": "Amber Gaba",
+        "altName": null,
+        "season": "Spring 2019",
+        "cultivar": "Chin Xin",
+        "origin": "Alishan, Nantou, Taiwan",
         "rating": 9,
-        "link": "https://meileaf.com/tea/imperial-green-pre-qing-ming/",
-        "temperature": 85,
+        "link": "https://meileaf.com/tea/amber-gaba-oolong/",
+        "temperature": 99,
         "brewing": [
             {
-                "name": "Tisane",
-                "amount": 0.6,
+                "name": "Western",
+                "amount": 1,
                 "duration": {
                     "base": 120,
-                    "increase": 60
+                    "increase": 30
                 },
-                "maxInfusions": 2
+                "maxInfusions": 3
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 6,
+                "duration": {
+                    "base": 25,
+                    "increase": 5
+                },
+                "maxInfusions": 9
             }
         ]
     }
+
 ]
