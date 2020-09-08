@@ -2,6 +2,70 @@
     {
         "type": "Green",
         "color": "#eceb77",
+        "name": "Fur Peak",
+        "altName": "Huangshan Maofeng",
+        "season": "15th April 2020",
+        "cultivar": "Huangshan Qunti Zhong",
+        "origin": "Huangshan, Anhui, China",
+        "rating": 9,
+        "link": "https://meileaf.com/tea/fur-peak/",
+        "temperature": 85,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.5,
+                "duration": {
+                    "base": 120,
+                    "increase": 60
+                },
+                "maxInfusions": 2
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 3,
+                "duration": {
+                    "base": 45,
+                    "increase": 5
+                },
+                "maxInfusions": 5
+            }
+        ]
+    },
+    {
+        "type": "Green",
+        "color": "#adeb78",
+        "name": "Kirishima Zairai Sencha",
+        "altName": null,
+        "season": "Shincha 2020",
+        "cultivar": "Zairai",
+        "origin": "Kirishima, Kagoshima, Japan",
+        "rating": 10,
+        "link": "https://www.o-cha.com/organic-zairai-sencha.html",
+        "temperature": 70,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 1,
+                "duration": {
+                    "base": 60,
+                    "increase": 0
+                },
+                "maxInfusions": 2
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 3.5,
+                "duration": {
+                    "base": 30,
+                    "increase": 10
+                },
+                "maxInfusions": 5
+            }
+        ]
+    },
+    {
+        "type": "Green",
+        "color": "#eceb77",
         "name": "Dragon Well",
         "altName": "Long Jing",
         "season": "23rd March 2019",
@@ -24,10 +88,10 @@
                 "name": "Gong Fu",
                 "amount": 3.5,
                 "duration": {
-                    "base": 20,
+                    "base": 15,
                     "increase": 5
                 },
-                "maxInfusions": 6
+                "maxInfusions": 5
             }
         ]
     },
