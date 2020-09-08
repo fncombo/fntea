@@ -1,7 +1,7 @@
 [
     {
         "type": "Green",
-        "color": "#D0F0C0",
+        "color": "#eceb77",
         "name": "Dragon Well",
         "altName": "Long Jing",
         "season": "23rd March 2019",
@@ -60,6 +60,134 @@
                     "increase": 5
                 },
                 "maxInfusions": 9
+            }
+        ]
+    },
+    {
+        "type": "Oolong",
+        "color": "#eceb77",
+        "name": "Eastern Beauty",
+        "altName": "Dongfang Meiren",
+        "season": "June 2019",
+        "cultivar": "Chin Xin",
+        "origin": "Nantou, Taiwan",
+        "rating": 10,
+        "link": "https://meileaf.com/tea/eastern-beauty-oolong/",
+        "temperature": 90,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.8,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 4
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 4.5,
+                "duration": {
+                    "base": 20,
+                    "increase": 5
+                },
+                "maxInfusions": 9
+            }
+        ]
+    },    
+    {
+        "type": "Oolong",
+        "color": "#eceb77",
+        "name": "Black Fruit Punch",
+        "altName": "Da Wu Ye Dancong",
+        "season": "March 2019",
+        "cultivar": "Da Wu Ye",
+        "origin": "Fengxi Village, Guangdong, China",
+        "rating": 8,
+        "link": "https://meileaf.com/tea/black-fruit-punch/",
+        "temperature": 95,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.8,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 3
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 4.5,
+                "duration": {
+                    "base": 20,
+                    "increase": 3
+                },
+                "maxInfusions": 7
+            }
+        ]
+    },
+    {
+        "type": "Oolong",
+        "color": "#eceb77",
+        "name": "Alishan Cream",
+        "altName": "Alishan Jin Xuan",
+        "season": "Spring 2020",
+        "cultivar": "Jin Xuan",
+        "origin": "Alishan, Chiayi, Taiwan",
+        "rating": 9,
+        "link": "https://meileaf.com/tea/alishan-cream/",
+        "temperature": 95,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 1,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 3
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 6,
+                "duration": {
+                    "base": 20,
+                    "increase": 5
+                },
+                "maxInfusions": 9
+            }
+        ]
+    },
+    {
+        "type": "Black",
+        "color": "#eceb77",
+        "name": "Little Tong Mu",
+        "altName": "Tong Mu Zhengshan Xiaozhong",
+        "season": "April 2020",
+        "cultivar": "Xiao Zhong",
+        "origin": "Tong Mu Xing Cun, Fujian, China",
+        "rating": 10,
+        "link": "https://meileaf.com/tea/little-tong-mu/",
+        "temperature": 90,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.8,
+                "duration": {
+                    "base": 90,
+                    "increase": 30
+                },
+                "maxInfusions": 3
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 4.5,
+                "duration": {
+                    "base": 10,
+                    "increase": 5
+                },
+                "maxInfusions": 8
             }
         ]
     }
