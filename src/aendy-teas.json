@@ -1,7 +1,7 @@
 [
     {
         "type": "Green",
-        "color": "#eceb77",
+        "color": "#D0F0C0",
         "name": "Dragon Well",
         "altName": "Long Jing",
         "season": "23rd March 2019",
@@ -9,7 +9,7 @@
         "origin": "Shaoxing, Zhejiang, China",
         "rating": 9,
         "link": "https://meileaf.com/tea/imperial-green-pre-qing-ming/",
-        "temperature": 85,
+        "temperature": 80,
         "brewing": [
             {
                 "name": "Western",
