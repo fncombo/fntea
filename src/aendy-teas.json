@@ -64,6 +64,38 @@
         ]
     },
     {
+        "type": "White",
+        "color": "#eceb77",
+        "name": "Silver Needle",
+        "altName": "Bai Hao Yin Zhen",
+        "season": "March 2020",
+        "cultivar": "Da Bai Hao",
+        "origin": "Jinggu, Yunnan, China",
+        "rating": null,
+        "link": "https://meileaf.com/tea/silver-needle/",
+        "temperature": 90,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.7,
+                "duration": {
+                    "base": 180,
+                    "increase": 30
+                },
+                "maxInfusions": 3
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 4,
+                "duration": {
+                    "base": 45,
+                    "increase": 10
+                },
+                "maxInfusions": 5
+            }
+        ]
+    },
+    {
         "type": "Green",
         "color": "#eceb77",
         "name": "Fur Peak",
@@ -288,6 +320,70 @@
         ]
     },
     {
+        "type": "Oolong",
+        "color": "#eceb77",
+        "name": "Superior Iron Goddess",
+        "altName": "Zheng Wei Tie Guan Yin",
+        "season": "3-6 May 2020",
+        "cultivar": "Guan Yin",
+        "origin": "Xiang Hua Village, Anxi, China",
+        "rating": null,
+        "link": "https://meileaf.com/tea/superior-iron-goddess/",
+        "temperature": 99,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 1,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 3
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 6,
+                "duration": {
+                    "base": 25,
+                    "increase": 5
+                },
+                "maxInfusions": 9
+            }
+        ]
+    },
+    {
+        "type": "Oolong",
+        "color": "#eceb77",
+        "name": "Pear Cloud",
+        "altName": "Fu Shou Lishan Qing Xin",
+        "season": "June 2020",
+        "cultivar": "Qing Xin",
+        "origin": "Fu Shou, Lishan, Taichung, Taiwan",
+        "rating": null,
+        "link": "https://meileaf.com/tea/pear-cloud/",
+        "temperature": 95,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 1,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 3
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 6,
+                "duration": {
+                    "base": 30,
+                    "increase": 5
+                },
+                "maxInfusions": 12
+            }
+        ]
+    },
+    {
         "type": "Black",
         "color": "#eceb77",
         "name": "Little Tong Mu",
@@ -316,6 +412,70 @@
                     "increase": 5
                 },
                 "maxInfusions": 8
+            }
+        ]
+    },
+    {
+        "type": "PuErh",
+        "color": "#eceb77",
+        "name": "Young Gushu 2020",
+        "altName": "Da Xue Shan Gushu Spring 2020",
+        "season": "Spring 2020",
+        "cultivar": "Da Ye Zhong",
+        "origin": "Bang Dong Da Xue Shan, Yunnan, China",
+        "rating": null,
+        "link": "https://meileaf.com/tea/young-gushu-2020/",
+        "temperature": 99,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.8,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 5
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 5,
+                "duration": {
+                    "base": 25,
+                    "increase":5 
+                },
+                "maxInfusions": 12
+            }
+        ]
+    },
+    {
+        "type": "PuErh",
+        "color": "#eceb77",
+        "name": "Fire Phoenix",
+        "altName": "Gong Ting Shu 2008",
+        "season": "Spring 2008",
+        "cultivar": "Da Ye Zhong",
+        "origin": "Menghai Village, Bulang, Yunnan, China",
+        "rating": null,
+        "link": "https://meileaf.com/tea/fire-phoenix/",
+        "temperature": 99,
+        "brewing": [
+            {
+                "name": "Western",
+                "amount": 0.8,
+                "duration": {
+                    "base": 120,
+                    "increase": 30
+                },
+                "maxInfusions": 7
+            },
+            {
+                "name": "Gong Fu",
+                "amount": 5,
+                "duration": {
+                    "base": 10,
+                    "increase":5 
+                },
+                "maxInfusions": 20
             }
         ]
     }
